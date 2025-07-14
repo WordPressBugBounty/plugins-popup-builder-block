@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PopupKit 2.0.4\n"
+"Project-Id-Version: PopupKit 2.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/popup-builder-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-22T08:39:08+00:00\n"
+"POT-Creation-Date: 2025-06-03T11:54:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: popup-builder-block\n"
@@ -18,7 +18,6 @@ msgstr ""
 #: popup-builder-block.php
 #: includes/Admin/Admin.php:37
 #: includes/Admin/Admin.php:38
-#: includes/Config/Blocks.php:99
 msgid "PopupKit"
 msgstr ""
 
@@ -72,6 +71,10 @@ msgstr ""
 #: includes/Admin/Admin.php:90
 #: includes/Admin/Admin.php:91
 msgid "Settings"
+msgstr ""
+
+#: includes/Config/Blocks.php:99
+msgid "Popup Builder Block"
 msgstr ""
 
 #: includes/Hooks/Cpt.php:33
@@ -259,8 +262,8 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:48
 #: src/blocks/advanced-paragraph/settings.js:43
-#: src/blocks/button/settings.js:40
-#: src/blocks/button/settings.js:52
+#: src/blocks/button/settings.js:67
+#: src/blocks/button/settings.js:79
 #: src/blocks/form/settings.js:173
 #: src/blocks/heading/settings.js:48
 #: src/blocks/heading/settings.js:213
@@ -279,7 +282,7 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:52
 #: src/blocks/advanced-paragraph/settings.js:47
-#: src/blocks/button/settings.js:44
+#: src/blocks/button/settings.js:71
 #: src/blocks/container/settings.js:42
 #: src/blocks/form/settings.js:177
 #: src/blocks/heading/settings.js:52
@@ -292,10 +295,10 @@ msgstr ""
 #: build/789.js:1
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/button/settings.js:121
+#: src/blocks/button/settings.js:175
 #: src/blocks/form/settings.js:270
-#: src/blocks/form/settings.js:409
-#: src/blocks/form/settings.js:909
+#: src/blocks/form/settings.js:402
+#: src/blocks/form/settings.js:867
 #: src/blocks/icon/settings.js:55
 #: src/blocks/icon/settings.js:57
 #: src/blocks/icon/settings.js:101
@@ -317,8 +320,8 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:82
 #: src/blocks/advanced-image/settings.js:876
 #: src/blocks/advanced-paragraph/settings.js:100
-#: src/blocks/button/settings.js:151
-#: src/blocks/form/settings.js:948
+#: src/blocks/button/settings.js:205
+#: src/blocks/form/settings.js:906
 #: src/blocks/heading/settings.js:285
 #: src/blocks/icon/settings.js:74
 msgid "Alignment"
@@ -334,9 +337,9 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:88
 #: src/blocks/advanced-image/settings.js:882
 #: src/blocks/advanced-paragraph/settings.js:102
-#: src/blocks/button/settings.js:153
-#: src/blocks/form/settings.js:419
-#: src/blocks/form/settings.js:967
+#: src/blocks/button/settings.js:207
+#: src/blocks/form/settings.js:412
+#: src/blocks/form/settings.js:925
 #: src/blocks/heading/settings.js:102
 #: src/blocks/heading/settings.js:287
 #: src/blocks/icon/settings.js:76
@@ -356,10 +359,10 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:93
 #: src/blocks/advanced-image/settings.js:887
 #: src/blocks/advanced-paragraph/settings.js:103
-#: src/blocks/button/settings.js:154
+#: src/blocks/button/settings.js:208
 #: src/blocks/container/settings.js:261
 #: src/blocks/container/settings.js:319
-#: src/blocks/form/settings.js:968
+#: src/blocks/form/settings.js:926
 #: src/blocks/heading/settings.js:288
 #: src/blocks/icon/settings.js:77
 #: src/blocks/popup-builder/settings.js:1657
@@ -379,9 +382,9 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:98
 #: src/blocks/advanced-image/settings.js:892
 #: src/blocks/advanced-paragraph/settings.js:104
-#: src/blocks/button/settings.js:155
-#: src/blocks/form/settings.js:424
-#: src/blocks/form/settings.js:969
+#: src/blocks/button/settings.js:209
+#: src/blocks/form/settings.js:417
+#: src/blocks/form/settings.js:927
 #: src/blocks/heading/settings.js:103
 #: src/blocks/heading/settings.js:289
 #: src/blocks/icon/settings.js:78
@@ -393,7 +396,7 @@ msgstr ""
 #: build/200.js:1
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/form/settings.js:918
+#: src/blocks/form/settings.js:876
 #: src/blocks/icon/settings.js:104
 #: src/blocks/popup-builder/settings.js:2186
 msgid "Size"
@@ -415,14 +418,14 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:1031
 #: src/blocks/advanced-paragraph/settings.js:174
 #: src/blocks/advanced-paragraph/settings.js:238
-#: src/blocks/button/settings.js:282
-#: src/blocks/button/settings.js:376
-#: src/blocks/button/settings.js:485
+#: src/blocks/button/settings.js:336
+#: src/blocks/button/settings.js:430
+#: src/blocks/button/settings.js:539
 #: src/blocks/container/settings.js:531
 #: src/blocks/container/settings.js:589
 #: src/blocks/container/settings.js:644
-#: src/blocks/form/settings.js:766
-#: src/blocks/form/settings.js:1098
+#: src/blocks/form/settings.js:724
+#: src/blocks/form/settings.js:1056
 #: src/blocks/icon/settings.js:150
 #: src/blocks/popup-builder/settings.js:2027
 #: src/blocks/popup-builder/settings.js:2263
@@ -440,14 +443,14 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:1035
 #: src/blocks/advanced-paragraph/settings.js:178
 #: src/blocks/advanced-paragraph/settings.js:242
-#: src/blocks/button/settings.js:286
-#: src/blocks/button/settings.js:380
-#: src/blocks/button/settings.js:489
+#: src/blocks/button/settings.js:340
+#: src/blocks/button/settings.js:434
+#: src/blocks/button/settings.js:543
 #: src/blocks/container/settings.js:535
 #: src/blocks/container/settings.js:593
 #: src/blocks/container/settings.js:648
-#: src/blocks/form/settings.js:770
-#: src/blocks/form/settings.js:1102
+#: src/blocks/form/settings.js:728
+#: src/blocks/form/settings.js:1060
 #: src/blocks/icon/settings.js:154
 #: src/blocks/popup-builder/settings.js:2031
 #: src/blocks/popup-builder/settings.js:2270
@@ -468,13 +471,13 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:268
 #: src/blocks/advanced-paragraph/settings.js:321
 #: src/blocks/advanced-paragraph/settings.js:422
-#: src/blocks/button/settings.js:296
-#: src/blocks/button/settings.js:320
-#: src/blocks/form/settings.js:912
-#: src/blocks/heading/settings.js:343
-#: src/blocks/heading/settings.js:456
-#: src/blocks/heading/settings.js:587
-#: src/blocks/heading/settings.js:844
+#: src/blocks/button/settings.js:350
+#: src/blocks/button/settings.js:374
+#: src/blocks/form/settings.js:870
+#: src/blocks/heading/settings.js:309
+#: src/blocks/heading/settings.js:422
+#: src/blocks/heading/settings.js:553
+#: src/blocks/heading/settings.js:810
 #: src/blocks/icon/settings.js:163
 #: src/blocks/icon/settings.js:213
 #: src/blocks/popup-builder/settings.js:2285
@@ -484,13 +487,13 @@ msgstr ""
 
 #: build/200.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:656
-#: src/blocks/form/settings.js:789
-#: src/blocks/form/settings.js:827
-#: src/blocks/form/settings.js:865
-#: src/blocks/form/settings.js:1117
-#: src/blocks/form/settings.js:1148
-#: src/blocks/form/settings.js:1222
+#: src/blocks/form/settings.js:649
+#: src/blocks/form/settings.js:747
+#: src/blocks/form/settings.js:785
+#: src/blocks/form/settings.js:823
+#: src/blocks/form/settings.js:1075
+#: src/blocks/form/settings.js:1106
+#: src/blocks/form/settings.js:1180
 #: src/blocks/icon/settings.js:170
 #: src/blocks/icon/settings.js:220
 msgid "Background Color"
@@ -509,16 +512,16 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:287
 #: src/blocks/advanced-paragraph/settings.js:390
 #: src/blocks/advanced-paragraph/settings.js:459
-#: src/blocks/button/settings.js:411
-#: src/blocks/button/settings.js:455
+#: src/blocks/button/settings.js:465
+#: src/blocks/button/settings.js:509
 #: src/blocks/container/settings.js:677
 #: src/blocks/container/settings.js:722
-#: src/blocks/form/settings.js:805
-#: src/blocks/form/settings.js:843
-#: src/blocks/form/settings.js:881
-#: src/blocks/form/settings.js:1177
-#: src/blocks/form/settings.js:1239
-#: src/blocks/heading/settings.js:529
+#: src/blocks/form/settings.js:763
+#: src/blocks/form/settings.js:801
+#: src/blocks/form/settings.js:839
+#: src/blocks/form/settings.js:1135
+#: src/blocks/form/settings.js:1197
+#: src/blocks/heading/settings.js:495
 #: src/blocks/icon/settings.js:184
 #: src/blocks/icon/settings.js:238
 #: src/blocks/popup-builder/settings.js:1957
@@ -532,12 +535,12 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:688
 #: src/blocks/advanced-image/settings.js:844
-#: src/blocks/form/settings.js:811
-#: src/blocks/form/settings.js:849
-#: src/blocks/form/settings.js:887
-#: src/blocks/form/settings.js:1132
-#: src/blocks/form/settings.js:1163
-#: src/blocks/form/settings.js:1232
+#: src/blocks/form/settings.js:769
+#: src/blocks/form/settings.js:807
+#: src/blocks/form/settings.js:845
+#: src/blocks/form/settings.js:1090
+#: src/blocks/form/settings.js:1121
+#: src/blocks/form/settings.js:1190
 #: src/blocks/icon/settings.js:202
 #: src/blocks/icon/settings.js:256
 #: src/blocks/popup-builder/settings.js:2001
@@ -558,16 +561,14 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:303
 #: src/blocks/advanced-paragraph/settings.js:359
 #: src/blocks/advanced-paragraph/settings.js:475
-#: src/blocks/button/settings.js:215
+#: src/blocks/button/settings.js:269
 #: src/blocks/container/settings.js:491
-#: src/blocks/form/settings.js:663
-#: src/blocks/form/settings.js:901
-#: src/blocks/form/settings.js:930
-#: src/blocks/form/settings.js:1191
-#: src/blocks/form/settings.js:1253
-#: src/blocks/heading/settings.js:309
-#: src/blocks/heading/settings.js:494
-#: src/blocks/heading/settings.js:622
+#: src/blocks/form/settings.js:859
+#: src/blocks/form/settings.js:888
+#: src/blocks/form/settings.js:1149
+#: src/blocks/form/settings.js:1211
+#: src/blocks/heading/settings.js:460
+#: src/blocks/heading/settings.js:588
 #: src/blocks/icon/settings.js:268
 #: src/blocks/popup-builder/settings.js:1979
 #: src/blocks/popup-builder/settings.js:2450
@@ -585,18 +586,16 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:552
 #: src/blocks/advanced-paragraph/settings.js:124
 #: src/blocks/advanced-paragraph/settings.js:491
-#: src/blocks/button/settings.js:234
+#: src/blocks/button/settings.js:288
 #: src/blocks/container/settings.js:509
-#: src/blocks/form/settings.js:680
-#: src/blocks/form/settings.js:1184
-#: src/blocks/form/settings.js:1246
-#: src/blocks/heading/settings.js:326
-#: src/blocks/heading/settings.js:362
-#: src/blocks/heading/settings.js:602
-#: src/blocks/heading/settings.js:690
-#: src/blocks/heading/settings.js:738
-#: src/blocks/heading/settings.js:855
-#: src/blocks/heading/settings.js:934
+#: src/blocks/form/settings.js:1142
+#: src/blocks/form/settings.js:1204
+#: src/blocks/heading/settings.js:328
+#: src/blocks/heading/settings.js:568
+#: src/blocks/heading/settings.js:656
+#: src/blocks/heading/settings.js:704
+#: src/blocks/heading/settings.js:821
+#: src/blocks/heading/settings.js:900
 #: src/blocks/icon/settings.js:286
 #: src/blocks/popup-builder/settings.js:1902
 msgid "Margin"
@@ -604,7 +603,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:62
-#: src/blocks/heading/settings.js:341
+#: src/blocks/heading/settings.js:307
 msgid "Title"
 msgstr ""
 
@@ -684,7 +683,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:111
-#: src/blocks/heading/settings.js:585
+#: src/blocks/heading/settings.js:551
 msgid "Subtitle"
 msgstr ""
 
@@ -725,7 +724,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:166
-#: src/blocks/heading/settings.js:842
+#: src/blocks/heading/settings.js:808
 msgid "Title Description"
 msgstr ""
 
@@ -741,7 +740,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:202
-#: src/blocks/heading/settings.js:956
+#: src/blocks/heading/settings.js:922
 msgid "Shadow Text"
 msgstr ""
 
@@ -752,7 +751,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:223
-#: src/blocks/heading/settings.js:877
+#: src/blocks/heading/settings.js:843
 msgid "Separator"
 msgstr ""
 
@@ -845,8 +844,8 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
 #: src/blocks/advanced-paragraph/settings.js:328
-#: src/blocks/heading/settings.js:348
-#: src/blocks/heading/settings.js:463
+#: src/blocks/heading/settings.js:314
+#: src/blocks/heading/settings.js:429
 msgid "Hover Color"
 msgstr ""
 
@@ -860,10 +859,10 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:212
 #: src/blocks/advanced-paragraph/settings.js:349
 #: src/blocks/advanced-paragraph/settings.js:427
-#: src/blocks/button/settings.js:258
-#: src/blocks/form/settings.js:1087
-#: src/blocks/heading/settings.js:353
-#: src/blocks/heading/settings.js:484
+#: src/blocks/button/settings.js:312
+#: src/blocks/form/settings.js:1045
+#: src/blocks/heading/settings.js:319
+#: src/blocks/heading/settings.js:450
 msgid "Text Shadow"
 msgstr ""
 
@@ -877,68 +876,68 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:230
 #: src/blocks/advanced-paragraph/settings.js:335
 #: src/blocks/advanced-paragraph/settings.js:417
-#: src/blocks/button/settings.js:252
-#: src/blocks/form/settings.js:725
-#: src/blocks/form/settings.js:756
-#: src/blocks/form/settings.js:1081
-#: src/blocks/form/settings.js:1212
-#: src/blocks/heading/settings.js:372
-#: src/blocks/heading/settings.js:470
-#: src/blocks/heading/settings.js:594
-#: src/blocks/heading/settings.js:849
-#: src/blocks/heading/settings.js:982
+#: src/blocks/button/settings.js:306
+#: src/blocks/form/settings.js:683
+#: src/blocks/form/settings.js:714
+#: src/blocks/form/settings.js:1039
+#: src/blocks/form/settings.js:1170
+#: src/blocks/heading/settings.js:338
+#: src/blocks/heading/settings.js:436
+#: src/blocks/heading/settings.js:560
+#: src/blocks/heading/settings.js:815
+#: src/blocks/heading/settings.js:948
 msgid "Typography"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:380
+#: src/blocks/heading/settings.js:346
 msgid "Border Width"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:388
+#: src/blocks/heading/settings.js:354
 msgid "Border Height"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/heading/settings.js:396
-#: src/blocks/heading/settings.js:779
+#: src/blocks/heading/settings.js:362
+#: src/blocks/heading/settings.js:745
 #: src/blocks/popup-builder/settings.js:2237
 msgid "Vertical Position"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:409
+#: src/blocks/heading/settings.js:375
 msgid "Right Gap"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:424
+#: src/blocks/heading/settings.js:390
 msgid "Left Gap"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:437
+#: src/blocks/heading/settings.js:403
 msgid "Border Color"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:454
+#: src/blocks/heading/settings.js:420
 msgid "Focused Title"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
 #: src/blocks/advanced-paragraph/settings.js:342
-#: src/blocks/heading/settings.js:477
+#: src/blocks/heading/settings.js:443
 msgid "Text Decoration Color"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
 #: src/blocks/advanced-paragraph/settings.js:377
-#: src/blocks/heading/settings.js:513
+#: src/blocks/heading/settings.js:479
 msgid "Use background on text"
 msgstr ""
 
@@ -954,11 +953,11 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:406
 #: src/blocks/advanced-paragraph/settings.js:436
 #: src/blocks/container/settings.js:526
-#: src/blocks/heading/settings.js:523
-#: src/blocks/heading/settings.js:551
-#: src/blocks/heading/settings.js:648
-#: src/blocks/heading/settings.js:661
-#: src/blocks/heading/settings.js:709
+#: src/blocks/heading/settings.js:489
+#: src/blocks/heading/settings.js:517
+#: src/blocks/heading/settings.js:614
+#: src/blocks/heading/settings.js:627
+#: src/blocks/heading/settings.js:675
 #: src/blocks/popup-builder/settings.js:1929
 #: src/blocks/popup-builder/settings.js:2085
 #: src/blocks/popup-builder/settings.js:2103
@@ -970,30 +969,30 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
 #: src/blocks/advanced-paragraph/settings.js:399
-#: src/blocks/heading/settings.js:541
-#: src/blocks/heading/settings.js:641
+#: src/blocks/heading/settings.js:507
+#: src/blocks/heading/settings.js:607
 msgid "Use Text Fill"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:560
+#: src/blocks/heading/settings.js:526
 msgid "Use Stroke"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:567
-#: src/blocks/heading/settings.js:993
+#: src/blocks/heading/settings.js:533
+#: src/blocks/heading/settings.js:959
 msgid "Stroke Width"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:575
-#: src/blocks/heading/settings.js:1001
+#: src/blocks/heading/settings.js:541
+#: src/blocks/heading/settings.js:967
 msgid "Stroke Color"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:659
+#: src/blocks/heading/settings.js:625
 msgid "Subtitle Border Left"
 msgstr ""
 
@@ -1002,16 +1001,16 @@ msgstr ""
 #: build/891.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:248
-#: src/blocks/button/settings.js:183
-#: src/blocks/heading/settings.js:668
-#: src/blocks/heading/settings.js:716
-#: src/blocks/heading/settings.js:883
+#: src/blocks/button/settings.js:237
+#: src/blocks/heading/settings.js:634
+#: src/blocks/heading/settings.js:682
+#: src/blocks/heading/settings.js:849
 #: src/blocks/popup-builder/settings.js:1558
 msgid "Width"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:707
+#: src/blocks/heading/settings.js:673
 msgid "Subtitle Border Right"
 msgstr ""
 
@@ -1019,45 +1018,45 @@ msgstr ""
 #: build/891.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:345
-#: src/blocks/heading/settings.js:757
-#: src/blocks/heading/settings.js:905
+#: src/blocks/heading/settings.js:723
+#: src/blocks/heading/settings.js:871
 #: src/blocks/popup-builder/settings.js:1585
 msgid "Height"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:808
+#: src/blocks/heading/settings.js:774
 msgid "Outline"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:816
+#: src/blocks/heading/settings.js:782
 msgid "Outline Radius"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:926
+#: src/blocks/heading/settings.js:892
 msgid "Separator color"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/form/settings.js:976
-#: src/blocks/heading/settings.js:959
+#: src/blocks/form/settings.js:934
+#: src/blocks/heading/settings.js:925
 #: src/blocks/popup-builder/settings.js:1684
 msgid "Position"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:784
-#: src/blocks/form/settings.js:822
-#: src/blocks/form/settings.js:860
-#: src/blocks/form/settings.js:1112
-#: src/blocks/form/settings.js:1143
-#: src/blocks/form/settings.js:1217
-#: src/blocks/heading/settings.js:987
+#: src/blocks/form/settings.js:742
+#: src/blocks/form/settings.js:780
+#: src/blocks/form/settings.js:818
+#: src/blocks/form/settings.js:1070
+#: src/blocks/form/settings.js:1101
+#: src/blocks/form/settings.js:1175
+#: src/blocks/heading/settings.js:953
 msgid "Text Color"
 msgstr ""
 
@@ -1071,19 +1070,19 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:647
 #: src/blocks/advanced-image/settings.js:803
 #: src/blocks/advanced-paragraph/settings.js:443
-#: src/blocks/button/settings.js:371
-#: src/blocks/button/settings.js:391
-#: src/blocks/button/settings.js:435
+#: src/blocks/button/settings.js:425
+#: src/blocks/button/settings.js:445
+#: src/blocks/button/settings.js:489
 #: src/blocks/container/settings.js:639
 #: src/blocks/container/settings.js:659
 #: src/blocks/container/settings.js:704
-#: src/blocks/form/settings.js:799
-#: src/blocks/form/settings.js:837
-#: src/blocks/form/settings.js:875
-#: src/blocks/form/settings.js:1127
-#: src/blocks/form/settings.js:1158
-#: src/blocks/form/settings.js:1227
-#: src/blocks/heading/settings.js:991
+#: src/blocks/form/settings.js:757
+#: src/blocks/form/settings.js:795
+#: src/blocks/form/settings.js:833
+#: src/blocks/form/settings.js:1085
+#: src/blocks/form/settings.js:1116
+#: src/blocks/form/settings.js:1185
+#: src/blocks/heading/settings.js:957
 #: src/blocks/popup-builder/settings.js:1944
 #: src/blocks/popup-builder/settings.js:2323
 #: src/blocks/popup-builder/settings.js:2395
@@ -1190,7 +1189,7 @@ msgstr ""
 #: build/701.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/container/settings.js:271
-#: src/blocks/form/settings.js:433
+#: src/blocks/form/settings.js:426
 msgid "Space Between"
 msgstr ""
 
@@ -1279,73 +1278,85 @@ msgid "Overlay"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:54
+#: src/blocks/button/settings.js:81
 msgid "Click Events"
+msgstr ""
+
+#: build/789.js:1
+#: src/blocks/button/settings.js:117
+msgid "Open Campaign"
+msgstr ""
+
+#: build/789.js:1
+#: build/blocks/form/index.js:1
+#: src/blocks/button/settings.js:130
+#: src/blocks/form/settings.js:318
+msgid "Close Campaign"
 msgstr ""
 
 #: build/789.js:1
 #: build/891.js:1
 #: src/blocks/advanced-image/settings.js:223
-#: src/blocks/button/settings.js:96
+#: src/blocks/button/settings.js:150
 msgid "Track Conversion"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:108
+#: src/blocks/button/settings.js:162
 msgid "Enable to track conversions when the button is clicked."
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:113
+#: src/blocks/button/settings.js:167
 msgid "Add Icon"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:127
+#: src/blocks/button/settings.js:181
 msgid "Button Position"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:137
+#: src/blocks/button/settings.js:191
 msgid "Between Space"
 msgstr ""
 
 #: build/789.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/button/settings.js:180
+#: src/blocks/button/settings.js:234
 #: src/blocks/form/settings.js:307
-#: src/blocks/form/settings.js:937
+#: src/blocks/form/settings.js:895
 msgid "Button"
 msgstr ""
 
 #: build/789.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/button/settings.js:266
-#: src/blocks/form/settings.js:1198
+#: src/blocks/button/settings.js:320
+#: src/blocks/form/settings.js:1156
 msgid "Icon Size"
 msgstr ""
 
 #: build/789.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/button/settings.js:309
-#: src/blocks/button/settings.js:332
-#: src/blocks/form/settings.js:1122
-#: src/blocks/form/settings.js:1153
+#: src/blocks/button/settings.js:363
+#: src/blocks/button/settings.js:386
+#: src/blocks/form/settings.js:1080
+#: src/blocks/form/settings.js:1111
 msgid "Icon Color"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:339
+#: src/blocks/button/settings.js:393
 msgid "Transform Y"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:352
+#: src/blocks/button/settings.js:406
 msgid "Transform X"
 msgstr ""
 
 #: build/789.js:1
-#: src/blocks/button/settings.js:480
+#: src/blocks/button/settings.js:534
 msgid "Shadow"
 msgstr ""
 
@@ -1502,12 +1513,11 @@ msgstr ""
 #: build/891.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/advanced-image/settings.js:976
-#: src/blocks/form/settings.js:741
+#: src/blocks/form/settings.js:699
 msgid "Spacing"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/analytics/context/provider.js:7
 #: src/admin/subscribers/index.js:30
 #: src/admin/subscribers/index.js:31
 msgid "All Campaigns"
@@ -1660,8 +1670,8 @@ msgid "This feature is available in Pro version"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/analytics/components/Header.js:21
-msgid "Select Campaign"
+#: src/admin/analytics/components/Header.js:19
+msgid "Select Campagin"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
@@ -1692,7 +1702,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:1
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:6
-#: src/blocks/form/settings.js:500
+#: src/blocks/form/settings.js:493
 msgid "MailChimp"
 msgstr ""
 
@@ -1714,8 +1724,8 @@ msgstr ""
 #: build/admin/dashboard/index.js:1
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:30
-#: src/blocks/form/settings.js:468
-#: src/blocks/form/settings.js:559
+#: src/blocks/form/settings.js:461
+#: src/blocks/form/settings.js:552
 msgid "Active Campaign"
 msgstr ""
 
@@ -1727,8 +1737,8 @@ msgstr ""
 #: build/admin/dashboard/index.js:1
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:43
-#: src/blocks/form/settings.js:472
-#: src/blocks/form/settings.js:592
+#: src/blocks/form/settings.js:465
+#: src/blocks/form/settings.js:585
 msgid "Zapier"
 msgstr ""
 
@@ -1959,11 +1969,6 @@ msgid "Copy Text"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:318
-msgid "Close Campaign"
-msgstr ""
-
-#: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:319
 msgid "Reload The Page"
 msgstr ""
@@ -2005,161 +2010,156 @@ msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:379
-msgid "Delay time (s) to close campaign"
-msgstr ""
-
-#: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:386
 msgid "Conversion tracking?"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:393
+#: src/blocks/form/settings.js:386
 msgid "Button Width"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:403
+#: src/blocks/form/settings.js:396
 msgid "Use Icon"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:415
+#: src/blocks/form/settings.js:408
 msgid "Icon Position"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:446
+#: src/blocks/form/settings.js:439
 msgid "After Submission Message"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:453
+#: src/blocks/form/settings.js:446
 msgid "Integrations"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:456
+#: src/blocks/form/settings.js:449
 msgid "Select Integrations"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:460
+#: src/blocks/form/settings.js:453
 msgid "Mailchimp"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:464
-#: src/blocks/form/settings.js:537
+#: src/blocks/form/settings.js:457
+#: src/blocks/form/settings.js:530
 msgid "Fluent CRM"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:476
-#: src/blocks/form/settings.js:616
+#: src/blocks/form/settings.js:469
+#: src/blocks/form/settings.js:609
 msgid "Hubspot"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:486
+#: src/blocks/form/settings.js:479
 msgid "Add Integrations"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:490
+#: src/blocks/form/settings.js:483
 msgid "Add and Unlock more integrations with PopupKit Pro"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:502
-#: src/blocks/form/settings.js:539
-#: src/blocks/form/settings.js:561
-#: src/blocks/form/settings.js:594
-#: src/blocks/form/settings.js:618
+#: src/blocks/form/settings.js:495
+#: src/blocks/form/settings.js:532
+#: src/blocks/form/settings.js:554
+#: src/blocks/form/settings.js:587
+#: src/blocks/form/settings.js:611
 msgid "Provider Account"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:516
-#: src/blocks/form/settings.js:575
+#: src/blocks/form/settings.js:509
+#: src/blocks/form/settings.js:568
 msgid "Provider Lists"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:523
+#: src/blocks/form/settings.js:516
 msgid "Double Opt-in"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:654
+#: src/blocks/form/settings.js:647
 msgid "Form"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:698
+#: src/blocks/form/settings.js:656
 msgid "Columns Gap"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:710
+#: src/blocks/form/settings.js:668
 msgid "Rows Gap"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:723
+#: src/blocks/form/settings.js:681
 msgid "Label"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:730
+#: src/blocks/form/settings.js:688
 msgid "label Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:735
+#: src/blocks/form/settings.js:693
 msgid "Mark Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:754
+#: src/blocks/form/settings.js:712
 msgid "Field"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:774
+#: src/blocks/form/settings.js:732
 msgid "Focus"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:794
-#: src/blocks/form/settings.js:832
-#: src/blocks/form/settings.js:870
+#: src/blocks/form/settings.js:752
+#: src/blocks/form/settings.js:790
+#: src/blocks/form/settings.js:828
 msgid "Placeholder Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:940
+#: src/blocks/form/settings.js:898
 msgid "Use Position"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:990
+#: src/blocks/form/settings.js:948
 msgid "Horizontal Orientation"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1010
-#: src/blocks/form/settings.js:1054
+#: src/blocks/form/settings.js:968
+#: src/blocks/form/settings.js:1012
 msgid "Offset"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1034
+#: src/blocks/form/settings.js:992
 msgid "Vertical Orientation"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1210
+#: src/blocks/form/settings.js:1168
 msgid "Submission Message"
 msgstr ""
 

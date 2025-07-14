@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.0.4
+ * Version: 2.0.2
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.0.4';
+	const VERSION = '2.0.2';
 
 	/**
 	 * \PopupKit class constructor.

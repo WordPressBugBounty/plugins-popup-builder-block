@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.4
+Stable tag: 2.0.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -164,31 +164,16 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 == Changelog ==
 
-= PopupKit: 2.0.4 (2025-06-22) =
-* Added: Delay time for close popup after submitting form
-* Improved: Dashboard content
-* Added: Searchable select box for campaign in analytics page
-* Tweaked: Menu icon, brand logo & credit logo
-* Added: Block identifier icon
-
-= PopupKit: 2.0.3 (2025-06-15) =
-* Fixed: Open url click event of button not working
-* Fixed: Settings button position in url control
-* Added: Margin & padding controls in heading block
-* Added: Default values for views, conversion & conversion rate on analytics page
-* Fixed: Console error on analytics and subscribers pages when no data is found
-* Added: Margin & padding controls in form block
-
-= PopupKit: 2.0.2 (2025-06-03) =
+= PopupKit: 2.0.2 =
 * Tweaked: Sorting subscribers list from latest to old
 * Improved: Analytics page UI/UX
 
-= PopupKit: 2.0.1 (2025-05-27) =
+= PopupKit: 2.0.1 =
 * Fixed: Form can be submitted multiple times
 * Fixed: Logic for closing the popup with the escape key
 * Fixed: Prevent background scroll not working
 
-= PopupKit: 2.0.0 (2025-05-25) =
+= PopupKit: 2.0.0 =
 * Added: Advanced image block
 * Added: Icon block
 * Added: Advanced paragraph block
@@ -233,18 +218,18 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 * Added: Container overlay styles
 * Removed: GutenKit plugin dependency
 
-= PopupKit: 1.0.5 (2024-11-12) =
+= PopupKit: 1.0.5 =
 * Added: Prevent Background Interaction
 * Fixed: Multiple custom selector not working
 * Fixed: Popup closes at clicking on the content while Close on Clicking outside is enable
 
-= PopupKit: 1.0.2 (2024-10-21) =
+= PopupKit: 1.0.2 =
 * Added: Advanced rules for schedule date and time
 * Fixed: Custom selector click event
 * Improved: Asset loading of popup
 
-= PopupKit: 1.0.1 (2024-10-06) =
+= PopupKit: 1.0.1 =
 * Improved: Popup builder block
 
-= PopupKit: 1.0.0 (2024-10-03) =
+= PopupKit: 1.0.0 =
 * Inital Release

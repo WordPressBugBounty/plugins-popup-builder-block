@@ -96,7 +96,7 @@ class Blocks {
 			array(
 				array(
 					'slug'  => 'popup-builder-block',
-					'title' => __( 'PopupKit', 'popup-builder-block' )
+					'title' => __( 'Popup Builder Block', 'popup-builder-block' ),
 				),
 			),
 			$block_categories

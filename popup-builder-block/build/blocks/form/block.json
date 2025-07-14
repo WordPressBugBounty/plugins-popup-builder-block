@@ -46,48 +46,6 @@
     "formBgColor": {
       "type": "string"
     },
-    "formPaddingDesktop": {
-      "type": "object"
-    },
-    "formPaddingTablet": {
-      "type": "object"
-    },
-    "formPaddingMobile": {
-      "type": "object"
-    },
-    "formPaddingTabletLandscape": {
-      "type": "object"
-    },
-    "formPaddingMobileLandscape": {
-      "type": "object"
-    },
-    "formPaddingLaptop": {
-      "type": "object"
-    },
-    "formPaddingWideScreen": {
-      "type": "object"
-    },
-    "formMarginDesktop": {
-      "type": "object"
-    },
-    "formMarginTablet": {
-      "type": "object"
-    },
-    "formMarginMobile": {
-      "type": "object"
-    },
-    "formMarginTabletLandscape": {
-      "type": "object"
-    },
-    "formMarginMobileLandscape": {
-      "type": "object"
-    },
-    "formMarginLaptop": {
-      "type": "object"
-    },
-    "formMarginWideScreen": {
-      "type": "object"
-    },
     "buttonWidthDesktop": {
       "type": "object",
       "default": {
@@ -131,10 +89,6 @@
     "closeCampaign": {
       "type": "boolean",
       "default": true
-    },
-    "closeCampaignDelay": {
-      "type": "number",
-      "default": 3
     },
     "istrackConversion": {
       "type": "boolean",
