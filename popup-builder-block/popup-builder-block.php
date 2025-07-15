@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.0.2
+ * Version: 2.0.6
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.0.2';
+	const VERSION = '2.0.6';
 
 	/**
 	 * \PopupKit class constructor.
@@ -94,7 +94,7 @@ final class PopupBuilderBlock {
 		$plugin_name = "{$plugin_slug}/{$plugin_slug}.php";
 
 		if ( $plugin_name === $plugin_file ) {
-			$menu_link = 'edit.php?post_type=popupkit-campaigns';
+			$menu_link = 'admin.php?page=popupkit#campaigns';
 			$new_actions['met_settings'] = sprintf('<a href="%s">%s</a>', esc_url( $menu_link ), esc_html__('Build Popup', 'popup-builder-block'));
 		}
 	

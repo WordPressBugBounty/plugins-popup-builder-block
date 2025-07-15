@@ -23,5 +23,6 @@ class Init {
 		new Popup();
 		new SettingsData();
 		new ProcessDownload();
+		new Onboard();
 	}
 }

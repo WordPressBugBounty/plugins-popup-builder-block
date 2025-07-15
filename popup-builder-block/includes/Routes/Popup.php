@@ -42,12 +42,23 @@ class Popup extends Api {
         ];
     }
 
-	public function get_campaigns() {
+	public function get_campaigns($request) {
+		$params = $request->get_params();
+		$is_subscribers = isset( $params['subscribers'] ) ? (bool) $params['subscribers'] : false;
+
+		if(!$is_subscribers) {
+			$logs  = DataBase::getDB(
+				'campaign_id, SUM(views) AS total_views, SUM(converted) AS total_converted',
+				'pbb_logs',
+				'1 GROUP BY campaign_id'
+			);
+		}
+		
 		// Fetch all campaigns from the database
 		$args = array(
 			'post_type'      => 'popupkit-campaigns',
 			'posts_per_page' => -1,
-			'post_status'    => 'publish',
+			'post_status'    => $params['status'] ?? 'any', // Default to 'any' to include all statuses
 		);
 		$posts = get_posts( $args );
 
@@ -60,12 +71,35 @@ class Popup extends Api {
 
 		$campaigns = array();
 		foreach ( $posts as $post ) {
-			$campaigns[] = array(
-				'id'    => $post->ID,
-				'title' => $post->post_title,
-				'date'  => $post->post_date,
+			$campaign = array(
+				'id'     => $post->ID,
+				'title'  => $post->post_title,
+				'date'   => $post->post_date,
+				'status' => $post->post_status,
+				'guid'   => $post->guid,
 			);
+
+			if ( !$is_subscribers ) {
+				$campaign['meta'] = array(
+					'status'             => get_post_meta( $post->ID, 'status', true ) == '1', // Explicitly cast to boolean
+					'scheduleDateTime'   => get_post_meta( $post->ID, 'scheduleDateTime', true ) == '1', // Explicitly cast to boolean
+					'scheduleOnDateValue'=> get_post_meta( $post->ID, 'scheduleOnDateValue', true ),
+					'scheduleOffDateValue'=> get_post_meta( $post->ID, 'scheduleOffDateValue', true ),
+					'scheduleTimeZone'   => get_post_meta( $post->ID, 'scheduleTimeZone', true ),
+				);
+				$campaign['author'] = get_the_author_meta( 'display_name', $post->post_author );
+
+				$campaign['views'] = $logs ? array_reduce( $logs, function( $carry, $item ) use ( $post ) {
+					return $carry + ( $item->campaign_id == $post->ID ? $item->total_views : 0 );
+				}, 0 ) : 0;
+				$campaign['converted'] = $logs ? array_reduce( $logs, function( $carry, $item ) use ( $post ) {
+					return $carry + ( $item->campaign_id == $post->ID ? $item->total_converted : 0 );
+				}, 0 ) : 0;
+			}
+
+			$campaigns[] = $campaign;
 		}
+
 
 		return array(
 			'status'     => 'success',

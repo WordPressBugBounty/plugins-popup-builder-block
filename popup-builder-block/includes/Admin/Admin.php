@@ -29,6 +29,10 @@ class Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 9 );
 	}
 
+	public function get_onboard_status() {
+		return get_option('popupkit_onboard_status') && get_option('popupkit_onboard_status') == 'onboarded';
+	}
+
 	/**
 	 * Add the admin menu
 	 */
@@ -45,12 +49,10 @@ class Admin {
 
 		add_submenu_page(
 			$this->menu_slug,
-			esc_html__( 'Campaign', 'popup-builder-block' ),
-			esc_html__( 'Campaign', 'popup-builder-block' ),
+			esc_html__( 'Campaigns', 'popup-builder-block' ),
+			esc_html__( 'Campaigns', 'popup-builder-block' ),
 			'manage_options',
-			'edit.php?post_type=popupkit-campaigns',
-			'',
-			// 1
+			$this->menu_link_part . '#campaigns',
 		);
 
 		add_submenu_page(
@@ -71,10 +73,10 @@ class Admin {
 
 		add_submenu_page(
 			$this->menu_slug,
-			esc_html__( 'Integration', 'popup-builder-block-pro' ),
-			esc_html__( 'Integration', 'popup-builder-block-pro' ),
+			esc_html__( 'Integrations', 'popup-builder-block-pro' ),
+			esc_html__( 'Integrations', 'popup-builder-block-pro' ),
 			'manage_options',
-			$this->menu_link_part . '#integration'
+			$this->menu_link_part . '#integrations'
 		);
 
 		add_submenu_page(
@@ -100,9 +102,10 @@ class Admin {
 	 * Callback function to render the Dashboard page
 	 */
 	public function dashboard_callback() {
+		$data_admin = $this->get_onboard_status() ? 'dashboard' : 'onboard';
 		?>
 		<div class="wrap">
-			<div class="pbb-dashboard"></div>
+			<div class="pbb-dashboard" data-admin="<?php echo esc_attr($data_admin); ?>"></div>
 		</div>
 		<?php
 	}
@@ -154,43 +157,82 @@ class Admin {
 		}
 
 		if ( $hook === 'toplevel_page_popupkit' ) {
-			$assets = include POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'build/admin/dashboard/index.asset.php';
+			$data_admin = $this->get_onboard_status() ? 'dashboard' : 'onboard';
 
-			if ( isset( $assets['version'] ) ) {
-				// Enqueue the stylesheet
+			if($data_admin == 'onboard') {
+				$onboard_assets = include POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'build/admin/onboard/index.asset.php';
+				if ( isset( $onboard_assets['version'] ) ) {
+					wp_enqueue_script(
+						'popupkit-onboard',
+						POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/onboard/index.js',
+						$onboard_assets['dependencies'],
+						$onboard_assets['version'],
+						true
+					);
+
+					// Localize the script with data
+					wp_localize_script(
+						'popupkit-onboard',
+						'popupKit',
+						array(
+							'adminUrl' => esc_url( admin_url( '/' ) ),
+							'pluginStatus' => Utils::onboard_plugins(),
+						)
+						
+					);
+
+					wp_enqueue_style(
+						'popupkit-onboard',
+						POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/onboard/index.css',
+						array('wp-components'),
+						$onboard_assets['version']
+					);
+
+					// Google Robot Font
+					wp_enqueue_style(
+						'popupkit-google-fonts',
+						'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap',
+					);
+				}
+			} else {
+				$dashboard_assets = include POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'build/admin/dashboard/index.asset.php';
+
+				if ( isset( $dashboard_assets['version'] ) ) {
+					// Enqueue the stylesheet
+					wp_enqueue_style(
+						'popup-builder-block-dashboard',
+						POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/dashboard/index.css',
+						array( 'wp-components' ),
+						$dashboard_assets['version']
+					);
+
+					// Enqueue the JavaScript
+					wp_enqueue_script(
+						'popup-builder-block-dashboard',
+						POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/dashboard/index.js',
+						$dashboard_assets['dependencies'],
+						$dashboard_assets['version'],
+						true
+					);
+
+					wp_localize_script(
+						'popup-builder-block-dashboard',
+						'popupBuilderBlock',
+						array(
+							'adminUrl' => esc_url( admin_url( '/' ) ),
+							'has_pro'  => defined( 'POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION' ),
+							'version'     => POPUP_BUILDER_BLOCK_PLUGIN_VERSION,
+							'pro_version' => defined('POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION') ? POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION : '1.0.0',
+						)
+					);
+				}
+
+				// Google Heebo Font
 				wp_enqueue_style(
-					'popup-builder-block-dashboard',
-					POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/dashboard/index.css',
-					array( 'wp-components' ),
-					$assets['version']
-				);
-
-				// Enqueue the JavaScript
-				wp_enqueue_script(
-					'popup-builder-block-dashboard',
-					POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/dashboard/index.js',
-					$assets['dependencies'],
-					$assets['version'],
-					true
-				);
-
-				wp_localize_script(
-					'popup-builder-block-dashboard',
-					'popupBuilderBlock',
-					array(
-						'adminUrl' => esc_url( admin_url( '/' ) ),
-						'has_pro'  => defined( 'POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION' ),
-						'version'     => POPUP_BUILDER_BLOCK_PLUGIN_VERSION,
-						'pro_version' => defined('POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION') ? POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION : '1.0.0',
-					)
+					'popupkit-google-fonts',
+					'https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap',
 				);
 			}
-
-			// Google Heebo Font
-			wp_enqueue_style(
-				'popupkit-google-fonts',
-				'https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap',
-			);
 		}
 	}
 }

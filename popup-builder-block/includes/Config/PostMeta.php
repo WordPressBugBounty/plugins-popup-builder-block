@@ -174,6 +174,30 @@ class PostMeta {
 				'show_in_rest' => true,
 				'default'      => 2,
 			),
+			'scheduleDateTime' => array(
+				'type'         => 'boolean',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => false,
+			),
+			'scheduleOnDateValue' => array(
+				'type'         => 'string',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => '',
+			),
+			'scheduleOffDateValue' => array(
+				'type'         => 'string',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => '',
+			),
+			'scheduleTimeZone' => array(
+				'type'         => 'string',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => '',
+			),
 		);
 
 		return apply_filters( 'pbb/post_meta_fields', $meta_list );

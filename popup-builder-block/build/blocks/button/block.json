@@ -276,6 +276,10 @@
     "closeCampaign": {
       "type": "object"
     },
+    "step": {
+      "type": "string",
+      "default": 0
+    },
     "istrackConversion": {
       "type": "boolean",
       "default": false

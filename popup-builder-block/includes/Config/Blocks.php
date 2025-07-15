@@ -76,11 +76,6 @@ class Blocks {
 			if ( file_exists( $block_dir ) ) {
 				register_block_type( $block_dir, array() );
 			}
-
-			// Deregister the view script if not in an iframe, ensuring safe execution.
-			if ( ! Utils::is_iframe() ) {
-				wp_deregister_script( 'popup-builder-block-' . $key . '-view-script' );
-			}
 		}
 	}
 
@@ -96,7 +91,7 @@ class Blocks {
 			array(
 				array(
 					'slug'  => 'popup-builder-block',
-					'title' => __( 'Popup Builder Block', 'popup-builder-block' ),
+					'title' => __( 'PopupKit', 'popup-builder-block' )
 				),
 			),
 			$block_categories

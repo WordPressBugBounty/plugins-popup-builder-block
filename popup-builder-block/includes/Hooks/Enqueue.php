@@ -64,7 +64,7 @@ class Enqueue {
 					'in_footer' => true,
 				)
 			);
-
+			
 			wp_enqueue_style(
 				'popup-builder-block-single-style',
 				POPUP_BUILDER_BLOCK_PLUGIN_URL . 'includes/Templates/assets/style.css',

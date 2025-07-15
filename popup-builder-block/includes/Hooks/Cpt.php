@@ -21,6 +21,7 @@ class Cpt {
 		// For Adding Views Column in Popup Builder Block
 		add_filter( 'manage_popupkit-campaigns_posts_columns', array( $this, 'add_campaign_custom_column' ) );
 		add_action( 'manage_popupkit-campaigns_posts_custom_column', array( $this, 'set_campaign_custom_column_value' ), 10, 2 );
+		add_action( 'rest_api_init', array( $this, 'register_author_name_rest_field' ) );
 	}
 
 	/**
@@ -180,5 +181,30 @@ class Cpt {
 
 			echo esc_attr( $conversion_rate ) . '%';
 		}
+	}
+
+	/**
+	 * Registers a custom REST field for the author name in the 'popupkit-campaigns' post type.
+	 *
+	 * This function adds a custom REST field to the 'popupkit-campaigns' post type, allowing
+	 * retrieval of the author's display name via the REST API.
+	 *
+	 * @return void
+	 */
+	public function register_author_name_rest_field() {
+		register_rest_field(
+			'popupkit-campaigns',
+			'author_name',
+			array(
+				'get_callback'    => function ( $post_arr ) {
+					$author_id = $post_arr['author'] ?? 0;
+					return get_the_author_meta( 'display_name', $author_id );
+				},
+				'schema' => array(
+					'type'        => 'string',
+					'description' => __( 'Author display name', 'popup-builder-block' ),
+				),
+			)
+		);
 	}
 }

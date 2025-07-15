@@ -49,9 +49,18 @@ class AssetGenerator {
 	private function parse_block_css( array $blocks, &$count = 0 ): array {
 		$block_data = array();
 
-		foreach ( $blocks as $block ) {
+		
+		foreach ( $blocks as $key => $block ) {
 			if ( empty( $block['blockName'] ) || strpos( $block['blockName'], 'popup-builder-block/' ) !== 0 ) {
 				continue;
+			}
+
+			// Recursively process inner blocks
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				$inner_data = $this->parse_block_css( $block['innerBlocks'], $count );
+				foreach ( $inner_data as $device => $css ) {
+					$block_data[ $device ] = ( $block_data[ $device ] ?? '' ) . $css . ' ';
+				}
 			}
 
 			if ( empty( $block['attrs']['blocksCSS'] ) || ! is_array( $block['attrs']['blocksCSS'] ) ) {
@@ -61,14 +70,6 @@ class AssetGenerator {
 			// Merge CSS for different devices
 			foreach ( $block['attrs']['blocksCSS'] as $device => $css ) {
 				$block_data[ $device ] = ( $block_data[ $device ] ?? '' ) . $css . ' ';
-			}
-
-			// Recursively process inner blocks
-			if ( ! empty( $block['innerBlocks'] ) ) {
-				$inner_data = $this->parse_block_css( $block['innerBlocks'], $count );
-				foreach ( $inner_data as $device => $css ) {
-					$block_data[ $device ] = ( $block_data[ $device ] ?? '' ) . $css . ' ';
-				}
 			}
 
 			++$count;

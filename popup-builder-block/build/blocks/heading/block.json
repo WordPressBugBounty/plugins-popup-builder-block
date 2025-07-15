@@ -180,6 +180,48 @@
     "generalTextAlignmentWideScreen": {
       "type": "string"
     },
+    "generalMarginDesktop": {
+      "type": "object"
+    },
+    "generalMarginTablet": {
+      "type": "object"
+    },
+    "generalMarginMobile": {
+      "type": "object"
+    },
+    "generalMarginTabletLandscape": {
+      "type": "object"
+    },
+    "generalMarginMobileLandscape": {
+      "type": "object"
+    },
+    "generalMarginLaptop": {
+      "type": "object"
+    },
+    "generalMarginWideScreen": {
+      "type": "object"
+    },
+    "generalPaddingDesktop": {
+      "type": "object"
+    },
+    "generalPaddingTablet": {
+      "type": "object"
+    },
+    "generalPaddingMobile": {
+      "type": "object"
+    },
+    "generalPaddingTabletLandscape": {
+      "type": "object"
+    },
+    "generalPaddingMobileLandscape": {
+      "type": "object"
+    },
+    "generalPaddingLaptop": {
+      "type": "object"
+    },
+    "generalPaddingWideScreen": {
+      "type": "object"
+    },
     "titleColor": {
       "type": "string"
     },

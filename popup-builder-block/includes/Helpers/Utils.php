@@ -324,6 +324,29 @@ class Utils {
 		);
 	}
 
+	private static function check_plugin_status( $plugin_path ) {
+		$validate_plugin = validate_plugin( $plugin_path );
+		if(is_wp_error( $validate_plugin )) {
+			return 'notInstalled';
+		}
+
+		return is_plugin_active( $plugin_path ) ? 'active' : 'inactive';
+	}
+
+	public static function onboard_plugins() {
+		return array(
+			'gutenkit-blocks-addon' => self::check_plugin_status( 'gutenkit-blocks-addon/gutenkit-blocks-addon.php' ),
+			'elementskit-lite'      => self::check_plugin_status( 'elementskit-lite/elementskit-lite.php' ),
+			'metform'               => self::check_plugin_status( 'metform/metform.php' ),
+			'getgenie'              => self::check_plugin_status( 'getgenie/getgenie.php' ),
+			'blocks-for-shopengine' => self::check_plugin_status( 'blocks-for-shopengine/shopengine-gutenberg-addon.php' ),
+			'table-builder-block'   => self::check_plugin_status( 'table-builder-block/table-builder-block.php' ),
+			'wp-ultimate-review'    => self::check_plugin_status( 'wp-ultimate-review/wp-ultimate-review.php' ),
+			'wp-social'             => self::check_plugin_status( 'wp-social/wp-social.php' ),
+			'elementor'             => self::check_plugin_status( 'elementor/elementor.php' ),
+		);
+	}
+
 	/**
 	 * Returns the allowed HTML tags and attributes for the img element.
 	 *
