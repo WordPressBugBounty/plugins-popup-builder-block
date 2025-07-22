@@ -117,6 +117,8 @@ class DisplayConditions {
 					}
 				} elseif ( $pageType === 'woocommerce' && is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
 					$match = apply_filters( 'pbb/woocommerce/display_conditions', $cond, $popup_id );
+				} elseif ( $pageType === 'custom-url' ) {
+					$match = apply_filters( 'pbb/custom-url/display_conditions', $cond );
 				}
 				
 

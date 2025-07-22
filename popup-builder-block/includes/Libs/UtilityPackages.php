@@ -107,7 +107,7 @@ class UtilityPackages {
 		 * @subpackage Libs
 		 */
 		UtilityPackage\Rating\Rating::instance( 'popup-builder-block' )                    // @plugin_slug
-		->set_plugin_logo( 'https://ps.w.org/popup-builder-block/assets/icon-128x128.png' )       // @plugin_logo_url
+		->set_plugin_logo( 'https://ps.w.org/popup-builder-block/assets/icon-256x256.png?rev=3316844' )       // @plugin_logo_url
 		->set_plugin( 'Popupkit', 'https://wpmet.com/wordpress.org/rating/popup-builder-block' )   // @plugin_name  @plugin_url
 		->set_allowed_screens( 'toplevel_page_popupkit' )                      // @set_allowed_screen
 		->set_priority( 30 )                                                          // @priority

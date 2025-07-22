@@ -85,6 +85,7 @@ class PostMeta {
 						'singular-post'          => array(),
 						'singular-post-cat'      => array(),
 						'singular-post-tag'      => array(),
+						'custom-url'             => 'contains',
 					),
 				),
 			),
@@ -196,7 +197,7 @@ class PostMeta {
 				'type'         => 'string',
 				'single'       => true,
 				'show_in_rest' => true,
-				'default'      => '',
+				'default'      => 'siteTimeZone',
 			),
 		);
 

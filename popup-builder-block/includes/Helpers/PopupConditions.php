@@ -53,4 +53,8 @@ class PopupConditions {
 	public function geolocation_targeting() {
 		return apply_filters( 'pbb/geolocation/targeting', true, $this->post_meta );
 	}
+
+	public function scheduling() {
+		return apply_filters( 'pbb/scheduling', true, $this->post_meta );
+	}
 }

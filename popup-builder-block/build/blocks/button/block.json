@@ -155,7 +155,8 @@
       }
     },
     "hoverColor": {
-      "type": "string"
+      "type": "string",
+      "default": "#fff"
     },
     "bgHoverColor": {
       "type": "object",

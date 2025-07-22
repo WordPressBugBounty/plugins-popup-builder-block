@@ -67,8 +67,9 @@ class PopupGenerator {
 			$freequency_settings = $popup_conditions->freequency_settings();
 			$ip_blocking         = $popup_conditions->ip_blocking();
 			$geolocation_targeting = $popup_conditions->geolocation_targeting();
+			$is_scheduled          = $popup_conditions->scheduling();
 			
-			if (! $display_conditions || ! $freequency_settings || $ip_blocking || ! $geolocation_targeting) {
+			if (! $display_conditions || ! $freequency_settings || $ip_blocking || ! $geolocation_targeting || ! $is_scheduled) {
 				continue; // If any of the conditions are not met, skip to the next post.
 			}
 

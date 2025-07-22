@@ -25,6 +25,7 @@ class Init {
 		new PopupGenerator();
 		new AnalyticsExpiry();
 		new FontFamilyGenerator();
+		new ThirdPartyCompatibility();
 
 		// TODO: will be removed in the future
 		new DataMigration();

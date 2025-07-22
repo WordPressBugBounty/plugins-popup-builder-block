@@ -565,6 +565,10 @@
       "type": "boolean",
       "default": false
     },
+    "overflowVisible": {
+      "type": "boolean",
+      "default": false
+    },
     "containerBackgroundOverlay": {
       "type": "object"
     },

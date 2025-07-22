@@ -2,22 +2,22 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PopupKit 2.0.4\n"
+"Project-Id-Version: PopupKit 2.0.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/popup-builder-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-08T04:03:23+00:00\n"
+"POT-Creation-Date: 2025-07-22T08:43:33+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: popup-builder-block\n"
 
 #. Plugin Name of the plugin
 #: popup-builder-block.php
-#: includes/Admin/Admin.php:37
-#: includes/Admin/Admin.php:38
+#: includes/Admin/Admin.php:41
+#: includes/Admin/Admin.php:42
 #: includes/Config/Blocks.php:94
 msgid "PopupKit"
 msgstr ""
@@ -42,44 +42,44 @@ msgstr ""
 msgid "https://wpmet.com/"
 msgstr ""
 
-#: includes/Admin/Admin.php:48
-#: includes/Admin/Admin.php:49
-#: includes/Hooks/Cpt.php:35
+#: includes/Admin/Admin.php:52
+#: includes/Admin/Admin.php:53
+#: includes/Hooks/Cpt.php:34
+#: includes/Hooks/Cpt.php:36
+#: includes/Hooks/Cpt.php:40
 #: build/admin/dashboard/index.js:1
-#: src/admin/subscribers/index.js:166
-msgid "Campaign"
+#: src/admin/campaign/index.js:329
+msgid "Campaigns"
 msgstr ""
 
-#: includes/Admin/Admin.php:56
-#: includes/Admin/Admin.php:57
+#: includes/Admin/Admin.php:60
+#: includes/Admin/Admin.php:61
 #: build/admin/dashboard/index.js:1
 #: src/admin/subscribers/index.js:213
 msgid "Subscribers"
 msgstr ""
 
-#: includes/Admin/Admin.php:64
-#: includes/Admin/Admin.php:65
+#: includes/Admin/Admin.php:68
+#: includes/Admin/Admin.php:69
 #: build/admin/dashboard/index.js:1
 #: src/admin/analytics/components/Header.js:11
 msgid "Analytics"
 msgstr ""
 
-#: includes/Admin/Admin.php:80
-#: includes/Admin/Admin.php:81
+#: includes/Admin/Admin.php:84
+#: includes/Admin/Admin.php:85
 msgid "Templates"
 msgstr ""
 
-#: includes/Admin/Admin.php:88
-#: includes/Admin/Admin.php:89
+#: includes/Admin/Admin.php:92
+#: includes/Admin/Admin.php:93
 msgid "Settings"
 msgstr ""
 
-#: includes/Hooks/Cpt.php:34
-#: includes/Hooks/Cpt.php:36
-#: includes/Hooks/Cpt.php:40
+#: includes/Hooks/Cpt.php:35
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:400
-msgid "Campaigns"
+#: src/admin/subscribers/index.js:166
+msgid "Campaign"
 msgstr ""
 
 #: includes/Hooks/Cpt.php:37
@@ -101,25 +101,25 @@ msgstr ""
 
 #: includes/Hooks/Cpt.php:122
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:39
+#: src/admin/campaign/index.js:36
 msgid "Status"
 msgstr ""
 
 #: includes/Hooks/Cpt.php:123
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:40
+#: src/admin/campaign/index.js:38
 msgid "Views"
 msgstr ""
 
 #: includes/Hooks/Cpt.php:124
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:41
+#: src/admin/campaign/index.js:39
 msgid "Conversion"
 msgstr ""
 
 #: includes/Hooks/Cpt.php:125
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:42
+#: src/admin/campaign/index.js:40
 msgid "Conversion Rate"
 msgstr ""
 
@@ -244,6 +244,15 @@ msgstr ""
 msgid "AI-powered text-to-image generator for WordPress with OpenAI’s DALL-E 2 technology to generate high-quality images in one click."
 msgstr ""
 
+#: includes/Routes/Onboard.php:74
+msgid "Failed to send onboard data."
+msgstr ""
+
+#: includes/Routes/Onboard.php:86
+#: includes/Routes/Onboard.php:93
+msgid "Onboard data saved successfully."
+msgstr ""
+
 #: includes/Routes/Subscribers.php:50
 msgid "Failed to insert subscriber"
 msgstr ""
@@ -279,7 +288,7 @@ msgstr ""
 #: src/blocks/heading/settings.js:48
 #: src/blocks/heading/settings.js:213
 #: src/blocks/icon/settings.js:41
-#: src/blocks/popup-builder/settings.js:198
+#: src/blocks/popup-builder/settings.js:217
 msgid "Content"
 msgstr ""
 
@@ -298,7 +307,7 @@ msgstr ""
 #: src/blocks/form/settings.js:216
 #: src/blocks/heading/settings.js:52
 #: src/blocks/icon/settings.js:45
-#: src/blocks/popup-builder/settings.js:202
+#: src/blocks/popup-builder/settings.js:221
 msgid "Style"
 msgstr ""
 
@@ -313,7 +322,7 @@ msgstr ""
 #: src/blocks/icon/settings.js:55
 #: src/blocks/icon/settings.js:57
 #: src/blocks/icon/settings.js:101
-#: src/blocks/popup-builder/settings.js:2146
+#: src/blocks/popup-builder/settings.js:2212
 msgid "Icon"
 msgstr ""
 
@@ -354,8 +363,8 @@ msgstr ""
 #: src/blocks/heading/settings.js:102
 #: src/blocks/heading/settings.js:287
 #: src/blocks/icon/settings.js:76
-#: src/blocks/popup-builder/settings.js:1716
-#: src/blocks/popup-builder/settings.js:1882
+#: src/blocks/popup-builder/settings.js:1777
+#: src/blocks/popup-builder/settings.js:1943
 msgid "Left"
 msgstr ""
 
@@ -376,10 +385,10 @@ msgstr ""
 #: src/blocks/form/settings.js:1013
 #: src/blocks/heading/settings.js:288
 #: src/blocks/icon/settings.js:77
-#: src/blocks/popup-builder/settings.js:1659
-#: src/blocks/popup-builder/settings.js:1724
-#: src/blocks/popup-builder/settings.js:1773
-#: src/blocks/popup-builder/settings.js:1855
+#: src/blocks/popup-builder/settings.js:1720
+#: src/blocks/popup-builder/settings.js:1785
+#: src/blocks/popup-builder/settings.js:1834
+#: src/blocks/popup-builder/settings.js:1916
 msgid "Center"
 msgstr ""
 
@@ -399,8 +408,8 @@ msgstr ""
 #: src/blocks/heading/settings.js:103
 #: src/blocks/heading/settings.js:289
 #: src/blocks/icon/settings.js:78
-#: src/blocks/popup-builder/settings.js:1732
-#: src/blocks/popup-builder/settings.js:1890
+#: src/blocks/popup-builder/settings.js:1793
+#: src/blocks/popup-builder/settings.js:1951
 msgid "Right"
 msgstr ""
 
@@ -409,7 +418,7 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/form/settings.js:963
 #: src/blocks/icon/settings.js:104
-#: src/blocks/popup-builder/settings.js:2188
+#: src/blocks/popup-builder/settings.js:2254
 msgid "Size"
 msgstr ""
 
@@ -438,8 +447,8 @@ msgstr ""
 #: src/blocks/form/settings.js:811
 #: src/blocks/form/settings.js:1143
 #: src/blocks/icon/settings.js:150
-#: src/blocks/popup-builder/settings.js:2029
-#: src/blocks/popup-builder/settings.js:2265
+#: src/blocks/popup-builder/settings.js:2095
+#: src/blocks/popup-builder/settings.js:2331
 msgid "Normal"
 msgstr ""
 
@@ -463,8 +472,8 @@ msgstr ""
 #: src/blocks/form/settings.js:815
 #: src/blocks/form/settings.js:1147
 #: src/blocks/icon/settings.js:154
-#: src/blocks/popup-builder/settings.js:2033
-#: src/blocks/popup-builder/settings.js:2272
+#: src/blocks/popup-builder/settings.js:2099
+#: src/blocks/popup-builder/settings.js:2338
 msgid "Hover"
 msgstr ""
 
@@ -481,18 +490,18 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:252
 #: src/blocks/advanced-paragraph/settings.js:268
 #: src/blocks/advanced-paragraph/settings.js:321
-#: src/blocks/advanced-paragraph/settings.js:422
+#: src/blocks/advanced-paragraph/settings.js:425
 #: src/blocks/button/settings.js:336
 #: src/blocks/button/settings.js:360
 #: src/blocks/form/settings.js:957
 #: src/blocks/heading/settings.js:343
 #: src/blocks/heading/settings.js:456
-#: src/blocks/heading/settings.js:587
-#: src/blocks/heading/settings.js:844
+#: src/blocks/heading/settings.js:590
+#: src/blocks/heading/settings.js:847
 #: src/blocks/icon/settings.js:163
 #: src/blocks/icon/settings.js:213
-#: src/blocks/popup-builder/settings.js:2287
-#: src/blocks/popup-builder/settings.js:2359
+#: src/blocks/popup-builder/settings.js:2353
+#: src/blocks/popup-builder/settings.js:2425
 msgid "Color"
 msgstr ""
 
@@ -521,8 +530,8 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:666
 #: src/blocks/advanced-image/settings.js:822
 #: src/blocks/advanced-paragraph/settings.js:287
-#: src/blocks/advanced-paragraph/settings.js:390
-#: src/blocks/advanced-paragraph/settings.js:459
+#: src/blocks/advanced-paragraph/settings.js:393
+#: src/blocks/advanced-paragraph/settings.js:462
 #: src/blocks/button/settings.js:451
 #: src/blocks/button/settings.js:495
 #: src/blocks/container/settings.js:677
@@ -532,11 +541,11 @@ msgstr ""
 #: src/blocks/form/settings.js:926
 #: src/blocks/form/settings.js:1222
 #: src/blocks/form/settings.js:1284
-#: src/blocks/heading/settings.js:529
+#: src/blocks/heading/settings.js:532
 #: src/blocks/icon/settings.js:184
 #: src/blocks/icon/settings.js:238
-#: src/blocks/popup-builder/settings.js:1959
-#: src/blocks/popup-builder/settings.js:2430
+#: src/blocks/popup-builder/settings.js:2020
+#: src/blocks/popup-builder/settings.js:2496
 msgid "Border Radius"
 msgstr ""
 
@@ -554,9 +563,9 @@ msgstr ""
 #: src/blocks/form/settings.js:1277
 #: src/blocks/icon/settings.js:202
 #: src/blocks/icon/settings.js:256
-#: src/blocks/popup-builder/settings.js:2003
-#: src/blocks/popup-builder/settings.js:2338
-#: src/blocks/popup-builder/settings.js:2410
+#: src/blocks/popup-builder/settings.js:2064
+#: src/blocks/popup-builder/settings.js:2404
+#: src/blocks/popup-builder/settings.js:2476
 msgid "Box Shadow"
 msgstr ""
 
@@ -570,8 +579,8 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:545
 #: src/blocks/advanced-paragraph/settings.js:303
-#: src/blocks/advanced-paragraph/settings.js:359
-#: src/blocks/advanced-paragraph/settings.js:475
+#: src/blocks/advanced-paragraph/settings.js:362
+#: src/blocks/advanced-paragraph/settings.js:478
 #: src/blocks/button/settings.js:255
 #: src/blocks/container/settings.js:491
 #: src/blocks/form/settings.js:708
@@ -580,11 +589,11 @@ msgstr ""
 #: src/blocks/form/settings.js:1236
 #: src/blocks/form/settings.js:1298
 #: src/blocks/heading/settings.js:309
-#: src/blocks/heading/settings.js:494
-#: src/blocks/heading/settings.js:622
+#: src/blocks/heading/settings.js:497
+#: src/blocks/heading/settings.js:625
 #: src/blocks/icon/settings.js:268
-#: src/blocks/popup-builder/settings.js:1981
-#: src/blocks/popup-builder/settings.js:2452
+#: src/blocks/popup-builder/settings.js:2042
+#: src/blocks/popup-builder/settings.js:2518
 msgid "Padding"
 msgstr ""
 
@@ -598,7 +607,7 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:552
 #: src/blocks/advanced-paragraph/settings.js:124
-#: src/blocks/advanced-paragraph/settings.js:491
+#: src/blocks/advanced-paragraph/settings.js:494
 #: src/blocks/button/settings.js:274
 #: src/blocks/container/settings.js:509
 #: src/blocks/form/settings.js:725
@@ -606,19 +615,19 @@ msgstr ""
 #: src/blocks/form/settings.js:1291
 #: src/blocks/heading/settings.js:326
 #: src/blocks/heading/settings.js:362
-#: src/blocks/heading/settings.js:602
-#: src/blocks/heading/settings.js:690
-#: src/blocks/heading/settings.js:738
-#: src/blocks/heading/settings.js:855
-#: src/blocks/heading/settings.js:934
+#: src/blocks/heading/settings.js:605
+#: src/blocks/heading/settings.js:693
+#: src/blocks/heading/settings.js:741
+#: src/blocks/heading/settings.js:858
+#: src/blocks/heading/settings.js:937
 #: src/blocks/icon/settings.js:286
-#: src/blocks/popup-builder/settings.js:1904
+#: src/blocks/popup-builder/settings.js:1965
 msgid "Margin"
 msgstr ""
 
 #: build/311.js:1
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:38
+#: src/admin/campaign/index.js:35
 #: src/blocks/heading/settings.js:62
 #: src/blocks/heading/settings.js:341
 msgid "Title"
@@ -700,7 +709,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:111
-#: src/blocks/heading/settings.js:585
+#: src/blocks/heading/settings.js:588
 msgid "Subtitle"
 msgstr ""
 
@@ -741,7 +750,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:166
-#: src/blocks/heading/settings.js:842
+#: src/blocks/heading/settings.js:845
 msgid "Title Description"
 msgstr ""
 
@@ -757,7 +766,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:202
-#: src/blocks/heading/settings.js:956
+#: src/blocks/heading/settings.js:959
 msgid "Shadow Text"
 msgstr ""
 
@@ -768,7 +777,7 @@ msgstr ""
 
 #: build/311.js:1
 #: src/blocks/heading/settings.js:223
-#: src/blocks/heading/settings.js:877
+#: src/blocks/heading/settings.js:880
 msgid "Separator"
 msgstr ""
 
@@ -817,10 +826,10 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/heading/settings.js:251
-#: src/blocks/popup-builder/settings.js:1651
-#: src/blocks/popup-builder/settings.js:1765
-#: src/blocks/popup-builder/settings.js:1817
-#: src/blocks/popup-builder/settings.js:1847
+#: src/blocks/popup-builder/settings.js:1712
+#: src/blocks/popup-builder/settings.js:1826
+#: src/blocks/popup-builder/settings.js:1878
+#: src/blocks/popup-builder/settings.js:1908
 msgid "Top"
 msgstr ""
 
@@ -837,10 +846,10 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/heading/settings.js:254
-#: src/blocks/popup-builder/settings.js:1667
-#: src/blocks/popup-builder/settings.js:1781
-#: src/blocks/popup-builder/settings.js:1825
-#: src/blocks/popup-builder/settings.js:1863
+#: src/blocks/popup-builder/settings.js:1728
+#: src/blocks/popup-builder/settings.js:1842
+#: src/blocks/popup-builder/settings.js:1886
+#: src/blocks/popup-builder/settings.js:1924
 msgid "Bottom"
 msgstr ""
 
@@ -854,7 +863,7 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/heading/settings.js:282
-#: src/blocks/popup-builder/settings.js:532
+#: src/blocks/popup-builder/settings.js:551
 msgid "General"
 msgstr ""
 
@@ -874,12 +883,12 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:956
 #: src/blocks/advanced-paragraph/settings.js:193
 #: src/blocks/advanced-paragraph/settings.js:212
-#: src/blocks/advanced-paragraph/settings.js:349
-#: src/blocks/advanced-paragraph/settings.js:427
+#: src/blocks/advanced-paragraph/settings.js:352
+#: src/blocks/advanced-paragraph/settings.js:430
 #: src/blocks/button/settings.js:298
 #: src/blocks/form/settings.js:1132
 #: src/blocks/heading/settings.js:353
-#: src/blocks/heading/settings.js:484
+#: src/blocks/heading/settings.js:487
 msgid "Text Shadow"
 msgstr ""
 
@@ -892,7 +901,7 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:142
 #: src/blocks/advanced-paragraph/settings.js:230
 #: src/blocks/advanced-paragraph/settings.js:335
-#: src/blocks/advanced-paragraph/settings.js:417
+#: src/blocks/advanced-paragraph/settings.js:420
 #: src/blocks/button/settings.js:292
 #: src/blocks/form/settings.js:770
 #: src/blocks/form/settings.js:801
@@ -900,9 +909,9 @@ msgstr ""
 #: src/blocks/form/settings.js:1257
 #: src/blocks/heading/settings.js:372
 #: src/blocks/heading/settings.js:470
-#: src/blocks/heading/settings.js:594
-#: src/blocks/heading/settings.js:849
-#: src/blocks/heading/settings.js:982
+#: src/blocks/heading/settings.js:597
+#: src/blocks/heading/settings.js:852
+#: src/blocks/heading/settings.js:985
 msgid "Typography"
 msgstr ""
 
@@ -919,8 +928,8 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/heading/settings.js:396
-#: src/blocks/heading/settings.js:779
-#: src/blocks/popup-builder/settings.js:2239
+#: src/blocks/heading/settings.js:782
+#: src/blocks/popup-builder/settings.js:2305
 msgid "Vertical Position"
 msgstr ""
 
@@ -946,15 +955,15 @@ msgstr ""
 
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
-#: src/blocks/advanced-paragraph/settings.js:342
-#: src/blocks/heading/settings.js:477
+#: src/blocks/advanced-paragraph/settings.js:344
+#: src/blocks/heading/settings.js:479
 msgid "Text Decoration Color"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
-#: src/blocks/advanced-paragraph/settings.js:377
-#: src/blocks/heading/settings.js:513
+#: src/blocks/advanced-paragraph/settings.js:380
+#: src/blocks/heading/settings.js:516
 msgid "Use background on text"
 msgstr ""
 
@@ -966,50 +975,50 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:926
 #: src/blocks/advanced-paragraph/settings.js:257
 #: src/blocks/advanced-paragraph/settings.js:273
-#: src/blocks/advanced-paragraph/settings.js:384
-#: src/blocks/advanced-paragraph/settings.js:406
-#: src/blocks/advanced-paragraph/settings.js:436
+#: src/blocks/advanced-paragraph/settings.js:387
+#: src/blocks/advanced-paragraph/settings.js:409
+#: src/blocks/advanced-paragraph/settings.js:439
 #: src/blocks/container/settings.js:526
-#: src/blocks/heading/settings.js:523
-#: src/blocks/heading/settings.js:551
-#: src/blocks/heading/settings.js:648
-#: src/blocks/heading/settings.js:661
-#: src/blocks/heading/settings.js:709
-#: src/blocks/popup-builder/settings.js:1931
-#: src/blocks/popup-builder/settings.js:2087
-#: src/blocks/popup-builder/settings.js:2105
-#: src/blocks/popup-builder/settings.js:2306
-#: src/blocks/popup-builder/settings.js:2378
+#: src/blocks/heading/settings.js:526
+#: src/blocks/heading/settings.js:554
+#: src/blocks/heading/settings.js:651
+#: src/blocks/heading/settings.js:664
+#: src/blocks/heading/settings.js:712
+#: src/blocks/popup-builder/settings.js:1992
+#: src/blocks/popup-builder/settings.js:2153
+#: src/blocks/popup-builder/settings.js:2171
+#: src/blocks/popup-builder/settings.js:2372
+#: src/blocks/popup-builder/settings.js:2444
 msgid "Background"
 msgstr ""
 
 #: build/311.js:1
 #: build/blocks/advanced-paragraph/index.js:1
-#: src/blocks/advanced-paragraph/settings.js:399
-#: src/blocks/heading/settings.js:541
-#: src/blocks/heading/settings.js:641
+#: src/blocks/advanced-paragraph/settings.js:402
+#: src/blocks/heading/settings.js:544
+#: src/blocks/heading/settings.js:644
 msgid "Use Text Fill"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:560
+#: src/blocks/heading/settings.js:563
 msgid "Use Stroke"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:567
-#: src/blocks/heading/settings.js:993
+#: src/blocks/heading/settings.js:570
+#: src/blocks/heading/settings.js:996
 msgid "Stroke Width"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:575
-#: src/blocks/heading/settings.js:1001
+#: src/blocks/heading/settings.js:578
+#: src/blocks/heading/settings.js:1004
 msgid "Stroke Color"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:659
+#: src/blocks/heading/settings.js:662
 msgid "Subtitle Border Left"
 msgstr ""
 
@@ -1019,15 +1028,15 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:248
 #: src/blocks/button/settings.js:223
-#: src/blocks/heading/settings.js:668
-#: src/blocks/heading/settings.js:716
-#: src/blocks/heading/settings.js:883
-#: src/blocks/popup-builder/settings.js:1560
+#: src/blocks/heading/settings.js:671
+#: src/blocks/heading/settings.js:719
+#: src/blocks/heading/settings.js:886
+#: src/blocks/popup-builder/settings.js:1621
 msgid "Width"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:707
+#: src/blocks/heading/settings.js:710
 msgid "Subtitle Border Right"
 msgstr ""
 
@@ -1035,24 +1044,24 @@ msgstr ""
 #: build/891.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:345
-#: src/blocks/heading/settings.js:757
-#: src/blocks/heading/settings.js:905
-#: src/blocks/popup-builder/settings.js:1587
+#: src/blocks/heading/settings.js:760
+#: src/blocks/heading/settings.js:908
+#: src/blocks/popup-builder/settings.js:1648
 msgid "Height"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:808
+#: src/blocks/heading/settings.js:811
 msgid "Outline"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:816
+#: src/blocks/heading/settings.js:819
 msgid "Outline Radius"
 msgstr ""
 
 #: build/311.js:1
-#: src/blocks/heading/settings.js:926
+#: src/blocks/heading/settings.js:929
 msgid "Separator color"
 msgstr ""
 
@@ -1060,8 +1069,8 @@ msgstr ""
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/form/settings.js:1021
-#: src/blocks/heading/settings.js:959
-#: src/blocks/popup-builder/settings.js:1686
+#: src/blocks/heading/settings.js:962
+#: src/blocks/popup-builder/settings.js:1747
 msgid "Position"
 msgstr ""
 
@@ -1073,7 +1082,7 @@ msgstr ""
 #: src/blocks/form/settings.js:1157
 #: src/blocks/form/settings.js:1188
 #: src/blocks/form/settings.js:1262
-#: src/blocks/heading/settings.js:987
+#: src/blocks/heading/settings.js:990
 msgid "Text Color"
 msgstr ""
 
@@ -1086,7 +1095,7 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:647
 #: src/blocks/advanced-image/settings.js:803
-#: src/blocks/advanced-paragraph/settings.js:443
+#: src/blocks/advanced-paragraph/settings.js:446
 #: src/blocks/button/settings.js:411
 #: src/blocks/button/settings.js:431
 #: src/blocks/button/settings.js:475
@@ -1099,10 +1108,10 @@ msgstr ""
 #: src/blocks/form/settings.js:1172
 #: src/blocks/form/settings.js:1203
 #: src/blocks/form/settings.js:1272
-#: src/blocks/heading/settings.js:991
-#: src/blocks/popup-builder/settings.js:1946
-#: src/blocks/popup-builder/settings.js:2325
-#: src/blocks/popup-builder/settings.js:2397
+#: src/blocks/heading/settings.js:994
+#: src/blocks/popup-builder/settings.js:2007
+#: src/blocks/popup-builder/settings.js:2391
+#: src/blocks/popup-builder/settings.js:2463
 msgid "Border"
 msgstr ""
 
@@ -1115,7 +1124,7 @@ msgstr ""
 #: build/701.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/container/settings.js:50
-#: src/blocks/popup-builder/settings.js:1553
+#: src/blocks/popup-builder/settings.js:1614
 msgid "Container"
 msgstr ""
 
@@ -1263,7 +1272,7 @@ msgstr ""
 #: src/blocks/container/settings.js:557
 #: src/blocks/container/settings.js:620
 #: src/blocks/container/settings.js:743
-#: src/blocks/popup-builder/settings.js:2059
+#: src/blocks/popup-builder/settings.js:2125
 msgid "Transition Duration"
 msgstr ""
 
@@ -1277,7 +1286,7 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:1021
 #: src/blocks/container/settings.js:579
-#: src/blocks/popup-builder/settings.js:2019
+#: src/blocks/popup-builder/settings.js:2085
 msgid "Show Overlay"
 msgstr ""
 
@@ -1289,8 +1298,8 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:1056
 #: src/blocks/container/settings.js:603
 #: src/blocks/container/settings.js:614
-#: src/blocks/popup-builder/settings.js:2042
-#: src/blocks/popup-builder/settings.js:2053
+#: src/blocks/popup-builder/settings.js:2108
+#: src/blocks/popup-builder/settings.js:2119
 msgid "Overlay"
 msgstr ""
 
@@ -1418,7 +1427,9 @@ msgid "Link"
 msgstr ""
 
 #: build/891.js:1
+#: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:193
+#: src/blocks/popup-builder/options.js:1256
 msgid "Custom URL"
 msgstr ""
 
@@ -1537,81 +1548,86 @@ msgid "Spacing"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:43
+#: src/admin/campaign/index.js:37
+msgid "Type"
+msgstr ""
+
+#: build/admin/dashboard/index.js:1
+#: src/admin/campaign/index.js:41
 msgid "Author"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:44
+#: src/admin/campaign/index.js:42
 #: src/admin/subscribers/index.js:167
 msgid "Date"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:45
+#: src/admin/campaign/index.js:43
 #: src/admin/subscribers/index.js:325
 msgid "Actions"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:403
+#: src/admin/campaign/index.js:332
 msgid "Add New Campaign"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:406
-msgid "Choose Form Templates"
+#: src/admin/campaign/index.js:335
+msgid "Choose From Templates"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:491
+#: src/admin/campaign/index.js:420
 #: src/admin/subscribers/index.js:317
 msgid "Select All"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:521
+#: src/admin/campaign/index.js:451
 #: src/admin/subscribers/index.js:350
 msgid "Select Easter"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:626
+#: src/admin/campaign/index.js:549
 #: src/admin/subscribers/index.js:398
 msgid "Bulk Action:"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:627
+#: src/admin/campaign/index.js:550
 #: src/admin/subscribers/index.js:399
 msgid "Delete"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:630
+#: src/admin/campaign/index.js:553
 #: src/admin/subscribers/index.js:402
 msgid "Page:"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:721
+#: src/admin/campaign/index.js:644
 msgid "Are you sure to delete this Campaign?"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:722
+#: src/admin/campaign/index.js:645
 msgid "Deleting this Campaign will remove all associated data."
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:726
+#: src/admin/campaign/index.js:649
 #: src/admin/integration/index.js:425
 #: src/admin/subscribers/index.js:538
 msgid "Yes, I'm Sure"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/campaign/index.js:729
+#: src/admin/campaign/index.js:652
 #: src/admin/integration/index.js:393
 #: src/admin/integration/index.js:428
 #: src/admin/integration/index.js:517
@@ -1886,6 +1902,157 @@ msgstr ""
 msgid "Changing this integration may impact connected campaigns. Please review and confirm settings after updating."
 msgstr ""
 
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/SignUp.js:40
+msgid "Welcome to"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/SignUp.js:40
+msgid "the world of PopupKit."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/SignUp.js:41
+msgid "Signup to join over 3,20,000+ founders, marketers and developers in learning the best uses of WordPress"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/SignUp.js:47
+msgid "Please enter valid email."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/SignUp.js:48
+msgid "We never spam."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/SignUp.js:48
+msgid "Promise!"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:6
+msgid "AI Content & SEO Tool"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:7
+msgid "Find top keywords, create winning content & track SEO results with AI."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:11
+msgid "Page Builder Blocks"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:12
+msgid "Complete site-building features & templates for Gutenberg Blocks."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:16
+msgid "WooCommerce Builder"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:17
+msgid "The ultimate solution to build a complete WooCommerce site in Gutenberg."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:21
+msgid "Page Builder Elements"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:22
+msgid "Best companion for Elementor with top widgets and templates."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:27
+msgid "Form Builder"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:28
+msgid "Most flexible form builder for Elementor with a wide range of features."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:33
+msgid "Table Builder"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:34
+msgid "Create responsive tables with advanced data in Gutenberg blocks."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:38
+msgid "Review Management"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:39
+msgid "Build credibility for your business with the all-in-one review plugin."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:43
+msgid "Social Integration"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:44
+msgid "WordPress integration with popular social platforms to show social proof."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/PowerUp.js:19
+msgid "Activated"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/PowerUp.js:43
+msgid "Build A Complete WordPress Website"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/PowerUp.js:44
+msgid "A fleet of plugins with all types of features you will need for WordPress."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/Finalize.js:54
+msgid "Setup Configurations"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/Finalize.js:70
+#: src/onboard/pages/Finalize.js:85
+msgid " Activated"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/Finalize.js:95
+msgid "Great! You’re All Set!"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/Finalize.js:98
+msgid "Here’s an overview of everything that is setup."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/pages/Finalize.js:118
+msgid "Go to WP Dashboard"
+msgstr ""
+
 #: build/blocks/advanced-image/index.js:1
 #: src/blocks/advanced-image/edit.js:174
 msgid "Reset"
@@ -1923,7 +2090,7 @@ msgid "Focused Text"
 msgstr ""
 
 #: build/blocks/advanced-paragraph/index.js:1
-#: src/blocks/advanced-paragraph/settings.js:415
+#: src/blocks/advanced-paragraph/settings.js:418
 msgid "Drop Cap"
 msgstr ""
 
@@ -2811,6 +2978,39 @@ msgid "Once Every Few Visits (Pro)"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/options.js:1188
+#: src/blocks/popup-builder/options.js:1228
+msgid "Entire Site"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/options.js:1195
+#: src/blocks/popup-builder/options.js:1235
+msgid "Singular"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/options.js:1202
+#: src/blocks/popup-builder/options.js:1242
+msgid "Archive"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/options.js:1209
+msgid "WooCommerce (Pro)"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/options.js:1217
+msgid "Custom URL (Pro)"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/options.js:1249
+msgid "WooCommerce"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
 #: src/components/geo-location/index.js:102
 msgid "Validate"
 msgstr ""
@@ -2826,723 +3026,753 @@ msgid "Add Group"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:212
+#: src/blocks/popup-builder/settings.js:231
 msgid "Display Options"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:214
+#: src/blocks/popup-builder/settings.js:233
 msgid "Campaign Type"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:217
+#: src/blocks/popup-builder/settings.js:236
 msgid "Popup"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:221
+#: src/blocks/popup-builder/settings.js:240
 msgid "Floating Bar"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:225
+#: src/blocks/popup-builder/settings.js:244
 msgid "Slide-In"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:229
+#: src/blocks/popup-builder/settings.js:248
 msgid "Full Screen"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:233
+#: src/blocks/popup-builder/settings.js:252
 msgid "Inline (Upcoming)"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:250
+#: src/blocks/popup-builder/settings.js:269
 msgid "Open Event"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:253
+#: src/blocks/popup-builder/settings.js:272
 msgid "Assign an event to open the popup."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:267
+#: src/blocks/popup-builder/settings.js:286
 msgid "Open Delay (s)"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:285
+#: src/blocks/popup-builder/settings.js:304
 msgid "User Inactivity Time (s)"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:303
+#: src/blocks/popup-builder/settings.js:322
 msgid "Page Scroll Progress (%)"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:322
+#: src/blocks/popup-builder/settings.js:341
 msgid "Selector Class"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:338
+#: src/blocks/popup-builder/settings.js:357
 msgid "Entrance Animation"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:354
+#: src/blocks/popup-builder/settings.js:373
 msgid "Exit Animation"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:370
+#: src/blocks/popup-builder/settings.js:389
 msgid "Animation Duration (s)"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:388
-#: src/blocks/popup-builder/settings.js:2124
+#: src/blocks/popup-builder/settings.js:407
+#: src/blocks/popup-builder/settings.js:2190
 msgid "Close Button"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:401
-#: src/blocks/popup-builder/settings.js:415
+#: src/blocks/popup-builder/settings.js:420
+#: src/blocks/popup-builder/settings.js:434
 msgid "Close on Clicking outside"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:419
-#: src/blocks/popup-builder/settings.js:1298
+#: src/blocks/popup-builder/settings.js:438
+#: src/blocks/popup-builder/settings.js:1359
 msgid "Enjoy this feature and also more exclusive features with PopupKit Pro."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:444
+#: src/blocks/popup-builder/settings.js:463
 msgid "Prevent Background Scroll"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:460
-#: src/blocks/popup-builder/settings.js:474
+#: src/blocks/popup-builder/settings.js:479
+#: src/blocks/popup-builder/settings.js:493
 msgid "Hide PopupKit Badge"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:478
+#: src/blocks/popup-builder/settings.js:497
 msgid "Hide PopupKit Badge and enjoy more exclusive features with PopupKit Pro."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:488
+#: src/blocks/popup-builder/settings.js:507
 msgid "Display Conditions"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:505
+#: src/blocks/popup-builder/settings.js:524
 msgid "Add Condition"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:514
+#: src/blocks/popup-builder/settings.js:533
 msgid "Include"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:521
+#: src/blocks/popup-builder/settings.js:540
 msgid "Exclude"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:535
-msgid "Entire Site"
-msgstr ""
-
-#: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:542
-msgid "Singular"
-msgstr ""
-
-#: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:549
-msgid "Archive"
-msgstr ""
-
-#: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:556
-msgid "WooCommerce (Pro)"
-msgstr ""
-
-#: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:567
+#: src/blocks/popup-builder/settings.js:565
 msgid "Select Singular"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:579
-#: src/blocks/popup-builder/settings.js:584
+#: src/blocks/popup-builder/settings.js:577
+#: src/blocks/popup-builder/settings.js:582
 msgid "Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:581
+#: src/blocks/popup-builder/settings.js:579
 msgid "Front Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:587
+#: src/blocks/popup-builder/settings.js:585
 msgid "Child Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:590
+#: src/blocks/popup-builder/settings.js:588
 msgid "Page Template"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:593
+#: src/blocks/popup-builder/settings.js:591
 msgid "404 Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:596
-#: src/blocks/popup-builder/settings.js:762
+#: src/blocks/popup-builder/settings.js:594
+#: src/blocks/popup-builder/settings.js:760
 msgid "Post"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:598
+#: src/blocks/popup-builder/settings.js:596
 msgid "Posts"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:601
+#: src/blocks/popup-builder/settings.js:599
 msgid "In Post categories"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:604
+#: src/blocks/popup-builder/settings.js:602
 msgid "In Post tags"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:609
-#: src/blocks/popup-builder/settings.js:632
-#: src/blocks/popup-builder/settings.js:668
-#: src/blocks/popup-builder/settings.js:691
-#: src/blocks/popup-builder/settings.js:715
-#: src/blocks/popup-builder/settings.js:772
-#: src/blocks/popup-builder/settings.js:796
-#: src/blocks/popup-builder/settings.js:907
-#: src/blocks/popup-builder/settings.js:931
-#: src/blocks/popup-builder/settings.js:954
-#: src/blocks/popup-builder/settings.js:977
-#: src/blocks/popup-builder/settings.js:1000
-#: src/blocks/popup-builder/settings.js:1023
-#: src/blocks/popup-builder/settings.js:1046
-#: src/blocks/popup-builder/settings.js:1069
+#: src/blocks/popup-builder/settings.js:607
+#: src/blocks/popup-builder/settings.js:630
+#: src/blocks/popup-builder/settings.js:666
+#: src/blocks/popup-builder/settings.js:689
+#: src/blocks/popup-builder/settings.js:713
+#: src/blocks/popup-builder/settings.js:770
+#: src/blocks/popup-builder/settings.js:794
+#: src/blocks/popup-builder/settings.js:905
+#: src/blocks/popup-builder/settings.js:929
+#: src/blocks/popup-builder/settings.js:952
+#: src/blocks/popup-builder/settings.js:975
+#: src/blocks/popup-builder/settings.js:998
+#: src/blocks/popup-builder/settings.js:1021
+#: src/blocks/popup-builder/settings.js:1044
+#: src/blocks/popup-builder/settings.js:1067
 msgid "All"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:613
+#: src/blocks/popup-builder/settings.js:611
 msgid "Select Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:633
+#: src/blocks/popup-builder/settings.js:631
 msgid "Select Child Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:649
+#: src/blocks/popup-builder/settings.js:647
 msgid "Select Template"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:672
+#: src/blocks/popup-builder/settings.js:670
 msgid "Select Post"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:695
-#: src/blocks/popup-builder/settings.js:800
+#: src/blocks/popup-builder/settings.js:693
+#: src/blocks/popup-builder/settings.js:798
 msgid "Select Category"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:719
-#: src/blocks/popup-builder/settings.js:776
+#: src/blocks/popup-builder/settings.js:717
+#: src/blocks/popup-builder/settings.js:774
 msgid "Select Tag"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:739
+#: src/blocks/popup-builder/settings.js:737
 msgid "Select Archive"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:751
+#: src/blocks/popup-builder/settings.js:749
 msgid "All Archives"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:754
+#: src/blocks/popup-builder/settings.js:752
 msgid "Date Archives"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:757
+#: src/blocks/popup-builder/settings.js:755
 msgid "Author Archives"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:760
-#: src/blocks/popup-builder/settings.js:862
+#: src/blocks/popup-builder/settings.js:758
+#: src/blocks/popup-builder/settings.js:860
 msgid "Search Results"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:764
+#: src/blocks/popup-builder/settings.js:762
 msgid "Post categories"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:767
+#: src/blocks/popup-builder/settings.js:765
 msgid "Post tags"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:820
+#: src/blocks/popup-builder/settings.js:818
 msgid "Select Author"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:840
+#: src/blocks/popup-builder/settings.js:838
 msgid "Select WooCommerce"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:852
+#: src/blocks/popup-builder/settings.js:850
 msgid "Entire Shop"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:852
 #: src/blocks/popup-builder/settings.js:854
-#: src/blocks/popup-builder/settings.js:856
 msgid "Product Archive"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:859
+#: src/blocks/popup-builder/settings.js:857
 msgid "Shop Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:865
+#: src/blocks/popup-builder/settings.js:863
 msgid "Brands"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:868
+#: src/blocks/popup-builder/settings.js:866
 msgid "Product Categories"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:871
+#: src/blocks/popup-builder/settings.js:869
 msgid "Product Tags"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:872
 #: src/blocks/popup-builder/settings.js:874
-#: src/blocks/popup-builder/settings.js:876
 msgid "Products"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:879
+#: src/blocks/popup-builder/settings.js:877
 msgid "In Brands"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:882
+#: src/blocks/popup-builder/settings.js:880
 msgid "In Category"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:885
+#: src/blocks/popup-builder/settings.js:883
 msgid "In Tag"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:888
+#: src/blocks/popup-builder/settings.js:886
 msgid "Cart"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:890
+#: src/blocks/popup-builder/settings.js:888
 msgid "Cart Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:893
+#: src/blocks/popup-builder/settings.js:891
 msgid "Thank You Page"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:896
+#: src/blocks/popup-builder/settings.js:894
 msgid "Products in Cart"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:899
+#: src/blocks/popup-builder/settings.js:897
 msgid "Number of Products in Cart"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:902
+#: src/blocks/popup-builder/settings.js:900
 msgid "Total Cart Price"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:911
-#: src/blocks/popup-builder/settings.js:1073
+#: src/blocks/popup-builder/settings.js:909
+#: src/blocks/popup-builder/settings.js:1071
 msgid "Select Products"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:935
-#: src/blocks/popup-builder/settings.js:958
+#: src/blocks/popup-builder/settings.js:933
+#: src/blocks/popup-builder/settings.js:956
 msgid "Select Brands"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:981
-#: src/blocks/popup-builder/settings.js:1004
+#: src/blocks/popup-builder/settings.js:979
+#: src/blocks/popup-builder/settings.js:1002
 msgid "Select Categories"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1027
-#: src/blocks/popup-builder/settings.js:1050
+#: src/blocks/popup-builder/settings.js:1025
+#: src/blocks/popup-builder/settings.js:1048
 msgid "Select Tags"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1093
-#: src/blocks/popup-builder/settings.js:1146
+#: src/blocks/popup-builder/settings.js:1091
+#: src/blocks/popup-builder/settings.js:1144
 msgid "Select Condition"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1111
-#: src/blocks/popup-builder/settings.js:1164
+#: src/blocks/popup-builder/settings.js:1109
+#: src/blocks/popup-builder/settings.js:1162
 msgid "Less than"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1115
-#: src/blocks/popup-builder/settings.js:1168
+#: src/blocks/popup-builder/settings.js:1113
+#: src/blocks/popup-builder/settings.js:1166
 msgid "Greater than"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1119
-#: src/blocks/popup-builder/settings.js:1172
+#: src/blocks/popup-builder/settings.js:1117
+#: src/blocks/popup-builder/settings.js:1170
 msgid "Equal to"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1123
-#: src/blocks/popup-builder/settings.js:1176
+#: src/blocks/popup-builder/settings.js:1121
+#: src/blocks/popup-builder/settings.js:1174
 msgid "Not equal to"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1129
+#: src/blocks/popup-builder/settings.js:1127
 msgid "Number of Products"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1182
+#: src/blocks/popup-builder/settings.js:1180
 msgid "Cart price"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1202
-msgid "Device Visibility"
+#: src/blocks/popup-builder/settings.js:1198
+msgid "Select URL Condition"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1204
-msgid "Desktop"
+#: src/blocks/popup-builder/settings.js:1212
+msgid "Contains"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1209
-msgid "Tablet"
-msgstr ""
-
-#: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1214
-msgid "Mobile"
+#: src/blocks/popup-builder/settings.js:1216
+msgid "Not Contains"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/popup-builder/settings.js:1220
-msgid "Schedule Date & Time"
+msgid "Starts with"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1223
-#: src/blocks/popup-builder/settings.js:1294
-msgid "Enable Scheduling"
+#: src/blocks/popup-builder/settings.js:1224
+msgid "Ends with"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1228
+msgid "Equal To"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1232
+msgid "Not equal To"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/popup-builder/settings.js:1238
-msgid "Timezone"
+msgid "URL Value"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1259
-msgid "If the site time zone is not set, UTC (Coordinated Universal Time) will be used as the default."
+#: src/blocks/popup-builder/settings.js:1240
+msgid "Enter URL"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/popup-builder/settings.js:1263
+msgid "Device Visibility"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1265
+msgid "Desktop"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1270
+msgid "Tablet"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1275
+msgid "Mobile"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1281
+msgid "Schedule Date & Time"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1284
+#: src/blocks/popup-builder/settings.js:1355
+msgid "Enable Scheduling"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1299
+msgid "Timezone"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1320
+msgid "If the site time zone is not set, UTC (Coordinated Universal Time) will be used as the default."
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:1324
 msgid "Start Date & Time"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1283
+#: src/blocks/popup-builder/settings.js:1344
 msgid "End Date & Time"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1308
+#: src/blocks/popup-builder/settings.js:1369
 msgid "Frequency Settings"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1310
+#: src/blocks/popup-builder/settings.js:1371
 msgid "Display to visitors"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1323
-#: src/blocks/popup-builder/settings.js:1335
+#: src/blocks/popup-builder/settings.js:1384
+#: src/blocks/popup-builder/settings.js:1396
 msgid "Day Count"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1330
+#: src/blocks/popup-builder/settings.js:1391
 msgid "The number of days since a New visitor last accessed your site."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1342
+#: src/blocks/popup-builder/settings.js:1403
 msgid "The number of days since a Returning  visitor last accessed your site."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1348
+#: src/blocks/popup-builder/settings.js:1409
 msgid "Display Frequency"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1362
+#: src/blocks/popup-builder/settings.js:1423
 msgid "Display popup once per 30-minute session (just like Google Analytics definition)."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1367
+#: src/blocks/popup-builder/settings.js:1428
 msgid "Days"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1383
+#: src/blocks/popup-builder/settings.js:1444
 msgid "Visits"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1399
+#: src/blocks/popup-builder/settings.js:1460
 msgid "Don't show to converted visitor"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1408
-#: src/blocks/popup-builder/settings.js:1485
+#: src/blocks/popup-builder/settings.js:1469
+#: src/blocks/popup-builder/settings.js:1546
 msgid "Geolocation Target"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1417
+#: src/blocks/popup-builder/settings.js:1478
 msgid "Condition"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1420
+#: src/blocks/popup-builder/settings.js:1481
 msgid "is"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1424
+#: src/blocks/popup-builder/settings.js:1485
 msgid "is not"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1428
+#: src/blocks/popup-builder/settings.js:1489
 msgid "is in the European Union"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1432
+#: src/blocks/popup-builder/settings.js:1493
 msgid "is not in the European Union"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1440
+#: src/blocks/popup-builder/settings.js:1501
 msgid "location:"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1441
+#: src/blocks/popup-builder/settings.js:1502
 msgid "Once you have entered the location, click the Validate button to verify it."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1442
+#: src/blocks/popup-builder/settings.js:1503
 msgid "Enter location"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1481
+#: src/blocks/popup-builder/settings.js:1542
 msgid "Add Location"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1486
+#: src/blocks/popup-builder/settings.js:1547
 msgid "Add geolocation to target specific area visitors with PopupKit Pro."
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1495
+#: src/blocks/popup-builder/settings.js:1556
 msgid "IP blocking"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1497
+#: src/blocks/popup-builder/settings.js:1558
 msgid "Enable IP Blocking"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1503
+#: src/blocks/popup-builder/settings.js:1564
 msgid "Blocked IP Ranges"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1508
+#: src/blocks/popup-builder/settings.js:1569
 msgid "Add IP Range"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1513
+#: src/blocks/popup-builder/settings.js:1574
 msgid "From:"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1514
-#: src/blocks/popup-builder/settings.js:1520
+#: src/blocks/popup-builder/settings.js:1575
+#: src/blocks/popup-builder/settings.js:1581
 msgid "Enter IP Range"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1519
+#: src/blocks/popup-builder/settings.js:1580
 msgid "To:"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1526
+#: src/blocks/popup-builder/settings.js:1587
 msgid "Blocked Specific IPs"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1532
+#: src/blocks/popup-builder/settings.js:1593
 msgid "Add Specific IPs"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1537
+#: src/blocks/popup-builder/settings.js:1598
 msgid "IP Address:"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1538
+#: src/blocks/popup-builder/settings.js:1599
 msgid "Enter IP Address"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1616
+#: src/blocks/popup-builder/settings.js:1677
 msgid "Custom Height"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1645
+#: src/blocks/popup-builder/settings.js:1706
 msgid "Content Position"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1710
-#: src/blocks/popup-builder/settings.js:1876
+#: src/blocks/popup-builder/settings.js:1771
+#: src/blocks/popup-builder/settings.js:1937
 msgid "Horizontal"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1759
-#: src/blocks/popup-builder/settings.js:1841
+#: src/blocks/popup-builder/settings.js:1820
+#: src/blocks/popup-builder/settings.js:1902
 msgid "Vertical"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:1811
-#: src/blocks/popup-builder/settings.js:2165
+#: src/blocks/popup-builder/settings.js:1872
+#: src/blocks/popup-builder/settings.js:2231
 msgid "Choose Position"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:2017
+#: src/blocks/popup-builder/settings.js:2077
+msgid "Overflow Visible"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/settings.js:2083
 msgid "Container Overlay"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:2080
+#: src/blocks/popup-builder/settings.js:2146
 msgid "Popup Background"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:2130
+#: src/blocks/popup-builder/settings.js:2196
 msgid "Change Icon"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:2168
+#: src/blocks/popup-builder/settings.js:2234
 msgid "Inside"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:2175
+#: src/blocks/popup-builder/settings.js:2241
 msgid "Outside"
 msgstr ""
 
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/popup-builder/settings.js:2216
+#: src/blocks/popup-builder/settings.js:2282
 msgid "Horizontal Position"
 msgstr ""
 

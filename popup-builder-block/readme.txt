@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.6
+Stable tag: 2.0.7
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,13 +14,30 @@ Powerful Popup Builder Block for Gutenberg block editor.
 
 **The Right Audience, The Perfect Timing, The Ideal Engagement**
 
-**PopupKit - Popup builder plugin** by Wpmet can confidently build exceptional popups that boost conversions, make sales, generate leads, display offers, deliver target messages, show videos, capture attention, create surveys, collect feedback, grow social followers, and many more.
+**[PopupKit - Popup builder plugin](https://wpmet.com/plugin/popupkit)** by Wpmet can confidently build exceptional popups that boost conversions, make sales, generate leads, display offers, deliver target messages, show videos, capture attention, create surveys, collect feedback, grow social followers, and many more.
 
 And, you can set up all these popup campaigns without annoying your visitors. This dedicated popup plugin is a powerful solution to craft personalized messages with real-time segmentation. It lets you precisely control **who sees the popup, where it appears, and when it’s triggered**. For an interactive experience, you can choose the revealing effects of popups from the list of versatile animations.
 
 PopupKit - a popup builder plugin that does not limit you to blending your popup design with the brand's theme. Rather, it’s a perfect block for sparking **urgency** and **FOMO** among the audience. It enables you to easily **craft popups with impactful calls to action** and targeted content to generate leads and sales.
 
 Do all this from a blank canvas. Within PopupKit's canvas, you can use any Gutenberg blocks, such as a countdown timer block, dual button block, video block, etc. You can even proceed with no design hassles! **Just select a premade layout and insert it**, then make some simple changes like text and color. That’s it! Your **professionally designed popup campaign** is ready to go live.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mLuCeN8DGSY?si=j2nLp-0fk-ELy5I-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+### 👨‍💻 DOCUMENTATION AND SUPPORT
+
+✅ [Contact Our Support](https://wpmet.com/support-ticket-form/)
+
+🌐 [Join Our Facebook Community](https://www.facebook.com/groups/wpmet/)
+
+🟢 [Check Documentation](https://wpmet.com/doc/)
+
+💹 [Browse Changelogs](https://wpmet.com/plugin/popup-builder-block/roadmaps/#updates)
+
+### 💝 Love PopupKit?
+
+🧲 Stay Updated with our [Youtube Channel](https://www.youtube.com/c/Wpmet/videos)
 
 ## Ultimate Design Freedom and + Smart Targeting & Display Conditions
 
@@ -34,7 +51,11 @@ Beyond classic popups, PopupKit offers ready-made recipes for:
 
 **🔸 Video Popups:** Easily insert a video link or upload a video file.
 
-**🔸 Lightbox Popups:** 
+**🔸 Exit Intent Popup:** Show the popup just before your visitors try to exit to display offers at the right moment.
+
+**🔸 Lead Generation Popup:** Collect emails and leads with opt-in popups in a single click.
+
+**🔸 Lightbox Popups:** Show lightbox popup to the users that look natural and doesn't interrupt the user experience. 
 
 **🔸 Gamified Popups:** Create gamification or discount wheel to capture more leads.
 
@@ -80,7 +101,16 @@ Whether you choose to create your popup from scratch or use a pre-made template,
 ### 🧲 Get Visitors Hooked with Impressive Animation
 Since we don't want to impose an interruption with a popup, then it needs to be interactive. PopupKit ships with an array of eye-catching animations like **fading, zooming, bouncing, sliding, rotating**, etc.
 
+### 🎮 Gamification Popup
+
+Turn user engagement into conversions with interactive gamified popups. PopupKit includes built-in gamification blocks like **Spin-to-Win, Try Your Luck**, and more. These popups not only grab attention but also encourage users to participate and win discounts or gifts. You can customize the prizes, winning chances, and design with mouse clicks and all without any coding. Perfect for growing your email list and sales in a fun, rewarding way.
+
 Such animated revealing and closing effects encourage visitors to Interact with the popup even more.
+
+### 🛒 WooCommerce Exit Intent Popup
+
+Recover lost sales before they happen. PopupKit’s WooCommerce Exit Intent Popup detects when a visitor is about to leave and instantly shows targeted offers, cart reminders, or coupon codes. Customize it to trigger based on cart value, product category, or user behavior. It’s the smart way to reduce cart abandonment and turn browsers into buyers right at the edge of exit.
+
 
 ### 🛠️Easy Drag-and-drop Editor Popup Builder
 Want to create a popup campaign from scratch? PopupKit welcomes you with a builder interface you are already familiar with. You can easily drag and drop an element into the editor area. And, all campaign settings like triggers, animations, display rules, frequency, and geolocation targeting are neatly placed in the right sidebar.
@@ -141,20 +171,6 @@ Let’s explore the types of popup campaigns you can create with one of the best
 🧿 **Backed By a Trusted Team**
 
 PopupKit is brought to you by Wpmet, a name trusted by 10,00,000+ satisfied users worldwide.
-
-### 👨‍💻 DOCUMENTATION AND SUPPORT
-
-✅ [Contact Our Support](https://wpmet.com/support-ticket-form/)
-
-🌐 [Join Our Facebook Community](https://www.facebook.com/groups/wpmet/)
-
-🟢 [Check Documentation](https://wpmet.com/doc/)
-
-💹 [Browse Changelogs](https://wpmet.com/plugin/popup-builder-block/roadmaps/#updates)
-
-### 💝 Love PopupKit?
-
-🧲 Stay Updated with our [Youtube Channel](https://www.youtube.com/c/Wpmet/videos)
 
 ⭐️ Rate us on [WordPress](https://wordpress.org/support/plugin/popup-builder-block/reviews/#new-post)
 
@@ -221,6 +237,18 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 == Screenshots ==
 
 == Changelog ==
+
+= PopupKit: 2.0.7 (2025-07-22) =
+* Added: Campaign type in the table of campaign page
+* Added: Helper center link in dashboard header
+* Added: Non block theme css compatibility
+* Improved: Form loader animation
+* Fixed: Advanced paragraph block focused text decoration color is not working 
+* Fixed: Heading block focused text decoration color is not working 
+* Fixed: Popup builder block's container content position is not working
+* Fixed: Container block background hover color is not showing on editor 
+* Fixed: Overflow issue on the main container
+* Tweaked: Campaign table alignment
 
 = PopupKit: 2.0.6 (2025-07-15) =
 * Fixed: Subscribers data not showing when campaigns are inactive

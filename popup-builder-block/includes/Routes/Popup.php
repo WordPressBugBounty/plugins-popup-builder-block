@@ -81,6 +81,7 @@ class Popup extends Api {
 
 			if ( !$is_subscribers ) {
 				$campaign['meta'] = array(
+					'type'             => get_post_meta( $post->ID, 'campaignType', true ),
 					'status'             => get_post_meta( $post->ID, 'status', true ) == '1', // Explicitly cast to boolean
 					'scheduleDateTime'   => get_post_meta( $post->ID, 'scheduleDateTime', true ) == '1', // Explicitly cast to boolean
 					'scheduleOnDateValue'=> get_post_meta( $post->ID, 'scheduleOnDateValue', true ),
