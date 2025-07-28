@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "title": "Advanced Image",
   "category": "popup-builder-block",
+  "icon": "format-image",
   "keywords": [
     "image",
     "image schema",

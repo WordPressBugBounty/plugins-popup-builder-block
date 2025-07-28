@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "title": "Heading",
   "category": "popup-builder-block",
+  "icon": "heading",
   "keywords": [
     "popupkit",
     "heading",

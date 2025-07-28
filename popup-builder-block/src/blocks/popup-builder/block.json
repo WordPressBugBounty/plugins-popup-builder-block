@@ -5,6 +5,7 @@
 	"version": "1.0.0",
 	"title": "Popup Builder",
 	"category": "gutenkit",
+	"icon": "button",
 	"keywords": [
 		"gkit",
 		"gutenkit",

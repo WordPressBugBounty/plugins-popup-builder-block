@@ -2,12 +2,12 @@
 
 /**
  * Plugin Name: PopupKit
- * Description: Powerful Poup Builder block for Gutenberg block editor.
+ * Description: Powerful popup builder with ready templates and easy customization.
  * Requires at least: 6.1
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.0.7
+ * Version: 2.0.8
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.0.7';
+	const VERSION = '2.0.8';
 
 	/**
 	 * \PopupKit class constructor.

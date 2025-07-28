@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "title": "Popup Builder",
   "category": "popup-builder-block",
+  "icon": "align-full-width",
   "keywords": [
     "popup",
     "popup builder",

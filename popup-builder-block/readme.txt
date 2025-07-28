@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.7
+Stable tag: 2.0.8
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -22,7 +22,7 @@ PopupKit - a popup builder plugin that does not limit you to blending your popup
 
 Do all this from a blank canvas. Within PopupKit's canvas, you can use any Gutenberg blocks, such as a countdown timer block, dual button block, video block, etc. You can even proceed with no design hassles! **Just select a premade layout and insert it**, then make some simple changes like text and color. That’s it! Your **professionally designed popup campaign** is ready to go live.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mLuCeN8DGSY?si=j2nLp-0fk-ELy5I-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=mLuCeN8DGSY
 
 
 ### 👨‍💻 DOCUMENTATION AND SUPPORT
@@ -238,17 +238,24 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 == Changelog ==
 
+= PopupKit: 2.0.8 (2025-07-28) =
+* Added: A loading indicator on delete buttons in Campaign and Subscriber pages to enhance user feedback
+* Fixed: Form block input field font size not changing
+* Improved: Truncated long titles of templates with ellipsis for cleaner UI
+* Improved: Decoded HTML entities in campaign titles for better readability
+* Improved: Editor UI
+
 = PopupKit: 2.0.7 (2025-07-22) =
 * Added: Campaign type in the table of campaign page
 * Added: Helper center link in dashboard header
 * Added: Non block theme css compatibility
-* Improved: Form loader animation
 * Fixed: Advanced paragraph block focused text decoration color is not working 
 * Fixed: Heading block focused text decoration color is not working 
 * Fixed: Popup builder block's container content position is not working
 * Fixed: Container block background hover color is not showing on editor 
 * Fixed: Overflow issue on the main container
 * Tweaked: Campaign table alignment
+* Improved: Form loader animation
 
 = PopupKit: 2.0.6 (2025-07-15) =
 * Fixed: Subscribers data not showing when campaigns are inactive
@@ -257,27 +264,27 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 = PopupKit: 2.0.5 (2025-07-13) =
 * Added: Campaing page in admin menu
-* Improved: User editor experience
-* Improved: Admin UI/UX
 * Fixed: Countdown timer not showing in template preview
 * Fixed: Slide-in popup responsice css not working
 * Fixed: Form can be inserted multiple times in the editor
 * Fixed: Select control disable option not working properly
+* Improved: User editor experience
+* Improved: Admin UI/UX
 
 = PopupKit: 2.0.4 (2025-06-22) =
 * Added: Delay time for close popup after submitting form
-* Improved: Dashboard content
 * Added: Searchable select box for campaign in analytics page
-* Tweaked: Menu icon, brand logo & credit logo
 * Added: Block identifier icon
+* Tweaked: Menu icon, brand logo & credit logo
+* Improved: Dashboard content
 
 = PopupKit: 2.0.3 (2025-06-15) =
-* Fixed: Open url click event of button not working
-* Fixed: Settings button position in url control
 * Added: Margin & padding controls in heading block
 * Added: Default values for views, conversion & conversion rate on analytics page
-* Fixed: Console error on analytics and subscribers pages when no data is found
 * Added: Margin & padding controls in form block
+* Fixed: Console error on analytics and subscribers pages when no data is found
+* Fixed: Open url click event of button not working
+* Fixed: Settings button position in url control
 
 = PopupKit: 2.0.2 (2025-06-03) =
 * Tweaked: Sorting subscribers list from latest to old
@@ -311,27 +318,27 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 * Added: Templates admin page
 * Added: Searching & filtering in templates page
 * Added: 180+ new templates in templates page
-* Tweaked: Moved schedule date and time in separate panel boly
-* Added: Display frequency settings
-* Tweaked: Renamed content panel of popup builder block's to display options
-* Added: Campaign types in display options
-* Added: Help text for open event in display options
-* Removed: Overlay switcher from display options
-* Tweaked: Renamed prevent background interaction to prevent background scroll
-* Added: Popupkit credit badge
-* Improved: Gutenberg editor experience
 * Added: Campaign status button in top toolbar
 * Added: Campaign details button in top toolbar
 * Added: Campaign settings button in top toolbar
-* Tweaked: Renamed conditions panel of popup builder block's to display conditions
-* Tweaked: Unlocked all previous conditions for free users
+* Added: Display frequency settings
+* Added: Campaign types in display options
+* Added: Help text for open event in display options
+* Added: Popupkit credit badge
 * Added: WooCommerce options in display conditions for pro users
 * Added: Help text for display conditions
 * Added: IP blocking feature
 * Added: Collecting visitor's information feature
 * Added: Styling options for different campaign types
 * Added: Container overlay styles
+* Tweaked: Moved schedule date and time in separate panel boly
+* Tweaked: Renamed content panel of popup builder block's to display options
+* Tweaked: Renamed prevent background interaction to prevent background scroll
+* Tweaked: Renamed conditions panel of popup builder block's to display conditions
+* Tweaked: Unlocked all previous conditions for free users
+* Removed: Overlay switcher from display options
 * Removed: GutenKit plugin dependency
+* Improved: Gutenberg editor experience
 
 = PopupKit: 1.0.5 (2024-11-12) =
 * Added: Prevent Background Interaction
