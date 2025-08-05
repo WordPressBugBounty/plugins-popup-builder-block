@@ -76,6 +76,11 @@ class Subscribers extends Api {
 			$subscriber_data['hubspot'] = $data['hubspot'];
 		}
 
+		// Include pabbly data in the subscriber data before applying the filter
+		if (isset($data['pabbly'])) {
+			$subscriber_data['pabbly'] = $data['pabbly'];
+		}
+
 		// Apply integration filter
 		do_action('pbb_form_integration_submit', $subscriber_data);
 

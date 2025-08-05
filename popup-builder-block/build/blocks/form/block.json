@@ -179,6 +179,9 @@
     "zapierAccount": {
       "type": "object"
     },
+    "pabblyAccount": {
+      "type": "object"
+    },
     "mailchimpDoubleOptin": {
       "type": "boolean",
       "default": false

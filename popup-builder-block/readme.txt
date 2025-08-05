@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.8
+Stable tag: 2.0.9
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -237,6 +237,11 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 == Screenshots ==
 
 == Changelog ==
+
+= PopupKit: 2.0.9 (2025-08-04) =
+* Fixed: Admin menu is not clickable after form submitting in templates
+* Fixed: Campaign status button by default show inactive
+* Improved: Dashboard responsiveness
 
 = PopupKit: 2.0.8 (2025-07-28) =
 * Added: A loading indicator on delete buttons in Campaign and Subscriber pages to enhance user feedback

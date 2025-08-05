@@ -59,6 +59,10 @@
     "alignWideScreen": {
       "type": "string"
     },
+    "cookies": {
+      "type": "array",
+      "default": []
+    },
     "widthDesktop": {
       "type": "object"
     },

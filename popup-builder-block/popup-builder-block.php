@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.0.8
+ * Version: 2.0.9
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.0.8';
+	const VERSION = '2.0.9';
 
 	/**
 	 * \PopupKit class constructor.
@@ -54,6 +54,9 @@ final class PopupBuilderBlock {
 
 		// Add popup link to the plugin action links
 		add_filter('plugin_action_links', array( $this, 'add_popup_link'), 10, 2 );
+		
+		// Hook into the plugin_row_meta filter
+		add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
 
 		// Load the scoped vendor autoload file
 		require_once POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/vendor/scoper-autoload.php';
@@ -88,17 +91,55 @@ final class PopupBuilderBlock {
 	 * @return array An array of plugin action links.
 	 * @since 1.0.0
 	 */
-	public function add_popup_link($plugin_actions, $plugin_file) {
-		$new_actions = array();
+	public function add_popup_link( $plugin_actions, $plugin_file ) {
 		$plugin_slug = 'popup-builder-block';
 		$plugin_name = "{$plugin_slug}/{$plugin_slug}.php";
 
-		if ( $plugin_name === $plugin_file ) {
+		if ( $plugin_file === $plugin_name ) {
+			// Add "Build Popup" link at the beginning
 			$menu_link = 'admin.php?page=popupkit#campaigns';
-			$new_actions['met_settings'] = sprintf('<a href="%s">%s</a>', esc_url( $menu_link ), esc_html__('Build Popup', 'popup-builder-block'));
+			$settings_link = sprintf(
+				'<a href="%s">%s</a>',
+				esc_url( $menu_link ),
+				esc_html__( 'Build Popup', 'popup-builder-block' )
+			);
+
+			array_unshift( $plugin_actions, $settings_link );
+			// Add "Get PopupKit Pro" link at the end
+			if ( ! class_exists( 'PopupBuilderBlockPro' ) ) {
+				$popup_kit_pro_link = sprintf(
+					'<a href="%1$s" target="_blank" style="font-weight: 700; color: #b32d2e;">%2$s</a>',
+					'https://wpmet.com/plugin/popupkit/pricing/',
+					esc_html__( 'Get PopupKit Pro', 'popup-builder-block' )
+				);
+
+				$plugin_actions['get_popupkit_pro'] = $popup_kit_pro_link;
+			}
 		}
+
+		return $plugin_actions;
+	}
+
+	/**
+	 * Plugin row meta.
+	 *
+	 * Adds row meta links to the plugin list table
+	 *
+	 * Fired by `plugin_row_meta` filter.
+	 *
+	 * @since 2.0.2
+	 */
+	public function plugin_row_meta( $plugin_meta, $plugin_file ) {
+		if ( plugin_basename( __FILE__ ) === $plugin_file ) {
+			$row_meta = [
+				'docs' => '<a href="https://wpmet.com/doc/popupkit/" aria-label="' . esc_attr( esc_html__( 'View PopupKit Documentation', 'popup-builder-block' ) ) . '" target="_blank">' . esc_html__( 'Docs & FAQs', 'popup-builder-block' ) . '</a>',
+				'video' => '<a href="https://tinyurl.com/35pc4dcc" aria-label="' . esc_attr( esc_html__( 'View PopupKit Video Tutorials', 'popup-builder-block' ) ) . '" target="_blank">' . esc_html__( 'Video Tutorials', 'popup-builder-block' ) . '</a>',
+			];
 	
-		return array_merge( $new_actions, $plugin_actions );
+			$plugin_meta = array_merge( $plugin_meta, $row_meta );
+		}
+		
+		return $plugin_meta;
 	}
 
 	/**
