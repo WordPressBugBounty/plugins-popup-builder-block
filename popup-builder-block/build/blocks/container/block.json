@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "title": "Container",
   "category": "popup-builder-block",
-  "description": "Container block for gutenberg.",
+  "description": "Organize layouts using flexible containers.",
   "icon": "layout",
   "example": {
     "preview": true

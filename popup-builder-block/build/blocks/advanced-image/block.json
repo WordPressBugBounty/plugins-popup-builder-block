@@ -15,7 +15,7 @@
     "popup-builder-block",
     "media"
   ],
-  "description": "Advanced Image block for gutenberg.",
+  "description": "Insert images into popups in one click.",
   "example": {
     "preview": true
   },

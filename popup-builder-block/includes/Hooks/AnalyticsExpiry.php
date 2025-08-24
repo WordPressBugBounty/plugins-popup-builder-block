@@ -13,7 +13,7 @@ class AnalyticsExpiry {
 
 	public function schedule_event() {
 		if ( ! wp_next_scheduled( 'pbb_daily_event' ) ) {
-			wp_schedule_event( time(), 'daily', 'pbb_daily_event' );
+			wp_schedule_event( time(), 'weekly', 'pbb_daily_event' );
 		}
 	}
 

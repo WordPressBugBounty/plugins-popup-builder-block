@@ -12,7 +12,7 @@
     "title",
     "text"
   ],
-  "description": "Heading block for gutenberg.",
+  "description": "Add bold, attention-grabbing headlines.",
   "example": {
     "preview": true
   },

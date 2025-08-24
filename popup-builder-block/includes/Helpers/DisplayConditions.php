@@ -58,10 +58,10 @@ class DisplayConditions {
 		$display_conditions = $post_meta['displayConditions'] ?? array();
 
 		if ( ! empty( $display_conditions ) ) {
-			foreach ( $display_conditions as $cond ) {
+			$final_conditions = [];
+			foreach ( $display_conditions as $index => $cond ) {
 				extract( $cond );
 				$match = false;
-				$flag  = 0;
 
 				if ( $pageType === 'entire-site' && $current_post_type != $post_type ) {
 					$match = true;
@@ -123,14 +123,13 @@ class DisplayConditions {
 				
 
 				if ( $condition === 'include' && $match ) {
-					$flag = 1;
+					array_push( $final_conditions, 'matched' );
 				} elseif ( $condition === 'exclude' && $match ) {
-					$flag = 0;
-					break;
+					array_push( $final_conditions, 'excluded' );
 				}
 			}
 
-			if ( $flag === 1 ) {
+			if ( in_array( 'matched', $final_conditions ) && ! in_array( 'excluded', $final_conditions ) ) {
 				self::$is_popup_opened = true;
 			}
 		}

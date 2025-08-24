@@ -57,4 +57,8 @@ class PopupConditions {
 	public function scheduling() {
 		return apply_filters( 'pbb/scheduling', true, $this->post_meta );
 	}
+
+	public function cookie_targeting() {
+		return apply_filters( 'pbb/cookie/targeting', true, $this->post_meta );
+	}
 }

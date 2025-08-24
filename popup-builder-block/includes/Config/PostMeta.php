@@ -86,6 +86,7 @@ class PostMeta {
 						'singular-post-cat'      => array(),
 						'singular-post-tag'      => array(),
 						'custom-url'             => 'contains',
+						'woocommerce'            => 'all',
 					),
 				),
 			),

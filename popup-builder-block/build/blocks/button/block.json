@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "title": "Button",
   "category": "popup-builder-block",
+  "icon": "button",
   "keywords": [
     "button",
     "call",
@@ -12,7 +13,7 @@
     "popupkit",
     "popup-builder-block"
   ],
-  "description": "Button block for gutenberg.",
+  "description": "Pre-built button blocks for instant use.",
   "example": {
     "preview": true
   },

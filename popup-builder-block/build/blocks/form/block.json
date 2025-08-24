@@ -13,7 +13,7 @@
     "popup-builder-block",
     "submit"
   ],
-  "description": "popup-builder-block Form block.",
+  "description": "Quickly build forms with a drag-and-drop block.",
   "example": {
     "preview": true
   },

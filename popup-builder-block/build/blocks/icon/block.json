@@ -12,7 +12,7 @@
     "icon",
     "box"
   ],
-  "description": "Icon block for gutenberg.",
+  "description": "Add ready-to-use icons to your popup.",
   "example": {
     "preview": true
   },

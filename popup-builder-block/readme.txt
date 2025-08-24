@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.0.9
+Stable tag: 2.1.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -237,6 +237,13 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 == Screenshots ==
 
 == Changelog ==
+
+= PopupKit: 2.1.0 (2025-08-19) =
+* Fixed: Conversion rate not showing percentage value
+* Fixed: Display conditions works only for last condition when added multiple conditions
+* Fixed: Popup schedule icon is showing after disable scheduling
+* Improved: Faster template loading for better performance
+* Improved: Block descriptions
 
 = PopupKit: 2.0.9 (2025-08-04) =
 * Fixed: Admin menu is not clickable after form submitting in templates

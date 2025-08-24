@@ -14,7 +14,7 @@
     "popup gutenberg",
     "modal"
   ],
-  "description": "Popup block for Popup Builder Block.",
+  "description": "Easily create popups with this builder block.",
   "example": {
     "attributes": {
       "preview": true

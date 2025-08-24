@@ -24,5 +24,6 @@ class Init {
 		new SettingsData();
 		new ProcessDownload();
 		new Onboard();
+		new Templates();
 	}
 }
