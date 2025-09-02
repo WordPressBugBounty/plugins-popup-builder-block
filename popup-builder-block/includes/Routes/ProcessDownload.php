@@ -46,12 +46,13 @@ class ProcessDownload extends Api {
 
 		// Get raw content from the request
 		$rawContent = $request->get_param( 'rawContent' );
+		$unfilteredUpload = $request->get_param( 'unfilteredUpload' );
 		if ( empty( $rawContent ) ) {
 			return new \WP_Error( 'invalid_content', 'No content provided', array( 'status' => 400 ) );
 		}
 
 		// Process the content and replace image URLs
-		$result = $this->process_download( $rawContent );
+		$result = $this->process_download( $rawContent, $unfilteredUpload );
 		if ( is_wp_error( $result ) ) {
 			return $result;
 		}
@@ -70,13 +71,14 @@ class ProcessDownload extends Api {
 	 * @param string $rawContent The raw HTML content containing <img> tags.
 	 * @return string|\WP_Error The updated HTML content with new image URLs or a WP_Error object on failure.
 	 */
-	private function process_download( $rawContent ) {
+	private function process_download( $rawContent, $unfilteredUpload ) {
 		$doc = new \DOMDocument();
 		libxml_use_internal_errors( true );
 		$doc->loadHTML( $rawContent, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
 		libxml_clear_errors();
 		$imgTags        = $doc->getElementsByTagName( 'img' );
 		$updatedContent = $rawContent;
+		$is_svg_upload_enabled = false;
 
 		foreach ( $imgTags as $img ) {
 			$src = $img->getAttribute( 'src' );
@@ -84,6 +86,14 @@ class ProcessDownload extends Api {
 			// Validate the image URL and extension
 			if ( ! $this->is_valid_image( $src ) ) {
 				return new \WP_Error( 'invalid_image', "Unsupported image type: $src" );
+			}
+
+			if ( ! $unfilteredUpload && $this->is_svg( $src ) && ! $is_svg_upload_enabled ) {
+				add_filter( 'upload_mimes', function( $mimes ) {
+					$mimes['svg'] = 'image/svg+xml';
+					return $mimes;
+				} );
+				$is_svg_upload_enabled = true;
 			}
 
 			// Check if the image already exists in the media library
@@ -103,6 +113,14 @@ class ProcessDownload extends Api {
 			$updatedContent = str_replace( $src, $upload_result, $updatedContent );
 		}
 
+		if ( $is_svg_upload_enabled ) {
+			// disable SVG uploads
+			remove_filter( 'upload_mimes', function( $mimes ) {
+				unset( $mimes['svg'] );
+				return $mimes;
+			} );
+		}
+
 		// Process background images
 		$updatedContent = $this->process_background_images( $updatedContent );
 
@@ -118,10 +136,24 @@ class ProcessDownload extends Api {
 	 * @return bool Returns true if the image URL has a valid extension, false otherwise.
 	 */
 	private function is_valid_image( $src ) {
-		$allowed_extensions = array( 'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg' );
+		$allowed_extensions = array( 'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'avif' );
 		$path_info          = pathinfo( parse_url( $src, PHP_URL_PATH ) );
 		$ext                = strtolower( $path_info['extension'] ?? '' );
 		return in_array( $ext, $allowed_extensions );
+	}
+
+	/**
+	 * Checks if the provided image URL is an SVG.
+	 *
+	 * This method checks the extension of the image URL to determine if it is an SVG.
+	 *
+	 * @param string $src The URL of the image to check.
+	 * @return bool Returns true if the image URL is an SVG, false otherwise.
+	 */
+	private function is_svg( $src ) {
+		$path_info = pathinfo( parse_url( $src, PHP_URL_PATH ) );
+		$ext       = strtolower( $path_info['extension'] ?? '' );
+		return 'svg' === $ext;
 	}
 
 	/**

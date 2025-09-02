@@ -118,6 +118,10 @@ class GeoLocation {
 
 		$data = unserialize( $response );
 
+		if (!is_array($data)) {
+			$data = []; // Set defaults or handle error
+		}
+
 		// set the geoPlugin vars
 		$this->ip                     = $ip;
 		$this->city                   = $data['geoplugin_city'];

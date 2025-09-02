@@ -182,6 +182,9 @@
     "pabblyAccount": {
       "type": "object"
     },
+    "aweberAccount": {
+      "type": "object"
+    },
     "mailchimpDoubleOptin": {
       "type": "boolean",
       "default": false

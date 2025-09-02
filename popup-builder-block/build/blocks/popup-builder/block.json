@@ -85,6 +85,10 @@
       "type": "array",
       "default": []
     },
+    "adblockDetection": {
+      "type": "boolean",
+      "default": false
+    },
     "preventScroll": {
       "type": "boolean",
       "default": false

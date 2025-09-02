@@ -69,8 +69,17 @@ class PopupGenerator {
 			$geolocation_targeting = $popup_conditions->geolocation_targeting();
 			$is_scheduled          = $popup_conditions->scheduling();
 			$cookie_targeting      = $popup_conditions->cookie_targeting();
+			$adblock_detection      = $popup_conditions->adblock_detection();
 			
-			if (! $display_conditions || ! $freequency_settings || $ip_blocking || ! $geolocation_targeting || ! $is_scheduled || ! $cookie_targeting) {
+			if (
+				! $display_conditions || 
+				! $freequency_settings || 
+				$ip_blocking || 
+				! $geolocation_targeting || 
+				! $is_scheduled || 
+				! $cookie_targeting ||
+				! $adblock_detection
+			) {
 				continue; // If any of the conditions are not met, skip to the next post.
 			}
 

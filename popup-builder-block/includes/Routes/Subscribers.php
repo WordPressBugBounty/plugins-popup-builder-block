@@ -51,34 +51,22 @@ class Subscribers extends Api {
 			]);
 		}
 
-		// Include Mailchimp data in the subscriber data before applying the filter
-		if (isset($data['mailchimp'])) {
-			$subscriber_data['mailchimp'] = $data['mailchimp'];
-		}
-		
-		// Include fluentCRM data in the subscriber data before applying the filter
-		if (isset($data['fluentCRM'])) {
-			$subscriber_data['fluentCRM'] = $data['fluentCRM'];
-		}
+		// Define available integrations
+		$integrations = [
+			'mailchimp',
+			'fluentCRM',
+			'activeCampaign',
+			'zapier',
+			'hubspot',
+			'pabbly',
+			'aweber',
+		];
 
-		// Include activeCampaign data in the subscriber data before applying the filter
-		if (isset($data['activeCampaign'])) {
-			$subscriber_data['activeCampaign'] = $data['activeCampaign'];
-		}
-
-		// Include zapier data in the subscriber data before applying the filter
-		if (isset($data['zapier'])) {
-			$subscriber_data['zapier'] = $data['zapier'];
-		}
-
-		// Include hubspot data in the subscriber data before applying the filter
-		if (isset($data['hubspot'])) {
-			$subscriber_data['hubspot'] = $data['hubspot'];
-		}
-
-		// Include pabbly data in the subscriber data before applying the filter
-		if (isset($data['pabbly'])) {
-			$subscriber_data['pabbly'] = $data['pabbly'];
+		// Loop through integrations and add to subscriber data if present
+		foreach ( $integrations as $integration ) {
+			if ( isset($data[$integration]) ) {
+				$subscriber_data[$integration] = $data[$integration];
+			}
 		}
 
 		// Apply integration filter

@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -237,6 +237,13 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 == Screenshots ==
 
 == Changelog ==
+
+= PopupKit: 2.1.1 (2025-09-02) =
+* Added: More information in campaign details
+* Fixed: Certain control values gets reset when clicking the status button
+* Fixed: Campaign type display on the Campaign page when importing templates
+* Fixed: Certain templates are not importing
+* Tweaked: Integration documentation link
 
 = PopupKit: 2.1.0 (2025-08-19) =
 * Fixed: Conversion rate not showing percentage value

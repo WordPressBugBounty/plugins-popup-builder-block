@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.1.0
+ * Version: 2.1.1
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.1.0';
+	const VERSION = '2.1.1';
 
 	/**
 	 * \PopupKit class constructor.
@@ -64,8 +64,9 @@ final class PopupBuilderBlock {
 		// Plugin actions
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
+		//TODO: Will play next time with textdomain
 		// Load the plugin text domain
-		add_action( 'init', array( $this, 'load_textdomain' ) );
+		// add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	/**

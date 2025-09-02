@@ -61,4 +61,8 @@ class PopupConditions {
 	public function cookie_targeting() {
 		return apply_filters( 'pbb/cookie/targeting', true, $this->post_meta );
 	}
+
+	public function adblock_detection() {
+		return apply_filters( 'pbb/adblock/detection', true, $this->post_meta );
+	}
 }
