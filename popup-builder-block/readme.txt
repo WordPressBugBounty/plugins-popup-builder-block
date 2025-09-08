@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -237,6 +237,9 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 == Screenshots ==
 
 == Changelog ==
+
+= PopupKit: 2.1.2 (2025-09-04) =
+* Improved: Visitor location tracking
 
 = PopupKit: 2.1.1 (2025-09-02) =
 * Added: More information in campaign details

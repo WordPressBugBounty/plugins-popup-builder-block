@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.1.1
+ * Version: 2.1.2
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.1.1';
+	const VERSION = '2.1.2';
 
 	/**
 	 * \PopupKit class constructor.
@@ -63,10 +63,6 @@ final class PopupBuilderBlock {
 
 		// Plugin actions
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
-
-		//TODO: Will play next time with textdomain
-		// Load the plugin text domain
-		// add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
@@ -207,23 +203,6 @@ final class PopupBuilderBlock {
 		new PopupBuilderBlock\Hooks\Init();
 		new PopupBuilderBlock\Routes\Init();
 		new PopupBuilderBlock\Libs\Init();
-	}
-
-	/**
-	 * Loads the plugin text domain for the Poup Builder Block.
-	 *
-	 * This function is responsible for loading the translation files for the plugin.
-	 * It sets the text domain to 'popup-builder-block' and specifies the directory
-	 * where the translation files are located.
-	 *
-	 * @param string $domain   The text domain for the plugin.
-	 * @param bool   $network  Whether the plugin is network activated.
-	 * @param string $directory The directory where the translation files are located.
-	 * @return bool True on success, false on failure.
-	 * @since 1.0.0
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain('popup-builder-block', false, POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'languages/');
 	}
 }
 

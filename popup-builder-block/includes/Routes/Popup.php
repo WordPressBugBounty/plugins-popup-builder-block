@@ -182,17 +182,15 @@ class Popup extends Api {
 
 	public function insert_logs( $request ) {
 		$campaign_id = $request['postId'];
-
-		$geoplugin = new GeoLocation();
-		$location = ! empty( $geoplugin->city ) ? $geoplugin->city . ', ' . $geoplugin->countryCode : '';
+		$location = GeoLocation::get_location();
+		$country = $location->country ?? '';
 		$browser = UserAgent::get_browser() ?? '';
 		$device = UserAgent::get_device();
-	
 
 		$user_details = array(
 			'browser' => $browser,
 			'device'  => $device,
-			'country' => $location,
+			'country' => $country,
 		);
 
 
@@ -200,13 +198,14 @@ class Popup extends Api {
 		$log_id = DataBase::insertOrUpdateLog($campaign_id, $current_date, $device);
 
 		if(!empty($browser)) DataBase::insertOrUpdateBrowser($log_id, $browser);
-		if(!empty($location)) DataBase::insertOrUpdateCountry($log_id, $geoplugin->countryCode);
+		if(!empty($country)) DataBase::insertOrUpdateCountry($log_id, $country);
 
 		return array(
 			'status'  => 'success',
 			'data'    => array(
 				'logId' => $log_id,
 				'userDetails'	=> $user_details,
+				'location' => $location
 			),
 			'message' => 'Logs inserted successfully',
 		);

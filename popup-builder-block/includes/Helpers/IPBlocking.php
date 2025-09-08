@@ -15,7 +15,7 @@ class IPBlocking{
             return self::$is_ip_blocked = false;
         }
         // Get the visitor's IP address
-        $visitor_ip = $this->get_visitor_ip();
+        $visitor_ip = self::get_visitor_ip();
         $ip_settings = $post_meta['ipBlocking'];
        
         if (
@@ -32,7 +32,7 @@ class IPBlocking{
      *
      * @return string The visitor's IP address.
      */
-    public function get_visitor_ip(){
+    public static function get_visitor_ip(){
         if ( ! empty( $_SERVER['HTTP_CLIENT_IP'] ) ) {
             $client_ip = sanitize_text_field( wp_unslash( $_SERVER['HTTP_CLIENT_IP'] ) );
             return $client_ip;
