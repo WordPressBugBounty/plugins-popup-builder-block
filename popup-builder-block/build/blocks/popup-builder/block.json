@@ -109,6 +109,10 @@
       "type": "number",
       "default": 3
     },
+    "clickCount": {
+      "type": "number",
+      "default": 3
+    },
     "timeZone": {
       "type": "string",
       "default": "siteTimeZone"

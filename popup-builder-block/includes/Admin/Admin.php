@@ -73,8 +73,8 @@ class Admin {
 
 		add_submenu_page(
 			$this->menu_slug,
-			esc_html__( 'Integrations', 'popup-builder-block-pro' ),
-			esc_html__( 'Integrations', 'popup-builder-block-pro' ),
+			esc_html__( 'Integrations', 'popup-builder-block' ),
+			esc_html__( 'Integrations', 'popup-builder-block' ),
 			'manage_options',
 			$this->menu_link_part . '#integrations'
 		);
@@ -119,28 +119,6 @@ class Admin {
 
 		// // Check if we are on the edit or add new screen for our custom post type
 		if ( in_array( $screen->post_type, Utils::post_type() ) && strpos( $hook, 'popupkit_page' ) === false ) {
-
-			$assets = include POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'build/admin/campaign/index.asset.php';
-
-			if ( isset( $assets['version'] ) ) {
-				// Enqueue the stylesheet
-				wp_enqueue_style(
-					'popup-builder-block-admin',
-					POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/campaign/style-index.css',
-					array(),
-					$assets['version']
-				);
-
-				// Enqueue the JavaScript
-				wp_enqueue_script(
-					'popup-builder-block-admin',
-					POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/campaign/index.js',
-					$assets['dependencies'],
-					$assets['version'],
-					true
-				);
-			}
-
 			wp_localize_script(
 				'wp-block-editor',
 				'popupBuilderBlock',
@@ -192,6 +170,8 @@ class Admin {
 					wp_enqueue_style(
 						'popupkit-google-fonts',
 						'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap',
+						array(),
+						$onboard_assets['version']
 					);
 				}
 			} else {
@@ -225,13 +205,15 @@ class Admin {
 							'pro_version' => defined('POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION') ? POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION : '1.0.0',
 						)
 					);
-				}
 
-				// Google Heebo Font
-				wp_enqueue_style(
-					'popupkit-google-fonts',
-					'https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap',
-				);
+					// Google Heebo Font
+					wp_enqueue_style(
+						'popupkit-google-fonts',
+						'https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap',
+						array(),
+						$dashboard_assets['version']
+					);
+				}
 			}
 		}
 	}

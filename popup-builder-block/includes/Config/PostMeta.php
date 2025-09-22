@@ -87,6 +87,7 @@ class PostMeta {
 						'singular-post-tag'      => array(),
 						'custom-url'             => 'contains',
 						'woocommerce'            => 'all',
+						'edd'                    => 'all',
 					),
 				),
 			),
@@ -199,6 +200,24 @@ class PostMeta {
 				'single'       => true,
 				'show_in_rest' => true,
 				'default'      => 'siteTimeZone',
+			),
+			'closeCampaign' => array(
+				'type'         => 'boolean',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => false,
+			),
+			'certainViews' => array(
+				'type'         => 'boolean',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => false,
+			),
+			'certainViewsCount' => array(
+				'type'         => 'number',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => 3,
 			),
 		);
 

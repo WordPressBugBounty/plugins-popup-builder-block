@@ -25,6 +25,6 @@ class AnalyticsExpiry {
 			return;
 		}
 
-		\PopupBuilderBlock\Helpers\DataBase::deleteExpiredData( $expiry );
+		\PopupBuilderBlock\Helpers\DataBase::deleteExpiredData( array( 'expire_time' => $expiry ) );
 	}
 }

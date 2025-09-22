@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.1.2
+ * Version: 2.1.3
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.1.2';
+	const VERSION = '2.1.3';
 
 	/**
 	 * \PopupKit class constructor.
@@ -54,7 +54,7 @@ final class PopupBuilderBlock {
 
 		// Add popup link to the plugin action links
 		add_filter('plugin_action_links', array( $this, 'add_popup_link'), 10, 2 );
-		
+
 		// Hook into the plugin_row_meta filter
 		add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
 
@@ -132,10 +132,10 @@ final class PopupBuilderBlock {
 				'docs' => '<a href="https://wpmet.com/doc/popupkit/" aria-label="' . esc_attr( esc_html__( 'View PopupKit Documentation', 'popup-builder-block' ) ) . '" target="_blank">' . esc_html__( 'Docs & FAQs', 'popup-builder-block' ) . '</a>',
 				'video' => '<a href="https://tinyurl.com/35pc4dcc" aria-label="' . esc_attr( esc_html__( 'View PopupKit Video Tutorials', 'popup-builder-block' ) ) . '" target="_blank">' . esc_html__( 'Video Tutorials', 'popup-builder-block' ) . '</a>',
 			];
-	
+
 			$plugin_meta = array_merge( $plugin_meta, $row_meta );
 		}
-		
+
 		return $plugin_meta;
 	}
 
@@ -147,7 +147,7 @@ final class PopupBuilderBlock {
 	 */
 	public function activated_plugin() {
 		\PopupBuilderBlock\Helpers\DataBase::createDB();
-		
+
 		flush_rewrite_rules();
 	}
 
@@ -160,7 +160,7 @@ final class PopupBuilderBlock {
 	public function deactivated_plugin() {
 		$timestamp = wp_next_scheduled('pbb_daily_event');
     	if($timestamp) wp_unschedule_event($timestamp, 'pbb_daily_event');
-		
+
 		flush_rewrite_rules();
 	}
 
@@ -181,17 +181,6 @@ final class PopupBuilderBlock {
 		do_action( 'pbb/before_init' );
 
 		/**
-		 * Loads the plugin text domain for the Poup Builder Block.
-		 *
-		 * @param string $domain   The text domain for the plugin.
-		 * @param bool   $network  Whether the plugin is network activated.
-		 * @param string $directory The directory where the translation files are located.
-		 * @return bool True on success, false on failure.
-		 * @since 1.0.0
-		 */
-		load_plugin_textdomain('popup-builder-block', false, POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'languages/');
-
-		/**
 		 * Initializes the Popup Builder Block admin functionality.
 		 *
 		 * This function creates an instance of the PopupBuilderBlock\Admin\Admin class and initializes the admin functionality for the Popup Builder Block plugin.
@@ -210,6 +199,6 @@ final class PopupBuilderBlock {
  * Kickoff the plugin
  *
  * @since 1.0.0
- * 
+ *
  */
 new PopupBuilderBlock();

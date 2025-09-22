@@ -459,7 +459,7 @@ class DataBase {
 		return $wpdb->query( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 	}
 
-	public static function deleteExpiredData($time) {
+	public static function deleteExpiredData($data) {
 		global $wpdb;
 		
 		$data_tables = array(
@@ -468,33 +468,64 @@ class DataBase {
 			self::$LOG_REFERRERS,
 			self::$LOGS_TABLE, // Delete from main logs table
 		);
-	
-		$date_limit = date('Y-m-d', strtotime("-$time years"));
-	
-		// Step 1: Get old log IDs
-		$logs_table = $wpdb->prefix . self::$LOGS_TABLE;
-		$old_log_ids = $wpdb->get_col(
-			$wpdb->prepare(
-				"SELECT id FROM $logs_table WHERE date < %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-				$date_limit
-			)
-		);
-	
-		if (empty($old_log_ids)) {
-			return; // No old logs to delete
+		$expire_time = $data['expire_time'] ?? '';
+		$start_date = $data['start_date'] ?? '';
+		$end_date = $data['end_date'] ?? '';
+
+		if( !empty($expire_time) ) {
+			$date_limit = gmdate('Y-m-d', strtotime("-{$expire_time} years"));
+
+			// Step 1: Get old log IDs
+			$logs_table = $wpdb->prefix . self::$LOGS_TABLE;
+			$old_log_ids = $wpdb->get_col(
+				$wpdb->prepare(
+					"SELECT id FROM $logs_table WHERE date < %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					$date_limit
+				)
+			);
+		
+			if (empty($old_log_ids)) {
+				return []; // No old logs to delete
+			}
+
+			return self::delete_logs($wpdb, $data_tables, $old_log_ids);
 		}
-	
-		$placeholders = implode(',', array_fill(0, count($old_log_ids), '%d'));
+
+		if( !empty($start_date) && !empty($end_date) ) {
+			// Step 1: Get log IDs in the given date range
+			$logs_table = $wpdb->prefix . self::$LOGS_TABLE;
+			$range_log_ids = $wpdb->get_col(
+				$wpdb->prepare(
+					"SELECT id FROM $logs_table WHERE date BETWEEN %s AND %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					$start_date,
+					$end_date
+				)
+			);
+
+			if (empty($range_log_ids)) {
+				return []; // No logs in this range
+			}
+
+			return self::delete_logs($wpdb, $data_tables, $range_log_ids);
+		}
+	}
+
+	private static function delete_logs($wpdb, $data_tables, $log_ids) {
+		$deleted_logs = array();
+		$placeholders = implode(',', array_fill(0, count($log_ids), '%d'));
 
 		foreach ($data_tables as $table) {
 			$table_name = $wpdb->prefix . $table;
-	
-			$wpdb->query(
+			// Use `id` for the main logs table, `log_id` for others
+			$column = ($table === self::$LOGS_TABLE) ? 'id' : 'log_id';
+
+			$deleted_logs[] = $wpdb->query(
 				$wpdb->prepare(
-					"DELETE FROM $table_name WHERE log_id IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-					...$old_log_ids // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+					"DELETE FROM $table_name WHERE $column IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					...$log_ids // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 				)
 			);
 		}
-	}	
+		return $deleted_logs;
+	}
 }

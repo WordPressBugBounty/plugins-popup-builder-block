@@ -23,30 +23,31 @@ class Enqueue {
 	 * Loads scripts and styles for the block editor.
 	 */
 	public function load_editor_assets(): void {
-		if ( ! in_array( get_post_type(), Utils::post_type() ) ) {
-			return;
+		if ( in_array( get_post_type(), Utils::post_type() ) ) {
+			$this->enqueue_scripts(
+				array(
+					'components' => 'popup/components.js',
+					'helpers'    => 'popup/helpers.js',
+					'global'     => 'popup/global.js',
+				)
+			);
 		}
-
-		$this->enqueue_scripts(
-			array(
-				'components' => 'popup/components.js',
-				'helpers'    => 'popup/helpers.js',
-				'global'     => 'popup/global.js',
-			)
-		);
-
-		$this->enqueue_styles(
-			array(
-				'components' => 'popup/components.css',
-				'global'     => 'popup/global.css',
-			)
-		);
 	}
 
 	/**
 	 * Loads frontend styles for blocks.
 	 */
 	public function load_frontend_assets(): void {
+		// Enqueue styles for gutenberg editor
+		if ( in_array( get_post_type(), Utils::post_type() ) && is_admin() ) {
+			$this->enqueue_styles(
+				array(
+					'components' => 'popup/components.css',
+					'global'     => 'popup/global.css',
+				)
+			);
+		}
+		
 		$this->enqueue_styles(
 			array(
 				'global' => 'popup/global.css',
@@ -106,6 +107,8 @@ class Enqueue {
 				);
 			}
 		}
+
+		
 	}
 
 	/**

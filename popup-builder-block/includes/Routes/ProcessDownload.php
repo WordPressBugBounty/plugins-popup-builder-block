@@ -137,7 +137,7 @@ class ProcessDownload extends Api {
 	 */
 	private function is_valid_image( $src ) {
 		$allowed_extensions = array( 'jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'avif' );
-		$path_info          = pathinfo( parse_url( $src, PHP_URL_PATH ) );
+		$path_info          = pathinfo( wp_parse_url( $src, PHP_URL_PATH ) );
 		$ext                = strtolower( $path_info['extension'] ?? '' );
 		return in_array( $ext, $allowed_extensions );
 	}
@@ -151,7 +151,7 @@ class ProcessDownload extends Api {
 	 * @return bool Returns true if the image URL is an SVG, false otherwise.
 	 */
 	private function is_svg( $src ) {
-		$path_info = pathinfo( parse_url( $src, PHP_URL_PATH ) );
+		$path_info = pathinfo( wp_parse_url( $src, PHP_URL_PATH ) );
 		$ext       = strtolower( $path_info['extension'] ?? '' );
 		return 'svg' === $ext;
 	}
@@ -187,7 +187,7 @@ class ProcessDownload extends Api {
 		}
 
 		$image_data        = wp_remote_retrieve_body( $response );
-		$path_info         = pathinfo( parse_url( $src, PHP_URL_PATH ) );
+		$path_info         = pathinfo( wp_parse_url( $src, PHP_URL_PATH ) );
 		$original_filename = $path_info['basename'] ?? '';
 
 		// Generate a unique filename and upload the image
@@ -243,15 +243,18 @@ class ProcessDownload extends Api {
 	 */
 	private function get_attachment_by_url( $url ) {
 		global $wpdb;
-		$path     = parse_url( $url, PHP_URL_PATH );
+		$path     = wp_parse_url( $url, PHP_URL_PATH );
 		$filename = basename( $path );
+		$pathinfo = pathinfo($filename);
+		$post_name = $pathinfo['filename'] . '-' . $pathinfo['extension'];
 
-		// Query the media library to check if the image URL or filename already exists
 		$attachment_id = $wpdb->get_var(
 			$wpdb->prepare(
-				"SELECT ID FROM $wpdb->posts WHERE guid LIKE %s OR post_title LIKE %s AND post_type = 'attachment'",
-				'%' . $wpdb->esc_like( $url ) . '%',
-				'%' . $wpdb->esc_like( $filename ) . '%'
+				"SELECT ID FROM $wpdb->posts 
+				WHERE post_name = %s 
+				AND post_type = 'attachment' 
+				LIMIT 1",
+				$post_name,
 			)
 		);
 

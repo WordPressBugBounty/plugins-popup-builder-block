@@ -26,7 +26,6 @@ class FontFamilyGenerator{
 
         add_action( 'admin_enqueue_scripts', array($this, 'load_editor_assets'));
         add_action( 'wp_pbb_gathering_fonts', array($this, 'on_save_post'), 10, 3); 
-        
     }
 
     /**

@@ -45,8 +45,15 @@ class FrequencySettings {
 		$displayFrequency         = $post_meta['displayFrequency'] ?? 'once-a-day';
 		$displayVisitor           = $post_meta['displayVisitor'] ?? 'everyone';
 		$displayVisitorConvertion = $post_meta['displayVisitorConvertion'] ?? 0;
+		$closeCampaign			  = $post_meta['closeCampaign'] ?? false;
+		$certainViews             = $post_meta['certainViews'] ?? false;
+		$certainViewsCount        = $post_meta['certainViewsCount'] ?? 3;
 
-		if ( $displayVisitorConvertion && $this->getCookie( "pbb_conversion_{$popup_id}" ) == 'true' ) {
+		if ( 
+			($displayVisitorConvertion && $this->getCookie( "pbb_conversion_{$popup_id}" ) == 'true')
+			|| ($closeCampaign && $this->getCookie( "pbb_closed_{$popup_id}" ) == 'true')
+			|| ($certainViews && intval( $this->getCookie( "pbb_viewed_{$popup_id}_count" ) ) >= intval( $certainViewsCount ))
+		) {
 			return false;
 		}
 

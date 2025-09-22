@@ -26,9 +26,6 @@ class Init {
 		new AnalyticsExpiry();
 		new FontFamilyGenerator();
 		new ThirdPartyCompatibility();
-
-		// TODO: will be removed in the future
-		new DataMigration();
 	}
 }
  

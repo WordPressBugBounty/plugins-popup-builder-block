@@ -3,7 +3,6 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="robots" content="noindex, nofollow">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

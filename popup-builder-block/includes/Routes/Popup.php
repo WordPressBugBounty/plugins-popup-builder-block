@@ -35,6 +35,12 @@ class Popup extends Api {
             ],
             [
                 'endpoint'            => '/popup/logs',
+                'methods'             => 'DELETE',
+                'callback'            => 'delete_logs',
+                'permission_callback' => '__return_true',
+            ],
+            [
+                'endpoint'            => '/popup/logs',
                 'methods'             => 'PUT',
                 'callback'            => 'update_logs',
                 'permission_callback' => '__return_true',
@@ -194,7 +200,7 @@ class Popup extends Api {
 		);
 
 
-		$current_date = date( 'Y-m-d' );
+		$current_date = gmdate( 'Y-m-d' );
 		$log_id = DataBase::insertOrUpdateLog($campaign_id, $current_date, $device);
 
 		if(!empty($browser)) DataBase::insertOrUpdateBrowser($log_id, $browser);
@@ -252,6 +258,33 @@ class Popup extends Api {
 			'status'  => 'success',
 			'data'    => $updated,
 			'message' => 'Logs updated successfully',
+		);
+	}
+
+	public function delete_logs( $request ) {
+		$start_date = $request['startDate'] ?? '';
+		$end_date   = $request['endDate'] ?? '';
+
+		if ( empty( $start_date ) || empty( $end_date ) ) {
+			return array(
+				'status'  => 'error',
+				'message' => 'Invalid date range',
+			);
+		}
+
+		$deleted = DataBase::deleteExpiredData( array( 'start_date' => $start_date, 'end_date' => $end_date ) );
+
+		if ( empty( $deleted ) ) {
+			return array(
+				'status'  => 'error',
+				'message' => 'No data found to delete',
+			);
+		}
+
+		return array(
+			'status'  => 'success',
+			'data'    => $deleted,
+			'message' => 'Data deleted successfully!',
 		);
 	}
 }
