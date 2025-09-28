@@ -14,13 +14,11 @@ class SettingsData extends Api {
 				'endpoint'            => '/settings',
 				'methods'             => \WP_REST_Server::READABLE,
 				'callback'            => 'action_get_settings',
-				'permission_callback' => '__return_true',
 			],
 			[
 				'endpoint'            => '/settings',
 				'methods'             => \WP_REST_Server::EDITABLE,
 				'callback'            => 'action_edit_settings',
-				'permission_callback' => '__return_true',
 			],
 		];
 	}

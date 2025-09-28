@@ -14,7 +14,7 @@ class Subscribers extends Api {
                 'endpoint'            => '/subscribers',
                 'methods'             => 'POST',
                 'callback'            => 'increase_subscribers',
-				'permission_callback' => '__return_true',
+				'permission_callback' => [$this, 'permission_callback'],
             ],
             [
                 'endpoint'            => '/subscribers',
@@ -28,6 +28,11 @@ class Subscribers extends Api {
             ]
         ];
     }
+
+	public function permission_callback(): bool {
+		// check for nonce
+		return isset( $_SERVER['HTTP_X_WP_NONCE'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' );
+	}
 
 	public function increase_subscribers( $param ) {
 		// Decode request body

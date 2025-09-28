@@ -31,22 +31,26 @@ class Popup extends Api {
                 'endpoint'            => '/popup/logs',
                 'methods'             => 'POST',
                 'callback'            => 'insert_logs',
-                'permission_callback' => '__return_true',
+                'permission_callback' => [$this, 'permission_callback'],
             ],
             [
                 'endpoint'            => '/popup/logs',
                 'methods'             => 'DELETE',
                 'callback'            => 'delete_logs',
-                'permission_callback' => '__return_true',
             ],
             [
                 'endpoint'            => '/popup/logs',
                 'methods'             => 'PUT',
                 'callback'            => 'update_logs',
-                'permission_callback' => '__return_true',
+                'permission_callback' => [$this, 'permission_callback'],
             ],
         ];
     }
+
+	public function permission_callback(): bool {
+		// check for nonce
+		return isset( $_SERVER['HTTP_X_WP_NONCE'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' );
+	}
 
 	public function get_campaigns($request) {
 		$params = $request->get_params();
@@ -227,7 +231,7 @@ class Popup extends Api {
 			);
 		}
 
-		$id   = $request['id'];
+		$id   = absint( $request['id'] );
 
 		$logs = DataBase::getDB( "*", 'pbb_logs', 'id = ' . $id );
 

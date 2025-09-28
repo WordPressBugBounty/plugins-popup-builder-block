@@ -9,19 +9,23 @@ class FetchDemo extends Api {
 	protected function get_routes(): array {
         return [
             [
-                'endpoint'            => '/live-preview',
-                'methods'             => 'POST',
+                'endpoint'            => '/live-preview-template',
+                'methods'             => 'GET',
                 'callback'            => 'fetch_external_content',
-				'permission_callback' => '__return_true',
 			],
 			[
 				'endpoint'            => '/live-preview',
 				'methods'             => 'GET',
 				'callback'            => 'get_popup_preview',
-				'permission_callback' => '__return_true',
+				'permission_callback' => [$this, 'permission_callback'],
 			]
         ];
     }
+
+	public function permission_callback(): bool {
+		// check for nonce
+		return isset( $_SERVER['HTTP_X_WP_NONCE'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' );
+	}
 
 	public function fetch_external_content( \WP_REST_Request $request ) {
 		$url = $request->get_param( 'url' );

@@ -16,13 +16,11 @@ class Onboard extends Api {
 				'endpoint'            => '/onboard',
 				'methods'             => "GET",
 				'callback'            => 'get_onboard',
-				'permission_callback' => '__return_true'
 			],
 			[
 				'endpoint'            => '/onboard',
 				'methods'             => "POST",
 				'callback'            => 'post_onboard',
-				'permission_callback' => '__return_true'
 			],
 		];
 	}

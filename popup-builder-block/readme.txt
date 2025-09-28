@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.1.3
+Stable tag: 2.1.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -238,16 +238,19 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 == Changelog ==
 
+= PopupKit: 2.1.4 (2025-09-28) =
+* Fixed: Text shadow not working
+* Improved: Database security
+
 = PopupKit: 2.1.3 (2025-09-21) =
 * Added: More display frequency options for not showing popup
 * Added: Click count opening event
 * Added: Custom process for deleting analytics data.
 * Fixed: Certain templates background image not importing
 * Fixed: Multistep templates are not working in preview
-* Fixed: Editor css loading warning
 * Improved: Templates page UI/UX
 
-= PopupKit: 2.1.2 (2025-09-04) =
+= PopupKit: 2.1.2 (2025-09-08) =
 * Improved: Visitor location tracking
 
 = PopupKit: 2.1.1 (2025-09-02) =
