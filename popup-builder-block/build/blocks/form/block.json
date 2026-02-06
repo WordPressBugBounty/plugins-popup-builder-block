@@ -173,6 +173,9 @@
     "activeCampaignAccount": {
       "type": "object"
     },
+    "activeCampaignList": {
+      "type": "object"
+    },
     "hubspotAccount": {
       "type": "object"
     },
@@ -185,6 +188,27 @@
     "aweberAccount": {
       "type": "object"
     },
+    "zohoAccount": {
+      "type": "object"
+    },
+    "mailerliteAccount": {
+      "type": "object"
+    },
+    "convertKitAccount": {
+      "type": "object"
+    },
+    "convertKitList": {
+      "type": "object"
+    },
+    "webhookAccount": {
+      "type": "object"
+    },
+    "getResponseAccount": {
+      "type": "object"
+    },
+    "getResponseList": {
+      "type": "object"
+    },
     "mailchimpDoubleOptin": {
       "type": "boolean",
       "default": false
@@ -192,13 +216,34 @@
     "mailchimpList": {
       "type": "object"
     },
-    "activeCampaignList": {
-      "type": "object"
-    },
     "hubspotList": {
       "type": "object"
     },
     "zapierList": {
+      "type": "object"
+    },
+    "brevoAccount": {
+      "type": "object"
+    },
+    "brevoList": {
+      "type": "object"
+    },
+    "mailpoetAccount": {
+      "type": "object"
+    },
+    "mailpoetList": {
+      "type": "object"
+    },
+    "klaviyoAccount": {
+      "type": "object"
+    },
+    "dripAccount": {
+      "type": "object"
+    },
+    "slackAccount": {
+      "type": "object"
+    },
+    "klaviyoList": {
       "type": "object"
     },
     "columnsGapDesktop": {
@@ -261,6 +306,9 @@
       "type": "string"
     },
     "fieldColor": {
+      "type": "string"
+    },
+    "fieldTypeColor": {
       "type": "string"
     },
     "fieldColorHover": {
@@ -406,6 +454,31 @@
       "type": "object"
     },
     "labelSpacingMobile": {
+      "type": "object"
+    },
+    "iconSpaceBetweenDesktop": {
+      "type": "object",
+      "default": {
+        "unit": "px",
+        "size": 5
+      }
+    },
+    "iconSpaceBetweenWideScreen": {
+      "type": "object"
+    },
+    "iconSpaceBetweenLaptop": {
+      "type": "object"
+    },
+    "iconSpaceBetweenTabletLandscape": {
+      "type": "object"
+    },
+    "iconSpaceBetweenTablet": {
+      "type": "object"
+    },
+    "iconSpaceBetweenMobileLandscape": {
+      "type": "object"
+    },
+    "iconSpaceBetweenMobile": {
       "type": "object"
     },
     "labelColor": {

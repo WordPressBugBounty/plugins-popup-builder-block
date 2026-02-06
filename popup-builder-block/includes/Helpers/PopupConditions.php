@@ -33,6 +33,9 @@ class PopupConditions {
 		return $clean_meta;
 	}
 
+	public function get_post_meta() {
+		return $this->post_meta;
+	}
 
 	public function display_conditions() {
 		$display_conditions = new DisplayConditions( $this->post_meta, $this->current_post_id, $this->post_type, $this->popup_id );
@@ -51,18 +54,31 @@ class PopupConditions {
 	}
 
 	public function geolocation_targeting() {
-		return apply_filters( 'pbb/geolocation/targeting', true, $this->post_meta );
+		return apply_filters( 'popup_builder_block/geolocation/targeting', true, $this->post_meta );
 	}
 
 	public function scheduling() {
-		return apply_filters( 'pbb/scheduling', true, $this->post_meta );
+		return apply_filters( 'popup_builder_block/scheduling', true, $this->post_meta );
 	}
 
 	public function cookie_targeting() {
-		return apply_filters( 'pbb/cookie/targeting', true, $this->post_meta );
+		return apply_filters( 'popup_builder_block/cookie/targeting', true, $this->post_meta );
 	}
 
 	public function adblock_detection() {
-		return apply_filters( 'pbb/adblock/detection', true, $this->post_meta );
+		return apply_filters( 'popup_builder_block/adblock/detection', true, $this->post_meta );
+	}
+
+	public function abtest_active( array &$abtest_posts ) {
+		$is_abtest_active = apply_filters( 'popup_builder_block/abtest/active', false, $this->post_meta );
+
+		if($is_abtest_active) {
+			if(!isset($abtest_posts[$this->post_meta['abTest']])) {
+				$abtest_posts[$this->post_meta['abTest']] = [];
+			}
+			$abtest_posts[$this->post_meta['abTest']][] = $this->popup_id;
+		}
+
+		return $is_abtest_active;
 	}
 }

@@ -35,7 +35,7 @@ class Preview {
 
 		// Specify the path to the custom template file in your plugin
 		$custom_template = apply_filters(
-			'popup-builder-block/template_path',
+			'popup_builder_block/template_path',
 			POPUP_BUILDER_BLOCK_INC_DIR . 'Templates/SinglePopup.php'
 		);
 

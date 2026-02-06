@@ -16,21 +16,6 @@ class UtilityPackages {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-		// To prevent the "doing_it_wrong" notice from being displayed
-		// when the "_load_textdomain_just_in_time" function is called.
-		add_filter(
-			'doing_it_wrong_trigger_error',
-			function ( $doing_it_wrong, $function_name ) {
-				if ( '_load_textdomain_just_in_time' === $function_name ) {
-					return false;
-				}
-
-				return $doing_it_wrong;
-			},
-			10,
-			2
-		);
-
 		$this->show_our_plugins();
 
 		/**

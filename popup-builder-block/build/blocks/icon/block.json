@@ -211,6 +211,5 @@
   },
   "textdomain": "popup-builder-block",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"
 }

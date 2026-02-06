@@ -17,11 +17,10 @@ class Cpt {
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'assign_capabilities' ) );
 		add_action( 'init', array( $this, 'popup_builder_cpt' ) );
+		add_filter( 'allowed_block_types_all', array( $this, 'allowed_blocks' ), 10, 2 );
 
-		// For Adding Views Column in Popup Builder Block
-		add_filter( 'manage_popupkit-campaigns_posts_columns', array( $this, 'add_campaign_custom_column' ) );
-		add_action( 'manage_popupkit-campaigns_posts_custom_column', array( $this, 'set_campaign_custom_column_value' ), 10, 2 );
-		add_action( 'rest_api_init', array( $this, 'register_author_name_rest_field' ) );
+		// Force block editor for our CPT even with Classic Editor active
+		add_filter( 'use_block_editor_for_post_type', array( $this, 'force_block_editor_for_popup_cpt' ), 999, 2 );
 	}
 
 	/**
@@ -84,6 +83,41 @@ class Cpt {
 	}
 
 	/**
+	 * Filters the allowed blocks in the block editor for the 'popupkit-campaigns' post type.
+	 *
+	 * @param array          $allowed_blocks   List of allowed block names.
+	 * @param WP_Editor_Context $editor_context The current editor context.
+	 * @return array Filtered list of allowed block names.
+	 */
+	public function allowed_blocks( $allowed_blocks, $editor_context ) {
+		if ( empty( $editor_context->post ) ) {
+			return $allowed_blocks;
+		}
+
+		if ( $editor_context->post->post_type !== 'popupkit-campaigns' ) {
+			return $allowed_blocks;
+		}
+
+		// Ensure $allowed_blocks is an array
+		if ( ! is_array( $allowed_blocks ) ) {
+			$allowed_blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
+			$allowed_blocks = array_keys( $allowed_blocks ); // Convert to list of block names
+		}
+
+		$filtered = [];
+		foreach ( $allowed_blocks as $block ) {
+			if (
+				strpos( $block, 'core/' ) === 0 ||
+				strpos( $block, 'popup-builder-block/' ) === 0
+			) {
+				$filtered[] = $block;
+			}
+		}
+
+		return $filtered;
+	}
+
+	/**
 	 * Assigns popup capabilities to the administrator role.
 	 *
 	 * This function adds specific capabilities to the administrator role, allowing them to perform
@@ -105,106 +139,21 @@ class Cpt {
 			$role->add_cap( 'read_popup' );
 		}
 	}
-	/**
-	 * Adds custom columns to the campaign post type in the admin list table.
-	 *
-	 * This function modifies the columns displayed in the admin list table for the campaign post type.
-	 * It adds custom columns for Status, Views, Conversion, and Conversion Rate, while retaining the
-	 * default columns for Checkbox, Title, Author, and Date.
-	 *
-	 * @param array $columns An array of existing columns.
-	 * @return array $new_columns An array of modified columns with custom columns added.
-	 */
-	public function add_campaign_custom_column( $columns ) {
-		$new_columns                    = array();
-		$new_columns['cb']              = $columns['cb'];
-		$new_columns['title']           = $columns['title'];
-		$new_columns['status']          = esc_html__( 'Status', 'popup-builder-block' );
-		$new_columns['views']           = esc_html__( 'Views', 'popup-builder-block' );
-		$new_columns['conversion']      = esc_html__( 'Conversion', 'popup-builder-block' );
-		$new_columns['conversion_rate'] = esc_html__( 'Conversion Rate', 'popup-builder-block' );
-
-		// Append the remaining default columns
-		if ( isset( $columns['author'] ) ) {
-			$new_columns['author'] = $columns['author'];
-		}
-		if ( isset( $columns['date'] ) ) {
-			$new_columns['date'] = $columns['date'];
-		}
-
-		return $new_columns;
-	}
 
 	/**
-	 * Populate the custom columns with post meta values.
+	 * Forces the block editor to be used for the popup campaign post type.
 	 *
-	 * @param string $column  The name of the column to display.
-	 * @param int    $post_id The ID of the current post.
+	 * This function ensures that the block editor (Gutenberg) is always used for the
+	 * 'popupkit-campaigns' post type, even when the Classic Editor plugin is active.
 	 *
-	 * @return void
+	 * @param bool   $use_block_editor Whether to use the block editor.
+	 * @param string $post_type        The post type being checked.
+	 * @return bool True if this is our CPT, otherwise the original value.
 	 */
-	public function set_campaign_custom_column_value( $column, $post_id ) {
-		if ( $column === 'views' ) {
-			$views = DataBase::getDB( 'campaign_id, SUM(views) AS total_views', 'pbb_logs', "campaign_id = $post_id GROUP BY campaign_id;" );
-			echo esc_attr( empty($views) ? 0 : $views[0]->{'total_views'} );
+	public function force_block_editor_for_popup_cpt( $use_block_editor, $post_type ) {
+		if ( 'popupkit-campaigns' === $post_type ) {
+			return true;
 		}
-
-		if ( $column === 'status' ) {
-			$status = get_post_meta( $post_id, 'status', true );
-
-			if ( get_post_status( $post_id ) !== 'publish' ) {
-				$status = esc_html__( 'Popup not published', 'popup-builder-block' );
-			} else {
-				$is_checked = $status ? 'checked' : '';
-				$status     =
-				"<div class='pbb-toggle-button'>
-					<input id='pbb-toggle-{$post_id}' type='checkbox' {$is_checked} class='pbb-toggle-checkbox' data-popup-id={$post_id}>
-					<label for='pbb-toggle-{$post_id}' aria-label='Switch to enable or disable popup'></label>
-				</div>";
-			}
-
-			echo $status; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
-
-		if ( $column === 'conversion' ) {
-			$conversion = DataBase::getDB( 'campaign_id, SUM(converted) AS total_converted', 'pbb_logs', "campaign_id = $post_id GROUP BY campaign_id;" );
-			echo esc_attr( empty($conversion) ? 0 : $conversion[0]->{'total_converted'} );
-		}
-
-		if ( $column === 'conversion_rate' ) {
-			$views = DataBase::getDB( 'campaign_id, SUM(views) AS total_views', 'pbb_logs', "campaign_id = $post_id GROUP BY campaign_id;" );
-			$views = empty($views) ? 0 : $views[0]->{'total_views'};
-			$conversion = DataBase::getDB( 'campaign_id, SUM(converted) AS total_converted', 'pbb_logs', "campaign_id = $post_id GROUP BY campaign_id;" );
-			$conversion = empty($conversion) ? 0 : $conversion[0]->{'total_converted'};
-
-			$conversion_rate = $views > 0 ? round( ( $conversion / $views ) * 100, 2 ) : 0;
-
-			echo esc_attr( $conversion_rate ) . '%';
-		}
-	}
-
-	/**
-	 * Registers a custom REST field for the author name in the 'popupkit-campaigns' post type.
-	 *
-	 * This function adds a custom REST field to the 'popupkit-campaigns' post type, allowing
-	 * retrieval of the author's display name via the REST API.
-	 *
-	 * @return void
-	 */
-	public function register_author_name_rest_field() {
-		register_rest_field(
-			'popupkit-campaigns',
-			'author_name',
-			array(
-				'get_callback'    => function ( $post_arr ) {
-					$author_id = $post_arr['author'] ?? 0;
-					return get_the_author_meta( 'display_name', $author_id );
-				},
-				'schema' => array(
-					'type'        => 'string',
-					'description' => __( 'Author display name', 'popup-builder-block' ),
-				),
-			)
-		);
+		return $use_block_editor;
 	}
 }

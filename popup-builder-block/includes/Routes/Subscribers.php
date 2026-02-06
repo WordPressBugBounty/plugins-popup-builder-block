@@ -14,22 +14,81 @@ class Subscribers extends Api {
                 'endpoint'            => '/subscribers',
                 'methods'             => 'POST',
                 'callback'            => 'increase_subscribers',
-				'permission_callback' => [$this, 'permission_callback'],
+				'permission_callback' => [$this, 'pbb_nonce_permission_check'],
             ],
             [
                 'endpoint'            => '/subscribers',
                 'methods'             => 'GET',
                 'callback'            => 'get_subscribers_data',
+				'args' => array(
+					'start' => array(
+						'required' => false,
+						'validate_callback' => function($param, $request, $key) {
+							if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $param)) {
+								return true;
+							}
+							return new \WP_Error(
+								'rest_invalid_param',
+								/* translators: %s: Field name */
+								sprintf(__('Invalid %s format. Expected YYYY-MM-DD.', 'popup-builder-block'), $key),
+								['status' => 400]
+							);
+						},
+					),
+					'end' => array(
+						'required' => false,
+						'validate_callback' => function($param, $request, $key) {
+							if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $param)) {
+								return true;
+							}
+							return new \WP_Error(
+								'rest_invalid_param',
+								/* translators: %s: Field name */
+								sprintf(__('Invalid %s format. Expected YYYY-MM-DD.', 'popup-builder-block'), $key),
+								['status' => 400]
+							);
+						},
+					),
+					'order_by' => array(
+						'required' => false,
+						'sanitize_callback' => 'sanitize_text_field',
+						'validate_callback' => function($param, $request, $key) {
+							$allowed_orders = ['date', 'campaign_id', 'name'];
+							if (in_array($param, $allowed_orders, true)) {
+								return true;
+							}
+							return new \WP_Error(
+								'rest_invalid_param',
+								/* translators: %s: Field name */
+								sprintf(__('Invalid %s value. Allowed values are: %s.', 'popup-builder-block'), $key, implode(', ', $allowed_orders)),
+								['status' => 400]
+							);
+						},
+					),
+					'limit' => array(
+						'required' => false,
+						'sanitize_callback' => 'absint'
+					),
+					'campaign_id' => array(
+						'required' => false,
+						'sanitize_callback' => 'absint'
+					),
+				),
             ],
             [
                 'endpoint'            => '/subscribers',
                 'methods'             => 'DELETE',
                 'callback'            => 'delete_subscribers_data',
+				'args' => array(
+					'id' => array(
+						'required' => true,
+					),
+				),
             ]
         ];
     }
 
-	public function permission_callback(): bool {
+	public function pbb_nonce_permission_check(): bool {
 		// check for nonce
 		return isset( $_SERVER['HTTP_X_WP_NONCE'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' );
 	}
@@ -38,7 +97,7 @@ class Subscribers extends Api {
 		// Decode request body
 		$data = json_decode($param->get_body(), true);
 		// Sanitize inputs
-		$campaign_id = sanitize_key($data['popup_id'] ?? '');
+		$campaign_id = absint($data['popup_id'] ?? '');
 		$campaign_title = get_the_title($campaign_id);
 		$email       = sanitize_email($data['email'] ?? '');
 		$name        = sanitize_text_field($data['name'] ?? '');
@@ -48,11 +107,13 @@ class Subscribers extends Api {
 		// Prepare data for database insertion
 		$subscriber_data = compact('campaign_id', 'campaign_title', 'email', 'name', 'form_data', 'user_data');
 
+		$is_inserted = DataBase::insert_subscriber($subscriber_data);
+
 		// Insert into the database
-		if (!DataBase::insertDB('pbb_subscribers', $subscriber_data)) {
+		if (!$is_inserted) {
 			return rest_ensure_response([
 				'status'  => 'error',
-				'message' => esc_html__('Failed to insert subscriber', 'popup-builder-block')
+				'message' => esc_html__('You have already submitted this form', 'popup-builder-block')
 			]);
 		}
 
@@ -65,6 +126,17 @@ class Subscribers extends Api {
 			'hubspot',
 			'pabbly',
 			'aweber',
+			'zoho',
+			'mailerlite',
+			'convertKit',
+			'webhook',
+			'klaviyo',
+			'getResponse',
+			'mailpoet',
+			'brevo',
+			'omnisend',
+			'drip',
+			'slack',
 		];
 
 		// Loop through integrations and add to subscriber data if present
@@ -75,7 +147,7 @@ class Subscribers extends Api {
 		}
 
 		// Apply integration filter
-		do_action('pbb_form_integration_submit', $subscriber_data);
+		do_action('popup_builder_block_form_integration_submit', $subscriber_data);
 
 		return rest_ensure_response([
 			'status'  => 'success',
@@ -86,18 +158,18 @@ class Subscribers extends Api {
 
 	public function get_subscribers_data( $param ) {
 		$param = $param->get_params();
-		$where = '';
+		$where = array();
 		$limit = 0;
 		$order_by = '';
 		if ( isset( $param['start'] ) && isset( $param['end'] ) ) {
 			$start = $param['start'];
 			$end   = $param['end'];
-			$where = "date BETWEEN '$start 00:00:00' AND '$end 23:59:59'";
+			$where["date BETWEEN %s AND %s"] = array( "$start 00:00:00", "$end 23:59:59" );
 		}
 
 		if ( isset( $param['campaign_id'] ) ) {
 			$campaign_id = $param['campaign_id'];
-			$where      .= " AND campaign_id = $campaign_id";
+			$where["campaign_id = %d"] = $campaign_id;
 		}
 
 		if ( isset( $param['limit'] ) ) {
@@ -105,7 +177,7 @@ class Subscribers extends Api {
 		}
 
 		if ( isset( $param['order_by'] ) ) {
-			$order_by = $param['order_by'];
+			$order_by = $param['order_by'] . ' DESC';
 		}
 
 		$data = DataBase::getDB( "*", 'pbb_subscribers', $where, $limit, false, $order_by );

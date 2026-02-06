@@ -1,20 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "popup-builder-block/popup-builder",
+	"name": "gutenkit-pro/popup-builder",
 	"version": "1.0.0",
 	"title": "Popup Builder",
-	"category": "popup-builder-block",
-	"icon": "align-full-width",
+	"category": "gutenkit",
 	"keywords": [
+		"gkit",
+		"gutenkit",
+		"gutenkit pro",
 		"popup",
-        "popup builder",
-        "popup block",
-        "popup editor",
-        "popup gutenberg",
-        "modal"
+		"popup builder",
+		"popup block"
 	],
-	"description": "Popup block for Popup Builder Block.",
+	"description": "Popup block for Gutenkit Pro.",
 	"example": {
 		"attributes": {
 			"preview": true

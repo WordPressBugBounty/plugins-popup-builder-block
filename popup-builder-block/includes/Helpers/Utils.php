@@ -142,7 +142,7 @@ class Utils {
 			),
 		);
 
-		return apply_filters( 'pbb_allowed_svg_attrs_tags', $allowed_svg_tags );
+		return apply_filters( 'popup_builder_block/allowed_svg_attrs_tags', $allowed_svg_tags );
 	}
 
 	/**
@@ -265,7 +265,7 @@ class Utils {
 			'markers'     => true,
 		);
 
-		return apply_filters( 'pbb_allowed_json_attrs_tags', $allowed_json_tags );
+		return apply_filters( 'popup_builder_block/allowed_json_attrs_tags', $allowed_json_tags );
 	}
 
 	public static function iframe_allowed_html() {

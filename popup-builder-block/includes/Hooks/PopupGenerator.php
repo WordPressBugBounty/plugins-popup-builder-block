@@ -11,6 +11,8 @@ class PopupGenerator {
 
 	private static $post_type = 'popupkit-campaigns';
 
+	private static $parsed_blocks = [];
+	
 	/**
 	 * class constructor.
 	 * private for singleton
@@ -19,85 +21,99 @@ class PopupGenerator {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
+		add_action( 'wp', [ $this, 'prepare_popup_assets' ], 5 );
 		add_action( 'wp_footer', array( $this, 'render_popup' ) );
 	}
 
-	/**
-	 * Render the popup.
-	 *
-	 * @return void
-	 */
-	public function render_popup(): void {
+	public function prepare_popup_assets(): void {
+
 		if ( is_singular( Utils::post_type() ) ) {
 			return;
 		}
 
-		// Get the current post ID.
 		$current_post_id = get_the_ID();
 
-		$args = array(
+		$args = [
 			'post_type'      => self::$post_type,
-			'posts_per_page' => -1,
 			'post_status'    => 'publish',
-			'meta_query'     => array(
+			'posts_per_page' => -1,
+			'meta_query'     => [
 				'relation' => 'AND',
-				array(
+				[
 					'key'     => 'status',
 					'value'   => true,
 					'compare' => '=',
-				),
-				array(
+				],
+				[
 					'key'     => 'openTrigger',
 					'value'   => 'none',
 					'compare' => '!=',
-				),
-				array(
+				],
+				[
 					'key'     => 'displayDevice',
-					'value'   => UserAgent::get_device(), // Searching for a specific value in a serialized array of data
+					'value'   => UserAgent::get_device(),
 					'compare' => 'LIKE',
-				),
-			),
-		);
+				],
+			],
+		];
 
+		$abtest_posts = [];
 		$posts = get_posts( $args );
+
 		foreach ( $posts as $post ) {
-			// Check if the popup should be displayed.
-			$popup_conditions    = new PopupConditions( $post->ID, $current_post_id );
-			$display_conditions  = $popup_conditions->display_conditions();
-			$freequency_settings = $popup_conditions->freequency_settings();
-			$ip_blocking         = $popup_conditions->ip_blocking();
-			$geolocation_targeting = $popup_conditions->geolocation_targeting();
-			$is_scheduled          = $popup_conditions->scheduling();
-			$cookie_targeting      = $popup_conditions->cookie_targeting();
-			$adblock_detection      = $popup_conditions->adblock_detection();
-			
+
+			$popup_conditions = new PopupConditions( $post->ID, $current_post_id );
+
 			if (
-				! $display_conditions || 
-				! $freequency_settings || 
-				$ip_blocking || 
-				! $geolocation_targeting || 
-				! $is_scheduled || 
-				! $cookie_targeting ||
-				! $adblock_detection
+				! $popup_conditions->display_conditions() ||
+				! $popup_conditions->freequency_settings() ||
+				$popup_conditions->ip_blocking() ||
+				! $popup_conditions->geolocation_targeting() ||
+				! $popup_conditions->scheduling() ||
+				! $popup_conditions->cookie_targeting() ||
+				! $popup_conditions->adblock_detection() ||
+				$popup_conditions->abtest_active( $abtest_posts )
 			) {
-				continue; // If any of the conditions are not met, skip to the next post.
+				continue;
 			}
 
-			// Outputs the popup iframe HTML.
-			echo self::iframe( $post->ID ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
+			self::load_popup_assets( $post );
+		}
+
+		// Handle A/B test popups
+		$selected_from_abtest = apply_filters('popup_builder_block/abtest/selected', array(), $abtest_posts);
+		foreach($selected_from_abtest as $post_id) {
+			$post = get_post($post_id);
+			self::load_popup_assets( $post );
 		}
 	}
 
-	public static function iframe( $post_id ) {
-		flush_rewrite_rules();
+	private static function load_popup_assets( $post ): void {
+		// Parse blocks once
+		$blocks = parse_blocks( $post->post_content );
+		
+		self::$parsed_blocks[ $post->ID ] = $blocks;
+		do_action( 'popup_builder_block/before_popup_render', $post->ID );
 
-		$iframe = sprintf(
-			'<iframe class="popupkit" id="popupkit-%1$d" src="%2$s" style="%3$s"></iframe>',
-			$post_id,
-			add_query_arg( 'iframe', 'true', get_the_permalink( $post_id ) ),
-			'display:none;',
-		);
+		// Register assets only (no output)
+		foreach ( $blocks as $block ) {
+			render_block( $block );
+		}
+	}
 
-		return $iframe; 
+	/**
+	 * Renders the popups in the footer.
+	 */
+	public function render_popup(): void {
+
+		if ( empty( self::$parsed_blocks ) ) {
+			return;
+		}
+
+		foreach ( self::$parsed_blocks as $post_id => $blocks ) {
+			foreach ( $blocks as $block ) {
+				echo render_block( $block ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
+			}
+		}
 	}
 }

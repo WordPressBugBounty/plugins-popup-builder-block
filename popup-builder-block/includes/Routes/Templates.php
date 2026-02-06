@@ -17,7 +17,7 @@ class Templates extends Api
 				'endpoint'            => '/templates',
 				'methods'             => 'GET',
 				'callback'            => 'get_templates',
-			],
+			]
 		];
 	}
 

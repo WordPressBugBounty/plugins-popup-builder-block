@@ -22,10 +22,11 @@ class FontFamilyGenerator{
 
         add_action( 'save_post', array($this, 'on_save_post'), 10, 3);
         add_action( 'wp_resource_hints', array( $this, 'add_resource_hints' ), 10, 2 );
-        add_action( 'enqueue_block_assets', array($this, 'block_assets'), 10);
+        add_action( 'popup_builder_block/before_popup_render', array($this, 'block_assets') );
+        add_action( 'enqueue_block_assets', array($this, 'block_assets') );
 
         add_action( 'admin_enqueue_scripts', array($this, 'load_editor_assets'));
-        add_action( 'wp_pbb_gathering_fonts', array($this, 'on_save_post'), 10, 3); 
+        add_action( 'popup_builder_block/gathering_fonts', array($this, 'on_save_post'), 10, 3); 
     }
 
     /**
@@ -162,8 +163,8 @@ class FontFamilyGenerator{
      *
      * @return void
      */
-    public function block_assets(){
-        $post_id = get_the_ID();
+    public function block_assets( $post_id = null ): void{
+        $post_id = $post_id ? $post_id : get_the_ID();
         if ($post_id) {
             $fonts_data = get_post_meta($post_id, 'pbb_posts_fonts', true);
             $fonts_url = $this->generate_fonts_url($fonts_data);
@@ -199,7 +200,7 @@ class FontFamilyGenerator{
 
         // Trigger the existing action hook
         // We pass true for 'update' as this is likely happening after initial creation/load
-        do_action('wp_pbb_gathering_fonts', $post_id, $post, true);
+        do_action('popup_builder_block/gathering_fonts', $post_id, $post, true);
 
         wp_send_json_success(array('message' => 'Font gathering triggered successfully for post ' . $post_id));
         wp_die();

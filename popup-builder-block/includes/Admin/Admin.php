@@ -52,7 +52,7 @@ class Admin {
 			esc_html__( 'Campaigns', 'popup-builder-block' ),
 			esc_html__( 'Campaigns', 'popup-builder-block' ),
 			'manage_options',
-			$this->menu_link_part . '#campaigns',
+			$this->menu_link_part . '&subpage=campaigns',
 		);
 
 		add_submenu_page(
@@ -60,7 +60,7 @@ class Admin {
 			esc_html__( 'Subscribers', 'popup-builder-block' ),
 			esc_html__( 'Subscribers', 'popup-builder-block' ),
 			'manage_options',
-			$this->menu_link_part . '#subscribers',
+			$this->menu_link_part . '&subpage=subscribers',
 		);
 
 		add_submenu_page(
@@ -68,7 +68,7 @@ class Admin {
 			esc_html__( 'Analytics', 'popup-builder-block' ),
 			esc_html__( 'Analytics', 'popup-builder-block' ),
 			'manage_options',
-			$this->menu_link_part . '#analytics',
+			$this->menu_link_part . '&subpage=analytics',
 		);
 
 		add_submenu_page(
@@ -76,7 +76,7 @@ class Admin {
 			esc_html__( 'Integrations', 'popup-builder-block' ),
 			esc_html__( 'Integrations', 'popup-builder-block' ),
 			'manage_options',
-			$this->menu_link_part . '#integrations'
+			$this->menu_link_part . '&subpage=integrations'
 		);
 
 		add_submenu_page(
@@ -84,7 +84,15 @@ class Admin {
 			esc_html__( 'Templates', 'popup-builder-block' ),
 			esc_html__( 'Templates', 'popup-builder-block' ),
 			'manage_options',
-			$this->menu_link_part . '#templates'
+			$this->menu_link_part . '&subpage=templates'
+		);
+
+		add_submenu_page(
+			$this->menu_slug,
+			esc_html__( 'A/B Testing', 'popup-builder-block' ),
+			esc_html__( 'A/B Testing', 'popup-builder-block' ),
+			'manage_options',
+			$this->menu_link_part . '&subpage=ab-testing'
 		);
 
 		add_submenu_page(
@@ -92,7 +100,7 @@ class Admin {
 			esc_html__( 'Settings', 'popup-builder-block' ),
 			esc_html__( 'Settings', 'popup-builder-block' ),
 			'manage_options',
-			$this->menu_link_part . '#settings'
+			$this->menu_link_part . '&subpage=settings'
 		);
 
 		remove_submenu_page( $this->menu_slug, $this->menu_slug );
@@ -127,7 +135,9 @@ class Admin {
 					'adminUrl'    => esc_url( admin_url( '/' ) ),
 					'version'     => POPUP_BUILDER_BLOCK_PLUGIN_VERSION,
 					'has_pro'     => defined( 'POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION' ),
+					'proLink'     => esc_url('https://wpmet.com/ftopro'),
 					'activeTheme' => wp_get_theme()->get( 'Name' ),
+					'hasMailPoet' => class_exists('MailPoet\API\API') ? true : false,
 					'hasWoocommerce' => class_exists( 'WooCommerce' ) ? true : false,
 					'hasEasyDigitalDownloads' => class_exists( 'Easy_Digital_Downloads' ) ? true : false,
 				)
@@ -147,6 +157,14 @@ class Admin {
 						$onboard_assets['version'],
 						true
 					);
+
+					// ✅ Add translation support for JS strings in Onboard scripts
+					wp_set_script_translations(
+						'popupkit-onboard',
+						'popup-builder-block',
+						plugin_dir_path( POPUP_BUILDER_BLOCK_PLUGIN_DIR ) . 'languages'
+					);
+
 
 					// Localize the script with data
 					wp_localize_script(
@@ -195,14 +213,24 @@ class Admin {
 						true
 					);
 
+					// ✅ Add translation support for JS strings in Dashboard scripts
+					wp_set_script_translations(
+						'popup-builder-block-dashboard',
+						'popup-builder-block',
+						plugin_dir_path( POPUP_BUILDER_BLOCK_PLUGIN_DIR ) . 'languages'
+					);
+
 					wp_localize_script(
 						'popup-builder-block-dashboard',
 						'popupBuilderBlock',
 						array(
 							'adminUrl' => esc_url( admin_url( '/' ) ),
 							'has_pro'  => defined( 'POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION' ),
+							'proLink'     => esc_url('https://wpmet.com/ftopro'),
 							'version'     => POPUP_BUILDER_BLOCK_PLUGIN_VERSION,
 							'pro_version' => defined('POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION') ? POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION : '1.0.0',
+							'nonce'      => wp_create_nonce('popupkit_nonce'),
+							'hasMailPoet' => class_exists('MailPoet\API\API') ? true : false,
 						)
 					);
 
@@ -215,6 +243,10 @@ class Admin {
 					);
 				}
 			}
+		}
+
+		if ( strpos( $hook, 'popupkit' ) === false ) {
+			return;
 		}
 	}
 }

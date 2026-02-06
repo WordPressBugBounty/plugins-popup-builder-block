@@ -221,6 +221,6 @@ class PostMeta {
 			),
 		);
 
-		return apply_filters( 'pbb/post_meta_fields', $meta_list );
+		return apply_filters( 'popup_builder_block/post_meta_fields', $meta_list );
 	}
 }

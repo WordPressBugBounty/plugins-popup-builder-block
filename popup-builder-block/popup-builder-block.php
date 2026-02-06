@@ -3,11 +3,11 @@
 /**
  * Plugin Name: PopupKit
  * Description: Powerful popup builder with ready templates and easy customization.
- * Requires at least: 6.1
+ * Requires at least: 6.2
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.1.4
+ * Version: 2.2.3
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.1.4';
+	const VERSION = '2.2.3';
 
 	/**
 	 * \PopupKit class constructor.
@@ -59,10 +59,15 @@ final class PopupBuilderBlock {
 		add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
 
 		// Load the scoped vendor autoload file
-		require_once POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/vendor/scoper-autoload.php';
+		if ( file_exists( POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/vendor/scoper-autoload.php' ) ) {
+			require_once POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/vendor/scoper-autoload.php';
+		}
 
 		// Plugin actions
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+
+		// Plugin unfiltered file support
+		add_action( 'init', array( $this, 'process_libs' ) );
 	}
 
 	/**
@@ -106,7 +111,7 @@ final class PopupBuilderBlock {
 			if ( ! class_exists( 'PopupBuilderBlockPro' ) ) {
 				$popup_kit_pro_link = sprintf(
 					'<a href="%1$s" target="_blank" style="font-weight: 700; color: #b32d2e;">%2$s</a>',
-					'https://wpmet.com/plugin/popupkit/pricing/',
+					'https://wpmet.com/ftopro',
 					esc_html__( 'Get PopupKit Pro', 'popup-builder-block' )
 				);
 
@@ -178,7 +183,7 @@ final class PopupBuilderBlock {
 		 * This action hook allows developers to perform additional tasks before the PopupKit plugin has been initialized.
 		 * @since 1.0.0
 		 */
-		do_action( 'pbb/before_init' );
+		do_action( 'popup_builder_block/before_init' );
 
 		/**
 		 * Initializes the Popup Builder Block admin functionality.
@@ -191,7 +196,17 @@ final class PopupBuilderBlock {
 		new PopupBuilderBlock\Config\Init();
 		new PopupBuilderBlock\Hooks\Init();
 		new PopupBuilderBlock\Routes\Init();
-		new PopupBuilderBlock\Libs\Init();
+	}
+
+	/**
+	 * Process libs method.
+	 *
+	 * @return void
+	 * @since 1.0.0
+	 */
+	public function process_libs() {
+		new PopupBuilderBlock\Libs\UnfilteredFileSupport();
+		new PopupBuilderBlock\Libs\UtilityPackages();
 	}
 }
 

@@ -17,8 +17,9 @@ class GeoLocation {
 	private static function get_cookie_location() {
 		$pbb_location = isset( $_COOKIE['pbb_location'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['pbb_location'] ) ) : '';
 		$location = json_decode( $pbb_location );
+
 		// check if the user has set a cookie for the location
-		if ( ! empty( $location ) ) {
+		if ( ! empty( $location ) || !empty($location->country) ) {
 			return self::get_allowed_data($location);
 		} else {
 			return self::get_server_location();
@@ -26,12 +27,12 @@ class GeoLocation {
 	}
 
 	private static function get_allowed_data($data) {
-		$allowed = ['city', 'region', 'country', 'timezone'];
 		$result = new \stdClass();
 
-		foreach ($allowed as $key) {
-			$result->$key = $data->$key ?? '';
-		}
+		$result->city = $data->city ?? '';
+		$result->region = $data->region ?? '';
+		$result->country = isset($data->country) ? $data->country : (isset($data->country_code) ? $data->country_code : '');
+		$result->timezone = isset($data->timezone) ? $data->timezone : (isset($data->timezone_name) ? $data->timezone_name : '');
 
 		return $result;
 	}
@@ -42,14 +43,19 @@ class GeoLocation {
 		$response = wp_remote_get( "https://ipinfo.io/{$ip}/json" );
 
 		if ( is_wp_error( $response ) ) {
-			return '';
+			$response = wp_remote_get( "https://json.geoiplookup.io/{$ip}" );
+
+			if ( is_wp_error( $response ) ) {
+				return '';
+			}
 		}
 
 		$data = json_decode( wp_remote_retrieve_body( $response ) );
-
 		if ( ! empty( $data ) ) {
 			return self::get_allowed_data($data);
 		}
+
+		return '';
 	}
 
 	public static function get_location() {

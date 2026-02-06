@@ -17,6 +17,7 @@ class Enqueue {
 	public function __construct() {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'load_editor_assets' ) );
 		add_action( 'enqueue_block_assets', array( $this, 'load_frontend_assets' ) );
+		add_action( 'popup_builder_block/before_popup_render', array( $this, 'load_frontend_css' ) );
 	}
 
 	/**
@@ -84,7 +85,7 @@ class Enqueue {
 
 			wp_add_inline_style(
 				'popup-builder-block-single-style',
-				apply_filters( 'popup-builder-block/custom_styles', $inline_css )
+				apply_filters( 'popup_builder_block/custom_styles', $inline_css )
 			);
 		}
 
@@ -98,6 +99,7 @@ class Enqueue {
 			$upload_dir = wp_upload_dir();
 			$post_id    = get_the_ID();
 			$css_file   = $upload_dir['basedir'] . "/popupkit/$post_id.css";
+
 			if ( file_exists( $css_file ) ) {
 				wp_enqueue_style(
 					"popup-builder-block-$post_id",
@@ -107,8 +109,19 @@ class Enqueue {
 				);
 			}
 		}
+	}
 
-		
+	public function load_frontend_css( $post_id ): void {
+		$upload_dir = wp_upload_dir();
+		$css_file   = $upload_dir['basedir'] . "/popupkit/$post_id.css";
+		if ( file_exists( $css_file ) ) {
+			wp_enqueue_style(
+				"popup-builder-block-$post_id",
+				$upload_dir['baseurl'] . "/popupkit/$post_id.css",
+				array(),
+				filemtime( $css_file )
+			);
+		}
 	}
 
 	/**

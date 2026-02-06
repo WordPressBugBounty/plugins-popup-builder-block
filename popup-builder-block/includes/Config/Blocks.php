@@ -4,7 +4,6 @@ namespace PopupBuilderBlock\Config;
 
 defined( 'ABSPATH' ) || exit;
 
-use WP_Query;
 use PopupBuilderBlock\Helpers\Utils;
 use PopupBuilderBlock\Config\BlockList;
 
@@ -125,9 +124,9 @@ class Blocks {
 		$processor->add_class( $block['attrs']['blockClass'] );
 		$processor->add_class( 'popupkit-block' );
 
-		$beforeMarkup     = apply_filters( 'pbb/save_element_markup_before', '', $block );
-		$afterMarkup      = apply_filters( 'pbb/save_element_markup_after', '', $block );
-		$processedContent = apply_filters( 'pbb/save_element_markup', $processor, $block, $instance );
+		$beforeMarkup     = apply_filters( 'popup_builder_block/save_element_markup_before', '', $block );
+		$afterMarkup      = apply_filters( 'popup_builder_block/save_element_markup_after', '', $block );
+		$processedContent = apply_filters( 'popup_builder_block/save_element_markup', $processor, $block, $instance );
 
 		if ( method_exists( $processedContent, 'get_updated_html' ) ) {
 			$processedContent = $processedContent->get_updated_html();

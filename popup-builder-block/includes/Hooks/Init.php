@@ -26,6 +26,7 @@ class Init {
 		new AnalyticsExpiry();
 		new FontFamilyGenerator();
 		new ThirdPartyCompatibility();
+		new DatabaseUpdater();
 	}
 }
  

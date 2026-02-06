@@ -4,16 +4,18 @@ namespace PopupBuilderBlock\Hooks;
 
 defined( 'ABSPATH' ) || exit;
 
+use PopupBuilderBlock\Helpers\DataBase;
+
 class AnalyticsExpiry {
 
 	public function __construct() {
-		add_action( 'pbb_daily_event', array( $this, 'check_expiry' ) );
+		add_action( 'pbb_analytics_expiry_clean', array( $this, 'check_expiry' ) );
 		$this->schedule_event();
 	}
 
 	public function schedule_event() {
-		if ( ! wp_next_scheduled( 'pbb_daily_event' ) ) {
-			wp_schedule_event( time(), 'weekly', 'pbb_daily_event' );
+		if ( ! wp_next_scheduled( 'pbb_analytics_expiry_clean' ) ) {
+			wp_schedule_event( time(), 'weekly', 'pbb_analytics_expiry_clean' );
 		}
 	}
 
@@ -25,6 +27,6 @@ class AnalyticsExpiry {
 			return;
 		}
 
-		\PopupBuilderBlock\Helpers\DataBase::deleteExpiredData( array( 'expire_time' => $expiry ) );
+		DataBase::deleteExpiredData( array( 'expire_time' => $expiry ) );
 	}
 }

@@ -54,6 +54,9 @@ class DisplayConditions {
 	}
 
 	private function display_conditions( $post_meta, $current_post_id, $post_type, $popup_id ) {
+		// Reset the static variable for each popup check to ensure clean state
+		self::$is_popup_opened = false;
+		
 		$current_post_type  = get_post_type( $current_post_id );
 		$display_conditions = $post_meta['displayConditions'] ?? array();
 
@@ -116,12 +119,11 @@ class DisplayConditions {
 							break;
 					}
 				} elseif ( $pageType === 'woocommerce' && is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
-					$match = apply_filters( 'pbb/woocommerce/display_conditions', $cond, $popup_id );
+					$match = apply_filters( 'popup_builder_block/woocommerce/display_conditions', $cond, $popup_id );
 				} elseif ($pageType === 'edd' && is_plugin_active( 'easy-digital-downloads/easy-digital-downloads.php' ) ) {
-					$match = apply_filters( 'pbb/edd/display_conditions', $cond, $popup_id );
-				}
-				elseif ( $pageType === 'custom-url' ) {
-					$match = apply_filters( 'pbb/custom-url/display_conditions', $cond );
+					$match = apply_filters( 'popup_builder_block/edd/display_conditions', $cond, $popup_id );
+				} elseif ( $pageType === 'custom-url' ) {
+					$match = apply_filters( 'popup_builder_block/custom-url/display_conditions', $cond );
 				}
 				
 
@@ -134,6 +136,8 @@ class DisplayConditions {
 
 			if ( in_array( 'matched', $final_conditions ) && ! in_array( 'excluded', $final_conditions ) ) {
 				self::$is_popup_opened = true;
+			} else {
+				self::$is_popup_opened = false;
 			}
 		}
 	}

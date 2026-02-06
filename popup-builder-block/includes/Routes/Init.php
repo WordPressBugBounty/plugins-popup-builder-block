@@ -25,5 +25,6 @@ class Init {
 		new ProcessDownload();
 		new Onboard();
 		new Templates();
+		new ABTest();
 	}
 }

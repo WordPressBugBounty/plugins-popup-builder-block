@@ -13,19 +13,8 @@ class FetchDemo extends Api {
                 'methods'             => 'GET',
                 'callback'            => 'fetch_external_content',
 			],
-			[
-				'endpoint'            => '/live-preview',
-				'methods'             => 'GET',
-				'callback'            => 'get_popup_preview',
-				'permission_callback' => [$this, 'permission_callback'],
-			]
         ];
     }
-
-	public function permission_callback(): bool {
-		// check for nonce
-		return isset( $_SERVER['HTTP_X_WP_NONCE'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ), 'wp_rest' );
-	}
 
 	public function fetch_external_content( \WP_REST_Request $request ) {
 		$url = $request->get_param( 'url' );
@@ -36,7 +25,7 @@ class FetchDemo extends Api {
 
 		// Fetch the content using wp_remote_get
 		$new_url  = add_query_arg( 'preview', 'true', $url );
-		$response = wp_remote_get( $new_url );
+		$response = wp_safe_remote_get( $new_url );
 		if ( is_wp_error( $response ) ) {
 			return new \WP_REST_Response( array( 'error' => 'Error fetching content' ), 500 );
 		}
@@ -44,16 +33,5 @@ class FetchDemo extends Api {
 		$body = wp_remote_retrieve_body( $response );
 		$body = preg_replace( '/type="[^"]+-text\/javascript"/', 'type="text/javascript"', $body );
 		return new \WP_REST_Response( array( 'content' => $body ), 200 );
-	}
-
-	public function get_popup_preview(\WP_REST_Request $request) {
-		$popup_id = $request->get_param( 'id' );
-		if ( empty( $popup_id ) ) {
-			return new \WP_REST_Response( array( 'error' => 'Invalid Popup ID' ), 400 );
-		}
-
-		$iframe = \PopupBuilderBlock\Hooks\PopupGenerator::iframe( $popup_id );
-		 
-		return new \WP_REST_Response( array( 'data' => $iframe ), 200 );
 	}
 }

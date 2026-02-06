@@ -20,9 +20,12 @@ class DataBase {
 	private static $LOG_COUNTRIES = 'pbb_log_countries';
 	private static $LOG_BROWSERS = 'pbb_log_browsers';
 	private static $LOG_REFERRERS = 'pbb_log_referrers';
+	private static $AB_TESTS_TABLE   = 'pbb_ab_tests';
+	private static $AB_TESTS_VARIANTS_TABLE = 'pbb_ab_test_variants';
+	private static $POST_TABLE = 'posts';
 
-
-	private static $DATABASE_VERSION  = '1.0.0';
+	public static $DATABASE_KEY	  = 'pbb_db_version';
+	public static $DATABASE_VERSION  = '1.1.0';
 	/**
 	 * Create the database table.
 	 *
@@ -138,8 +141,52 @@ class DataBase {
         ) $charset_collate;";
 		dbDelta( $sql );
 
+		self::createABTestTables();
+
 		// Save the database version
-		add_option( 'pbb_db_version', self::$DATABASE_VERSION );
+		add_option( self::$DATABASE_KEY, self::$DATABASE_VERSION );
+	}
+
+	public static function createABTestTables() {
+		global $wpdb;
+
+		$charset_collate = $wpdb->get_charset_collate();
+
+		// Table names with prefix
+		$ab_tests_table = $wpdb->prefix . self::$AB_TESTS_TABLE;
+		$campaigns_table = $wpdb->prefix . self::$POST_TABLE;
+		$ab_test_variants_table = $wpdb->prefix . self::$AB_TESTS_VARIANTS_TABLE;
+
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+
+		// Create the AB tests table
+		$sql            = "CREATE TABLE IF NOT EXISTS $ab_tests_table (
+			id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+			title VARCHAR(255) NOT NULL,
+			type VARCHAR(10) NOT NULL,
+			status TINYINT UNSIGNED NOT NULL,
+			metric VARCHAR(10) DEFAULT NULL,
+			winner BIGINT UNSIGNED DEFAULT NULL,
+			started_at DATETIME DEFAULT NULL,
+			duration INT UNSIGNED DEFAULT NULL,
+			PRIMARY KEY (id)
+		) $charset_collate;";
+		dbDelta( $sql );
+
+		// Create the AB tests variants table
+		$sql            = "CREATE TABLE IF NOT EXISTS $ab_test_variants_table (
+			id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+			test_id BIGINT UNSIGNED NOT NULL,
+			campaign_id BIGINT UNSIGNED NOT NULL,
+			views INT DEFAULT 0,
+			converted INT DEFAULT 0,
+			PRIMARY KEY (id),
+			KEY test_id (test_id),
+			KEY campaign_id (campaign_id),
+			FOREIGN KEY (test_id) REFERENCES $ab_tests_table(id) ON DELETE CASCADE,
+			FOREIGN KEY (campaign_id) REFERENCES $campaigns_table(ID) ON DELETE CASCADE
+		) $charset_collate;";
+		dbDelta( $sql );
 	}
 
 	/**
@@ -160,7 +207,8 @@ class DataBase {
 		// Check if log already exists for this campaign + date
 		$existing = $wpdb->get_row(
 			$wpdb->prepare(
-				"SELECT * FROM $table WHERE campaign_id = %d AND date = %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				"SELECT * FROM %i WHERE campaign_id = %d AND date = %s", 
+				$table,
 				$campaign_id,
 				$date
 			)
@@ -200,7 +248,12 @@ class DataBase {
 	
 		// Check if the name already exists in the table
 		$id = $wpdb->get_var(
-			$wpdb->prepare("SELECT id FROM $table_name WHERE $name = %s", $value) // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+			$wpdb->prepare(
+				"SELECT id FROM %i WHERE %i = %s", 
+				$table_name, 
+				$name, 
+				$value
+			)
 		);
 	
 		if (!$id) {
@@ -218,7 +271,13 @@ class DataBase {
 	
 		// Check if the log_id and id already exist in the pivot table
 		$row = $wpdb->get_row(
-			$wpdb->prepare("SELECT id, count FROM $table_name WHERE log_id = %d AND $id_name = %d", $log_id, $id) // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+			$wpdb->prepare(
+				"SELECT id, count FROM %i WHERE log_id = %d AND %i = %d", 
+				$table_name, 
+				$log_id, 
+				$id_name,
+				$id
+			)
 		);
 	
 		if ($row) {
@@ -253,17 +312,33 @@ class DataBase {
 		global $wpdb;
 	
 		$table_name = $wpdb->prefix . self::$LOGS_TABLE;
-		$campaign = $campaign_id ? " AND campaign_id = $campaign_id" : '';
 	
-		return $wpdb->get_results(
-			$wpdb->prepare("SELECT SUM(device_desktop) as desktop, 
-				SUM(device_tablet) as tablet, 
-				SUM(device_mobile) as mobile 
-				FROM $table_name WHERE date BETWEEN %s AND %s $campaign", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-				$start_date,
-				$end_date,
-			)
-		);
+		if ( $campaign_id ) {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT SUM(device_desktop) as desktop, 
+					SUM(device_tablet) as tablet, 
+					SUM(device_mobile) as mobile 
+					FROM %i WHERE date BETWEEN %s AND %s AND campaign_id = %d",
+					$table_name,
+					$start_date,
+					$end_date,
+					$campaign_id
+				)
+			);
+		} else {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT SUM(device_desktop) as desktop, 
+					SUM(device_tablet) as tablet, 
+					SUM(device_mobile) as mobile 
+					FROM %i WHERE date BETWEEN %s AND %s",
+					$table_name,
+					$start_date,
+					$end_date
+				)
+			);
+		}
 	}
 
 	private static function get_data($campaign_id, $start_date, $end_date, $table, $log_table, $column, $id) {
@@ -272,14 +347,37 @@ class DataBase {
 		$table_name = $wpdb->prefix . self::$LOGS_TABLE;
 		$table = $wpdb->prefix . $table;
 		$log_table = $wpdb->prefix . $log_table;
-		$campaign = $campaign_id ? "AND campaign_id = $campaign_id " : '';
 	
-		return $wpdb->get_results(
-			$wpdb->prepare("SELECT t.$column, SUM(lt.count) AS total_count FROM $table_name logs JOIN $log_table lt ON lt.log_id = logs.id JOIN $table t ON t.id = lt.$id WHERE logs.date BETWEEN %s AND %s $campaign GROUP BY t.$column ORDER BY total_count DESC;", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-				$start_date,
-				$end_date,
-			)
-		);
+		if ( $campaign_id ) {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT t.%i, SUM(lt.count) AS total_count FROM %i logs JOIN %i lt ON lt.log_id = logs.id JOIN %i t ON t.id = lt.%i WHERE logs.date BETWEEN %s AND %s AND campaign_id = %d GROUP BY t.%i ORDER BY total_count DESC;",
+					$column,
+					$table_name,
+					$log_table,
+					$table,
+					$id,
+					$start_date,
+					$end_date,
+					$campaign_id,
+					$column
+				)
+			);
+		} else {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT t.%i, SUM(lt.count) AS total_count FROM %i logs JOIN %i lt ON lt.log_id = logs.id JOIN %i t ON t.id = lt.%i WHERE logs.date BETWEEN %s AND %s GROUP BY t.%i ORDER BY total_count DESC;",
+					$column,
+					$table_name,
+					$log_table,
+					$table,
+					$id,
+					$start_date,
+					$end_date,
+					$column
+				)
+			);
+		}
 	}
 
 	public static function get_countries($campaign_id, $start_date, $end_date) {
@@ -298,16 +396,81 @@ class DataBase {
 		global $wpdb;
 	
 		$table_name = $wpdb->prefix . self::$LOGS_TABLE;
-		$campaign = $campaign_id ? "AND campaign_id = $campaign_id " : '';
 	
-		return $wpdb->get_results(
-			$wpdb->prepare("SELECT 
-				campaign_id,
-				SUM(converted) as count
-				FROM $table_name WHERE date BETWEEN %s AND %s $campaign GROUP BY campaign_id  ORDER BY count DESC;", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-				$start_date,
-				$end_date,
-			)
+		if ( $campaign_id ) {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT 
+					campaign_id,
+					SUM(converted) as count
+					FROM %i WHERE date BETWEEN %s AND %s AND campaign_id = %d GROUP BY campaign_id ORDER BY count DESC;",
+					$table_name,
+					$start_date,
+					$end_date,
+					$campaign_id
+				)
+			);
+		} else {
+			return $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT 
+					campaign_id,
+					SUM(converted) as count
+					FROM %i WHERE date BETWEEN %s AND %s GROUP BY campaign_id ORDER BY count DESC;",
+					$table_name,
+					$start_date,
+					$end_date
+				)
+			);
+		}
+	}
+
+	public static function get_convertion( $campaign_id, $start_date, $end_date ) {
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . self::$LOGS_TABLE;
+		
+		if ( $campaign_id ) {
+			$grouped_data = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT DATE(date) AS dateLog, SUM(views) AS totalViews, SUM(converted) AS totalConverted FROM %i WHERE DATE(date) BETWEEN %s AND %s AND campaign_id = %d GROUP BY DATE(date);",
+					$table_name,
+					$start_date,
+					$end_date,
+					$campaign_id
+				)
+			);
+			$total_data = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT SUM(views) AS totalViews, SUM(converted) AS totalConverted FROM %i WHERE DATE(date) BETWEEN %s AND %s AND campaign_id = %d",
+					$table_name,
+					$start_date,
+					$end_date,
+					$campaign_id
+				)
+			);
+		} else {
+			$grouped_data = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT DATE(date) AS dateLog, SUM(views) AS totalViews, SUM(converted) AS totalConverted FROM %i WHERE DATE(date) BETWEEN %s AND %s GROUP BY DATE(date);",
+					$table_name,
+					$start_date,
+					$end_date
+				)
+			);
+			$total_data = $wpdb->get_results(
+				$wpdb->prepare(
+					"SELECT SUM(views) AS totalViews, SUM(converted) AS totalConverted FROM %i WHERE DATE(date) BETWEEN %s AND %s",
+					$table_name,
+					$start_date,
+					$end_date
+				)
+			);
+		}
+
+		return array(
+			'group' => $grouped_data,
+			'total'   => $total_data,
 		);
 	}
 	
@@ -333,12 +496,13 @@ class DataBase {
 
 		foreach ( $tables as $table ) {
 			$table_name = $wpdb->prefix . $table;
-			$sql        = "DROP TABLE IF EXISTS $table_name;";
-			$wpdb->query( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+			$wpdb->query( 
+				$wpdb->prepare( "DROP TABLE IF EXISTS %i;", $table_name )
+			);
 		}
 		
 		// Delete the database version option
-		delete_option( 'pbb_db_version' );
+		delete_option( self::$DATABASE_KEY );
 	}
 
 	/**
@@ -355,63 +519,112 @@ class DataBase {
 		return $wpdb->insert_id;
 	}
 
+	public static function insert_subscriber( $data ) {
+		if ( empty( $data['email'] ) || ! is_email( $data['email'] ) ) {
+			return rest_ensure_response([
+				'status'  => 'error',
+				'message' => esc_html__('Invalid email address', 'popup-builder-block')
+			]);
+		}
+		$where = array(
+			"email = %s" => esc_sql( $data['email'] ),
+			"campaign_id = %d" => esc_sql( $data['campaign_id'] ),
+		);
+
+		$is_old_data = DataBase::getDB( 'id', 'pbb_subscribers', $where, 1 );
+
+		// Insert into the database
+		if ( $is_old_data ) {
+			return false;
+		}
+
+		return DataBase::insertDB( 'pbb_subscribers', $data );
+	}
+
 	/**
 	 * Get data from database table.
-	 *
+	 * @param array|string $columns 
+	 * @param string $table
+	 * @param array $where
+	 * @param int $limit
+	 * @param bool $count
+	 * @param string|array $order_by
+	 * @param string|array $group_by
+	 * 
 	 * @return array
 	 * @since 1.0.0
 	 */
-	public static function getDB( $columns, $table, $where = '', $limit = 0, $count = false, $order_by = '' ) {
+	public static function getDB( $columns, $table, $where = [], $limit = 0, $count = false, $order_by = '', $group_by = '' ) {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . $table;
-		$sql        = "SELECT $columns FROM $table_name";
+		// Handle table name safely
+		$table_name = esc_sql( $wpdb->prefix . $table );
 
-		if ( $count ) {
-			$sql = "SELECT COUNT($columns) FROM $table_name";
+		// Handle columns (support string or array)
+		if ( is_array( $columns ) ) {
+			$columns = array_map( 'esc_sql', $columns );
+			$columns = implode( ', ', $columns );
+		} else {
+			$columns = esc_sql( $columns );
 		}
-		if ( $where ) {
-			$sql .= " WHERE $where";
+
+		// Base SQL
+		$sql = $count
+			? "SELECT COUNT($columns) FROM $table_name"
+			: "SELECT $columns FROM $table_name";
+
+		$where_sql = '';
+		$prepare_values = [];
+
+		// Handle array-based WHERE conditions
+		if ( is_array( $where ) && ! empty( $where ) ) {
+			$where_parts = [];
+			foreach ( $where as $condition => $values ) {
+				$where_parts[] = '(' . $condition . ')';
+				if ( is_array( $values ) ) {
+					$prepare_values = array_merge( $prepare_values, $values );
+				} else {
+					$prepare_values[] = $values;
+				}
+			}
+			$where_sql = ' WHERE ' . implode( ' AND ', $where_parts );
 		}
-		if ( $limit ) {
-			$sql .= " LIMIT $limit";
+
+		$sql .= $where_sql;
+
+		// GROUP BY support
+		if ( $group_by ) {
+			if ( is_array( $group_by ) ) {
+				$group_by = implode( ', ', array_map( 'esc_sql', $group_by ) );
+			} else {
+				$group_by = esc_sql( $group_by );
+			}
+			$sql .= " GROUP BY $group_by";
 		}
+
+		// ORDER BY (sanitized)
 		if ( $order_by ) {
+			if ( is_array( $order_by ) ) {
+				$order_by = implode( ', ', array_map( 'esc_sql', $order_by ) );
+			} else {
+				$order_by = esc_sql( $order_by );
+			}
 			$sql .= " ORDER BY $order_by";
 		}
 
+		// LIMIT (integer)
+		if ( $limit ) {
+			$limit = absint( $limit );
+			$sql  .= " LIMIT %d";
+			$prepare_values[] = $limit;
+		}
+
+		// Prepare query if values exist
+		if ( ! empty( $prepare_values ) ) {
+			$sql = $wpdb->prepare( $sql, $prepare_values ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+		}
+
 		return $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-	}
-
-	public static function get_convertion( $campaign_id, $start_date, $end_date ) {
-		global $wpdb;
-
-		$table_name = $wpdb->prefix . self::$LOGS_TABLE;
-		$sum_sql = "SUM(views) AS totalViews, SUM(converted) AS totalConverted FROM $table_name  WHERE";
-		$sql        = "SELECT DATE(date) AS dateLog, $sum_sql";
-		$second_sql = "SELECT $sum_sql";
-
-		if ( $start_date && $end_date ) {
-			$date_sql = " DATE(date) BETWEEN '$start_date' AND '$end_date'";
-			$sql .= $date_sql;
-			$second_sql .= $date_sql;
-		}
-
-		if ( $campaign_id ) {
-			$campaign_sql = " AND campaign_id = $campaign_id";
-			$sql .= $campaign_sql;
-			$second_sql .= $campaign_sql;
-		}
-		
-		$sql .= " GROUP BY DATE(date);";
-
-		$grouped_data = $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-		$total_data   = $wpdb->get_results( $second_sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
-
-		return array(
-			'group' => $grouped_data,
-			'total'   => $total_data,
-		);
 	}
 
 	/**
@@ -436,11 +649,11 @@ class DataBase {
 	 *
 	 * @param string    $table
 	 * @param int|array $id
-	 * @param string    $where
+	 * @param string    $field
 	 * @return bool
 	 * @since 1.0.0
 	 */
-	public static function deleteDB( $table, $id ) {
+	public static function deleteDB( $table, $id, $field = 'id' ) {
 		global $wpdb;
 
 		if ( ! isset( $id ) ) {
@@ -450,10 +663,18 @@ class DataBase {
 		// If id is array then delete multiple rows and if id is integer then delete single row
 		$table_name = $wpdb->prefix . $table;
 		if ( is_array( $id ) ) {
-			$ids = implode( ',', $id );
-			$sql = "DELETE FROM $table_name WHERE id IN ($ids)";
+			$placeholders = implode( ',', array_fill( 0, count( $id ), '%d' ) );
+			 $sql = $wpdb->prepare(
+				"DELETE FROM %i WHERE $field IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				array_merge( array( $table_name ), $id ) 
+			);
 		} else {
-			$sql = "DELETE FROM $table_name WHERE id = $id";
+			$sql = $wpdb->prepare(
+				"DELETE FROM %i WHERE %i = %d",
+				$table_name,
+				$field,
+				$id
+			);
 		}
 
 		return $wpdb->query( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
@@ -479,7 +700,8 @@ class DataBase {
 			$logs_table = $wpdb->prefix . self::$LOGS_TABLE;
 			$old_log_ids = $wpdb->get_col(
 				$wpdb->prepare(
-					"SELECT id FROM $logs_table WHERE date < %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					"SELECT id FROM %i WHERE date < %s", 
+					$logs_table,
 					$date_limit
 				)
 			);
@@ -496,7 +718,8 @@ class DataBase {
 			$logs_table = $wpdb->prefix . self::$LOGS_TABLE;
 			$range_log_ids = $wpdb->get_col(
 				$wpdb->prepare(
-					"SELECT id FROM $logs_table WHERE date BETWEEN %s AND %s", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					"SELECT id FROM %i WHERE date BETWEEN %s AND %s", 
+					$logs_table,
 					$start_date,
 					$end_date
 				)
@@ -518,11 +741,10 @@ class DataBase {
 			$table_name = $wpdb->prefix . $table;
 			// Use `id` for the main logs table, `log_id` for others
 			$column = ($table === self::$LOGS_TABLE) ? 'id' : 'log_id';
-
-			$deleted_logs[] = $wpdb->query(
+			$deleted_logs[] = $wpdb->query( 
 				$wpdb->prepare(
-					"DELETE FROM $table_name WHERE $column IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-					...$log_ids // phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+					"DELETE FROM %i WHERE $column IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+					array_merge( array( $table_name ), $log_ids )
 				)
 			);
 		}

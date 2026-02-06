@@ -27,6 +27,7 @@ abstract class Api {
                     'permission_callback' => isset($route['permission_callback'])
                         ? $route['permission_callback']
                         : [$this, 'permission_callback'],
+                    'args'               => isset($route['args']) ? $route['args'] : [],
                 ]
             );
         }
