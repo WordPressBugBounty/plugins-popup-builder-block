@@ -240,10 +240,19 @@
     "dripAccount": {
       "type": "object"
     },
+    "googleSheetAccount": {
+      "type": "object"
+    },
     "slackAccount": {
       "type": "object"
     },
     "klaviyoList": {
+      "type": "object"
+    },
+    "googleSheetList": {
+      "type": "object"
+    },
+    "googleSheetSheet": {
       "type": "object"
     },
     "columnsGapDesktop": {

@@ -81,4 +81,8 @@ class PopupConditions {
 
 		return $is_abtest_active;
 	}
+
+	public function referrer_targeting() {
+		return apply_filters( 'popup_builder_block/referrer/targeting', true, $this->post_meta );
+	}
 }

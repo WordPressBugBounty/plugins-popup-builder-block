@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,8 @@ Here are [popup trigger options](https://wpmet.com/plugin/popupkit/smart-trigger
 **🔸 On Page Exit Intent Popup:** Show popups with different content before visitors leave.
 
 **🔸 Custom Selector Click Popup:** Popup appears when visitors click on a specific element.
+
+**🔸 In-line Popup:** Want to eliminate friction entirely? Embed your campaign as an in-line popup so it feels like a native part of your website's content.
 
 ### 🎨 Bring Personalization with Display Conditions
 Segmenting popups for different audience groups enhance the personalization of your popups, making them more relevant and engaging. And, one crucial way of doing this is by controlling the popup’s appearance based on the website’s regions. For this purpose, the Kit provides **flexible options to set up display conditions.**
@@ -171,6 +173,8 @@ One of the best things about the PopupKit plugin is that you can add it anywhere
 **[FluentCRM Integration](https://wpmet.com/doc/popupkit-fluentcrm-integration/?utm_source=org&utm_medium=readme):** Automatically add and segment leads from popups into FluentCRM for follow‑ups, email campaigns, or segmentation.
 
 **[Mailchimp Integration](https://wpmet.com/doc/popupkit-mailchimp-integration/?utm_source=org&utm_medium=readme):** Captured emails flow straight into Mailchimp lists so you can immediately start automated welcome emails or marketing campaigns.
+
+**[Slack Integration]:** Seamlessly connect PopupKit with Slack to instantly ping your team with real-time notifications the moment a visitor converts on your popup campaign.
 
 ## What Types of Popups Can You Create with PopupKit plugin?
 
@@ -273,7 +277,37 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 == Screenshots ==
 
+1. High-converting popup templates & recipe.
+2. Overview of PopupKit’s drag-and-drop editor, 100% visual builder interface with live preview.
+3. Smart exit-intent triggers for Popups
+4. "Spin to Win" gamified popups
+5. Scroll-in popups to show popups on the visitor’s scroll. 
+6. User-inactivity popup to re-engage visitors.
+7. Slide-in popups to capture leads.
+8. Full-Screen popups for your biggest announcements.
+9. Use floating bar popups to stay top-of-the-mind.
+10. Multi-step poups with readymade templates.
+11. Create instant urgency with countdown popups.
+12. Use custom-select popups or a selector click trigger for instant conversions.
+13. Dedicated WooCommerce Popups for e-Commerce sites.
+14. 100% responsive and Google-friendly, mobile popups.
+15. Comprehensive analytics & insights with popup campaign dashboard.
+16. Automatic A/B testing for popups.
+17. specialized opt-in templates to collect authentic email leads.
+18. Trigger popups based on geo-locations.
+19. Integration with 20+ popular tools & softwares.
+
+
 == Changelog ==
+
+= PopupKit: 2.2.4 (2026-01-09) =
+* Added: Inline popup
+* Added: Add Notes supports in editor
+* Fixed: Multiple popup with steps blocks are not working on same page
+* Fixed: CSS compatibility with classic theme
+* Fixed: Integration input field show issue
+* Fixed: Dashboard select dropdown width issue
+* Fixed: Form block level RichText not working
 
 = PopupKit: 2.2.3 (2026-02-02) =
 * Added: View subscribers option in campaigns list

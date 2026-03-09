@@ -27,9 +27,18 @@ class Enqueue {
 		if ( in_array( get_post_type(), Utils::post_type() ) ) {
 			$this->enqueue_scripts(
 				array(
-					'components' => 'popup/components.js',
-					'helpers'    => 'popup/helpers.js',
-					'global'     => 'popup/global.js',
+					'components' => [
+						'key' => 'gkit-components', 
+						'path' => 'popup/components.js'
+					],
+					'helpers'    => [
+						'key' => 'gkit-helpers',
+						'path' => 'popup/helpers.js'
+					],
+					'global'     => [
+						'key' => 'popupkit-global',
+						'path' => 'popup/global.js'
+					],
 				)
 			);
 		}
@@ -43,30 +52,29 @@ class Enqueue {
 		if ( in_array( get_post_type(), Utils::post_type() ) && is_admin() ) {
 			$this->enqueue_styles(
 				array(
-					'components' => 'popup/components.css',
-					'global'     => 'popup/global.css',
+					'components' => [
+						'key' =>'gkit-components',
+						'path' => 'popup/components.css'
+					],
+					'global'     => [
+						'key' => 'popupkit-global',
+						'path' => 'popup/global.css'
+					],
 				)
 			);
 		}
 		
 		$this->enqueue_styles(
 			array(
-				'global' => 'popup/global.css',
+				'global' => [
+					'key' => 'popupkit-global',
+					'path' => 'popup/global.css'
+				],
 			)
 		);
 
 		// Check if the script should load only on single popup campaign pages and not in an iframe
 		if ( is_singular( Utils::post_type() ) && ! Utils::is_iframe() ) {
-			wp_enqueue_script(
-				'popup-builder-block-single-script',
-				POPUP_BUILDER_BLOCK_PLUGIN_URL . 'includes/Templates/assets/script.js',
-				array(),
-				POPUP_BUILDER_BLOCK_PLUGIN_VERSION,
-				array(
-					'in_footer' => true,
-				)
-			);
-			
 			wp_enqueue_style(
 				'popup-builder-block-single-style',
 				POPUP_BUILDER_BLOCK_PLUGIN_URL . 'includes/Templates/assets/style.css',
@@ -80,6 +88,9 @@ class Enqueue {
 					background: #fff;
 					background-image: radial-gradient(#999 5%, transparent 0);
 					background-size: 35px 35px;
+				}
+				.popup-builder-modal[data-settings*="\"type\":\"inline\""] {
+					height: 100vh;
 				}
 			';
 
@@ -130,13 +141,14 @@ class Enqueue {
 	 * @param array $scripts Associative array of script handles and paths.
 	 */
 	private function enqueue_scripts( array $scripts ): void {
-		foreach ( $scripts as $handle => $path ) {
+		foreach ( $scripts as $handle => $file ) {
 			$asset_file = POPUP_BUILDER_BLOCK_PLUGIN_DIR . "build/popup/$handle.asset.php";
+			
 			if ( file_exists( $asset_file ) ) {
 				$asset = include_once $asset_file;
 				wp_enqueue_script(
-					"popup-builder-block-$handle",
-					POPUP_BUILDER_BLOCK_PLUGIN_URL . "build/$path",
+					"{$file['key']}",
+					POPUP_BUILDER_BLOCK_PLUGIN_URL . "build/{$file['path']}",
 					$asset['dependencies'],
 					$asset['version'],
 					array( 'in_footer' => false )
@@ -151,10 +163,10 @@ class Enqueue {
 	 * @param array $styles Associative array of style handles and paths.
 	 */
 	private function enqueue_styles( array $styles ): void {
-		foreach ( $styles as $handle => $path ) {
+		foreach ( $styles as $handle => $file ) {
 			wp_enqueue_style(
-				"popup-builder-block-$handle",
-				POPUP_BUILDER_BLOCK_PLUGIN_URL . "build/$path",
+				"{$file['key']}",
+				POPUP_BUILDER_BLOCK_PLUGIN_URL . "build/{$file['path']}",
 				array(),
 				POPUP_BUILDER_BLOCK_PLUGIN_VERSION
 			);

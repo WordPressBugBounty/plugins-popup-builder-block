@@ -137,6 +137,7 @@ class Subscribers extends Api {
 			'omnisend',
 			'drip',
 			'slack',
+			'googleSheet',
 		];
 
 		// Loop through integrations and add to subscriber data if present

@@ -76,7 +76,7 @@ class Cpt {
 				array( 'popup-builder-block/popup-builder' ),
 			),
 			'template_lock'       => 'insert',
-			'supports'            => array( 'title', 'editor', 'author', 'custom-fields', 'revisions' ),
+			'supports'            => array( 'title', 'editor' => array( 'notes' => true ), 'author', 'custom-fields', 'revisions' ),
 		);
 
 		register_post_type( 'popupkit-campaigns', $args );

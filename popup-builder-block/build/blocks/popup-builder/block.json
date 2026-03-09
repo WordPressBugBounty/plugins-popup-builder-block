@@ -85,6 +85,10 @@
       "type": "array",
       "default": []
     },
+    "localStorageTargets": {
+      "type": "array",
+      "default": []
+    },
     "adblockDetection": {
       "type": "boolean",
       "default": false
