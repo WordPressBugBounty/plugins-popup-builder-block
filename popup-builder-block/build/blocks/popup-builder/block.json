@@ -93,6 +93,18 @@
       "type": "boolean",
       "default": false
     },
+    "enableBrowserTargeting": {
+      "type": "boolean",
+      "default": false
+    },
+    "includeBrowser": {
+      "type": "array",
+      "default": []
+    },
+    "excludeBrowser": {
+      "type": "array",
+      "default": []
+    },
     "preventScroll": {
       "type": "boolean",
       "default": false

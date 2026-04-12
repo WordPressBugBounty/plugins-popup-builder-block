@@ -105,8 +105,10 @@ class Subscribers extends Api {
 		$user_data   = $data['user_data'] ?? [];
 
 		// Prepare data for database insertion
+		$emailData        = json_encode($data['emailData'] ?? []);
 		$subscriber_data = compact('campaign_id', 'campaign_title', 'email', 'name', 'form_data', 'user_data');
 
+		// Insert subscriber data
 		$is_inserted = DataBase::insert_subscriber($subscriber_data);
 
 		// Insert into the database
@@ -115,6 +117,17 @@ class Subscribers extends Api {
 				'status'  => 'error',
 				'message' => esc_html__('You have already submitted this form', 'popup-builder-block')
 			]);
+		}
+
+		/**
+		 * -----------------------------------------
+		 * AFTER DB INSERT → add emailData
+		 * -----------------------------------------
+		 */
+		$emailData = $data['emailData'] ?? [];
+
+		if ( ! empty( $emailData ) ) {
+			$subscriber_data['emailData'] = $emailData;
 		}
 
 		// Define available integrations
@@ -138,6 +151,7 @@ class Subscribers extends Api {
 			'drip',
 			'slack',
 			'googleSheet',
+			'moosend',
 		];
 
 		// Loop through integrations and add to subscriber data if present

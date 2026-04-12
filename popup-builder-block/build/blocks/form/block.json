@@ -115,7 +115,7 @@
     "buttonRedirectUrl": {
       "type": "object"
     },
-    "buttonEmail": {
+    "email": {
       "type": "string"
     },
     "buttonSuccessMessage": {
@@ -234,6 +234,9 @@
     "mailpoetList": {
       "type": "object"
     },
+    "moosendList": {
+      "type": "object"
+    },
     "klaviyoAccount": {
       "type": "object"
     },
@@ -244,6 +247,9 @@
       "type": "object"
     },
     "slackAccount": {
+      "type": "object"
+    },
+    "moosendAccount": {
       "type": "object"
     },
     "klaviyoList": {
@@ -908,6 +914,26 @@
     },
     "successMessageBoxShadow": {
       "type": "object"
+    },
+    "emailSubject": {
+      "type": "string",
+      "default": "{campaign_name} form submission"
+    },
+    "emailMessage": {
+      "type": "string",
+      "default": "Hey {name}, Thank you for your message. We’ll get in touch with you shortly. You’re subscribed to our newsletter at {email} for the latest updates."
+    },
+    "emailFrom": {
+      "type": "string",
+      "default": "{current_user_email}"
+    },
+    "emailFromName": {
+      "type": "string",
+      "default": "{current_user_name}"
+    },
+    "enableAutoResponder": {
+      "type": "boolean",
+      "default": false
     }
   },
   "supports": {

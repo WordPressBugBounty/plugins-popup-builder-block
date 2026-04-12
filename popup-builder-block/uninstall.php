@@ -23,7 +23,7 @@ class PopupBuilderBlock_Uninstaller {
             self::delete_tables();
             self::delete_transients();
             self::delete_usermeta();
-            self::delete_postmeta();
+            self::delete_post();
         }
     }
 
@@ -31,21 +31,19 @@ class PopupBuilderBlock_Uninstaller {
      * Delete plugin options
      */
     private static function delete_options() {
-        $options_to_delete = [
-            'pbb-settings-tabs',
-            'pbb_settings_list',
-            'pbb_db_version',
-            'pbb_fse_fonts',
-            '__pbb_oppai__',
-            '__pbb_license_key__',
-            'popup_builder_block_pro_installed_time',
-            'popup_builder_block_pro_version',
-        ];
+        global $wpdb;
 
-        foreach ($options_to_delete as $option) {
-            delete_option($option);
-            delete_site_option($option); // For multisite compatibility
-        }
+        $wpdb->query(
+            $wpdb->prepare(
+                "DELETE FROM {$wpdb->options}
+                WHERE option_name LIKE %s
+                    OR option_name LIKE %s
+                    OR option_name LIKE %s",
+                'popupkit%',
+                'popup-builder-block%',
+                'pbb%'
+            )
+        );
     }
 
     /**
@@ -102,17 +100,20 @@ class PopupBuilderBlock_Uninstaller {
     }
 
     /**
-     * Delete postmeta
+     * Delete posts
      */
-    private static function delete_postmeta() {
+    private static function delete_post() {
         global $wpdb;
 
-        $postmeta_keys_to_delete = [
-            'popup_builder_block_settings',
-        ];
+        $post_ids = $wpdb->get_col(
+            $wpdb->prepare(
+                "SELECT ID FROM {$wpdb->posts} WHERE post_type = %s",
+                'popupkit-campaigns'
+            )
+        );
 
-        foreach ($postmeta_keys_to_delete as $meta_key) {
-            $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->postmeta} WHERE meta_key = %s", $meta_key));
+        foreach ( $post_ids as $post_id ) {
+            wp_delete_post( $post_id, true );
         }
     }
 }

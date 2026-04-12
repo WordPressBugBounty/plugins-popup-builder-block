@@ -64,15 +64,6 @@ class Enqueue {
 			);
 		}
 		
-		$this->enqueue_styles(
-			array(
-				'global' => [
-					'key' => 'popupkit-global',
-					'path' => 'popup/global.css'
-				],
-			)
-		);
-
 		// Check if the script should load only on single popup campaign pages and not in an iframe
 		if ( is_singular( Utils::post_type() ) && ! Utils::is_iframe() ) {
 			wp_enqueue_style(
@@ -106,6 +97,16 @@ class Enqueue {
 			wp_dequeue_style( 'admin-bar' );
 			wp_dequeue_style( 'dashicons' );
 
+			// Enqueue global CSS for the preview page
+			$this->enqueue_styles(
+				array(
+					'global' => [
+						'key'  => 'popupkit-global',
+						'path' => 'popup/global.css',
+					],
+				)
+			);
+
 			// Enqueue the block CSS file for the preview
 			$upload_dir = wp_upload_dir();
 			$post_id    = get_the_ID();
@@ -123,6 +124,16 @@ class Enqueue {
 	}
 
 	public function load_frontend_css( $post_id ): void {
+		// Enqueue global CSS when popup is rendered
+		$this->enqueue_styles(
+			array(
+				'global' => [
+					'key' => 'popupkit-global',
+					'path' => 'popup/global.css'
+				],
+			)
+		);
+		
 		$upload_dir = wp_upload_dir();
 		$css_file   = $upload_dir['basedir'] . "/popupkit/$post_id.css";
 		if ( file_exists( $css_file ) ) {

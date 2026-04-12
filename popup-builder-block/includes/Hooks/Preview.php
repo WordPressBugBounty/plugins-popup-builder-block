@@ -30,6 +30,17 @@ class Preview {
 			return $template;
 		}
 
+		// Don't show popup template in Elementor editor or WordPress Customizer
+		if ( $this->is_elementor_editor() ) {
+			return $template;
+		}
+
+		// Don't show popup template for classic editor posts (posts without blocks)
+		global $post;
+		if ( $post && ! has_blocks( $post ) ) {
+			return $template;
+		}
+
 		// Remove actions that are not needed for the preview
 		$this->remove_actions();
 
@@ -55,10 +66,43 @@ class Preview {
 			&& ! is_user_logged_in()
 			&& ! Utils::is_preview()
 			&& ! Utils::is_iframe()
+			&& ! $this->is_elementor_editor()
 		) {
 			wp_safe_redirect( home_url() );
 			exit;
 		}
+	}
+
+	/**
+	 * Check if current request is in Elementor editor or WordPress Customizer
+	 *
+	 * @return bool
+	 */
+	private function is_elementor_editor() {
+		// Check for WordPress Customizer
+		if ( is_customize_preview() ) {
+			return true;
+		}
+
+		// Check for Elementor editor via GET parameter
+		if ( isset( $_GET['action'] ) && $_GET['action'] === 'elementor' ) {
+			return true;
+		}
+
+		// Check if Elementor plugin is active and in edit mode
+		if ( did_action( 'elementor/loaded' ) ) {
+			if ( class_exists( '\\Elementor\\Plugin' ) ) {
+				$elementor = \Elementor\Plugin::instance();
+				if ( isset( $elementor->editor ) && $elementor->editor->is_edit_mode() ) {
+					return true;
+				}
+				if ( isset( $elementor->preview ) && $elementor->preview->is_preview_mode() ) {
+					return true;
+				}
+			}
+		}
+
+		return false;
 	}
 
 	/**
