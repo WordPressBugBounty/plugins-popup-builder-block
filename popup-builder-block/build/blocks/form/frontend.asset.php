@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array('wp-api-fetch', 'wp-hooks', 'wp-url'), 'version' => '5871464dd45444f3f0b4');
+<?php return array('dependencies' => array('wp-api-fetch', 'wp-hooks', 'wp-url'), 'version' => 'ccb3d6704ff2c5a36b08');

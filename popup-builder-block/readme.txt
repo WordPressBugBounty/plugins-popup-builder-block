@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.2.5
+Stable tag: 2.2.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -300,11 +300,15 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 == Changelog ==
 
+= PopupKit: 2.2.6 (2026-04-27) =
+* Added: Top bar feature in floating bar popup type
+* Fixed: Popup is not showing conditionally
+* Improved: Dashboard Loading UI/UX
+
 = PopupKit: 2.2.5 (2026-04-09) =
 * Fixed: Slide-in popup width gets shorter after applying margin
 * Fixed: Duplicate campaign is creating with A/B test status
 * Fixed: Popup content background not working
-* Added: Auto responder for form block
 * Fixed: Sass import deprecation warning
 * Fixed: Global css always load on frontend when popup is not rendered
 * Fixed: Popup is rendering in elementor & classic editor

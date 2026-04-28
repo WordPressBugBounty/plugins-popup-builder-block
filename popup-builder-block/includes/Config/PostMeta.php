@@ -219,6 +219,12 @@ class PostMeta {
 				'show_in_rest' => true,
 				'default'      => 3,
 			),
+			'isTopbar'                   => array(
+				'type'         => 'boolean',
+				'single'       => true,
+				'show_in_rest' => true,
+				'default'      => false,
+			),
 		);
 
 		return apply_filters( 'popup_builder_block/post_meta_fields', $meta_list );

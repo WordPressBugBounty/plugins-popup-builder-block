@@ -89,9 +89,25 @@
       "type": "array",
       "default": []
     },
+    "htmlElementTargets": {
+      "type": "array",
+      "default": []
+    },
     "adblockDetection": {
       "type": "boolean",
       "default": false
+    },
+    "enableOperatingSystemTargeting": {
+      "type": "boolean",
+      "default": false
+    },
+    "includeOperatingSystem": {
+      "type": "array",
+      "default": []
+    },
+    "excludeOperatingSystem": {
+      "type": "array",
+      "default": []
     },
     "enableBrowserTargeting": {
       "type": "boolean",
@@ -603,6 +619,10 @@
     "closeButtonPosition": {
       "type": "string",
       "default": "inside"
+    },
+    "isTopbar": {
+      "type": "boolean",
+      "default": false
     }
   },
   "usesContext": [

@@ -81,6 +81,10 @@ class PopupConditions {
 
 		return $is_abtest_active;
 	}
+
+	public function operating_system_targeting() {
+		return apply_filters( 'popup_builder_block/operatingsystem/targeting', true, $this->post_meta );
+	}
 	
 	public function browser_targeting() {
 		return apply_filters( 'popup_builder_block/browser/targeting', true, $this->post_meta );

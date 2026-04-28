@@ -12,6 +12,8 @@ class PopupGenerator {
 	private static $post_type = 'popupkit-campaigns';
 
 	private static $parsed_blocks = [];
+
+	private static $post_meta_cache = [];
 	
 	/**
 	 * class constructor.
@@ -22,7 +24,8 @@ class PopupGenerator {
 	 */
 	public function __construct() {
 		add_action( 'wp', [ $this, 'prepare_popup_assets' ], 5 );
-		add_action( 'wp_footer', array( $this, 'render_popup' ) );
+		add_action( 'wp_body_open', array( $this, 'render_popup' ), 10 );
+		add_action( 'wp_footer', array( $this, 'render_popup' ), 10 );
 		add_shortcode( 'popupkit', array( $this, 'render_inline_popup' ) );
 	}
 
@@ -76,7 +79,7 @@ class PopupGenerator {
 		}
 
 		// Don't show popups in Elementor editor, customizer, or on classic editor posts
-		if ( $this->is_elementor_editor() || $this->is_classic_editor_post() ) {
+		if ( is_admin() && ( $this->is_elementor_editor() || $this->is_classic_editor_post() ) ) {
 			return;
 		}
 
@@ -112,6 +115,7 @@ class PopupGenerator {
 	 */
 	private static function should_skip_popup( $post, $current_post_id = 0, $check_abtest = false, &$abtest_posts = null ): bool {
 		$popup_conditions = new PopupConditions( $post->ID, $current_post_id );
+		self::$post_meta_cache[ $post->ID ] = $popup_conditions->get_post_meta();
 
 		if (
 			! $popup_conditions->display_conditions() ||
@@ -121,7 +125,8 @@ class PopupGenerator {
 			! $popup_conditions->scheduling() ||
 			! $popup_conditions->cookie_targeting() ||
 			! $popup_conditions->adblock_detection() ||
-			! $popup_conditions->browser_targeting()
+			! $popup_conditions->browser_targeting() ||
+			! $popup_conditions->operating_system_targeting()
 		) {
 			return true;
 		}
@@ -243,12 +248,19 @@ class PopupGenerator {
 	 * Renders the popups in the footer.
 	 */
 	public function render_popup(): void {
-
 		if ( empty( self::$parsed_blocks ) ) {
 			return;
 		}
 
+		$hook = current_action();
+		
 		foreach ( self::$parsed_blocks as $post_id => $blocks ) {
+			if(($hook === 'wp_body_open' && !self::$post_meta_cache[$post_id ]['isTopbar']) || 
+			   ($hook === 'wp_footer' && self::$post_meta_cache[$post_id ]['isTopbar']) 
+			) {
+				continue; // Skip non-topbar popups in wp_body_open
+			}
+
 			foreach ( $blocks as $block ) {
 				echo render_block( $block ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
 			}
