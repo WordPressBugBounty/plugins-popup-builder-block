@@ -16,6 +16,26 @@ class Preview {
 	public function __construct() {
 		add_filter( 'template_include', array( $this, 'pbb_preview_campaign' ) );
 		add_filter( 'template_redirect', array( $this, 'redirect_to_popup_template' ) );
+		add_filter( 'preview_post_link', array( $this, 'add_preview_query_arg' ), 10, 2 );
+	}
+
+	/**
+	 * Adds preview=true to preview links for supported popup post types.
+	 *
+	 * @param string  $preview_link Preview URL.
+	 * @param \WP_Post $post         Current post object.
+	 * @return string
+	 */
+	public function add_preview_query_arg( $preview_link, $post ) {
+		if ( ! ( $post instanceof \WP_Post ) ) {
+			return $preview_link;
+		}
+
+		if ( ! in_array( $post->post_type, ['popupkit-campaigns'], true ) ) {
+			return $preview_link;
+		}
+
+		return add_query_arg( 'preview', 'true', $preview_link );
 	}
 
 	/**

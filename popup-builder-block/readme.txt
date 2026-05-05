@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.2.6
+Stable tag: 2.2.7
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -299,6 +299,12 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.2.7 (2026-05-05) =
+* Fixed: Cookie is set before triggering the popup
+* Fixed: Campaign preview is not working on first installation
+* Improved: Plugin security
+* Improved: Added editor to campaigns navigation button
 
 = PopupKit: 2.2.6 (2026-04-27) =
 * Added: Top bar feature in floating bar popup type

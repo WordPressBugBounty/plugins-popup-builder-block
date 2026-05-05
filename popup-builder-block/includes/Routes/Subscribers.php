@@ -5,8 +5,11 @@ namespace PopupBuilderBlock\Routes;
 defined( 'ABSPATH' ) || exit;
 
 use PopupBuilderBlock\Helpers\DataBase;
+use PopupBuilderBlock\Helpers\IPBlocking;
 
 class Subscribers extends Api {
+	private const RATE_LIMIT_WINDOW = 300; // 5 minutes.
+	private const RATE_LIMIT_ATTEMPTS = 10;
 
 	protected function get_routes(): array {
         return [
@@ -94,18 +97,49 @@ class Subscribers extends Api {
 	}
 
 	public function increase_subscribers( $param ) {
+		if ( $this->is_rate_limited() ) {
+			return new \WP_REST_Response(
+				[
+					'status'  => 'error',
+					'message' => esc_html__( 'Too many form submissions. Please try again in a few minutes.', 'popup-builder-block' ),
+				],
+				429
+			);
+		}
+
 		// Decode request body
 		$data = json_decode($param->get_body(), true);
+
+		if ( ! is_array( $data ) ) {
+			return new \WP_REST_Response(
+				[
+					'status'  => 'error',
+					'message' => esc_html__( 'Invalid payload.', 'popup-builder-block' ),
+				],
+				400
+			);
+		}
+
 		// Sanitize inputs
 		$campaign_id = absint($data['popup_id'] ?? '');
+		if ( ! $campaign_id ) {
+			return new \WP_REST_Response(
+				[
+					'status'  => 'error',
+					'message' => esc_html__( 'Invalid campaign.', 'popup-builder-block' ),
+				],
+				400
+			);
+		}
+
 		$campaign_title = get_the_title($campaign_id);
 		$email       = sanitize_email($data['email'] ?? '');
 		$name        = sanitize_text_field($data['name'] ?? '');
-		$form_data   = json_encode($data['form_data'] ?? []);
+		$form_data   = wp_json_encode( $data['form_data'] ?? [] );
 		$user_data   = $data['user_data'] ?? [];
 
 		// Prepare data for database insertion
-		$emailData        = json_encode($data['emailData'] ?? []);
+		$emailData        = wp_json_encode($data['emailData'] ?? []);
 		$subscriber_data = compact('campaign_id', 'campaign_title', 'email', 'name', 'form_data', 'user_data');
 
 		// Insert subscriber data
@@ -169,6 +203,29 @@ class Subscribers extends Api {
 			'data'    => $subscriber_data,
 			'message' => esc_html__('Form data submitted successfully', 'popup-builder-block')
 		]);
+	}
+
+	private function is_rate_limited() {
+		$window = (int) apply_filters( 'popup_builder_block/subscribers_rate_limit_window', self::RATE_LIMIT_WINDOW );
+		$limit  = (int) apply_filters( 'popup_builder_block/subscribers_rate_limit_attempts', self::RATE_LIMIT_ATTEMPTS );
+
+		$window = max( MINUTE_IN_SECONDS, $window );
+		$limit  = max( 1, $limit );
+
+		$ip = IPBlocking::get_visitor_ip();
+		if ( empty( $ip ) ) {
+			return false;
+		}
+
+		$key     = 'pbb_subscriber_rate_' . md5( $ip );
+		$attempt = (int) get_transient( $key );
+
+		if ( $attempt >= $limit ) {
+			return true;
+		}
+
+		set_transient( $key, $attempt + 1, $window );
+		return false;
 	}
 
 	public function get_subscribers_data( $param ) {

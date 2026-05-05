@@ -181,7 +181,7 @@ class ProcessDownload extends Api {
 	 * @return string|\WP_Error The URL of the uploaded image on success, or a WP_Error object on failure.
 	 */
 	private function download_and_upload_image( $src ) {
-		$response = wp_remote_get( $src, array( 'timeout' => 10 ) );
+		$response = wp_safe_remote_get( $src, array( 'timeout' => 10 ) );
 		if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) !== 200 ) {
 			return new \WP_Error( 'image_download_failed', "Failed to download image: $src" );
 		}

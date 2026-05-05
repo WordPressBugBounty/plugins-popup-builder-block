@@ -26,6 +26,63 @@ class DataBase {
 
 	public static $DATABASE_KEY	  = 'pbb_db_version';
 	public static $DATABASE_VERSION  = '1.1.0';
+
+	private static function allowed_tables() {
+		return array(
+			self::$LOGS_TABLE,
+			self::$SUBSCRIBERS_TABLE,
+			self::$COUNTRIES_TABLE,
+			self::$BROWSERS_TABLE,
+			self::$REFERRERS_TABLE,
+			self::$LOG_COUNTRIES,
+			self::$LOG_BROWSERS,
+			self::$LOG_REFERRERS,
+			self::$AB_TESTS_TABLE,
+			self::$AB_TESTS_VARIANTS_TABLE,
+		);
+	}
+
+	private static function get_table_name( $table ) {
+		global $wpdb;
+
+		if ( ! in_array( $table, self::allowed_tables(), true ) ) {
+			return false;
+		}
+
+		return $wpdb->prefix . $table;
+	}
+
+	private static function sanitize_order_group_clause( $clause, $allow_sort_direction = false ) {
+		if ( empty( $clause ) ) {
+			return '';
+		}
+
+		$parts = is_array( $clause ) ? $clause : explode( ',', (string) $clause );
+		$clean = array();
+
+		foreach ( $parts as $part ) {
+			$part = trim( (string) $part );
+			if ( '' === $part ) {
+				continue;
+			}
+
+			$pattern = $allow_sort_direction
+				? '/^[A-Za-z0-9_]+(?:\s+(?:ASC|DESC))?$/i'
+				: '/^[A-Za-z0-9_]+$/';
+
+			if ( ! preg_match( $pattern, $part ) ) {
+				return '';
+			}
+
+			$clean[] = $part;
+		}
+
+		return implode( ', ', $clean );
+	}
+
+	private static function sanitize_where_condition( $condition ) {
+		return preg_match( '/^[A-Za-z0-9_\s%=<>()]+$/', $condition ) ? $condition : false;
+	}
 	/**
 	 * Create the database table.
 	 *
@@ -514,7 +571,11 @@ class DataBase {
 	public static function insertDB( $table, $data ) {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . $table;
+		$table_name = self::get_table_name( $table );
+		if ( false === $table_name ) {
+			return false;
+		}
+
 		$wpdb->insert( $table_name, $data );
 		return $wpdb->insert_id;
 	}
@@ -557,8 +618,10 @@ class DataBase {
 	public static function getDB( $columns, $table, $where = [], $limit = 0, $count = false, $order_by = '', $group_by = '' ) {
 		global $wpdb;
 
-		// Handle table name safely
-		$table_name = esc_sql( $wpdb->prefix . $table );
+		$table_name = self::get_table_name( $table );
+		if ( false === $table_name ) {
+			return array();
+		}
 
 		// Handle columns (support string or array)
 		if ( is_array( $columns ) ) {
@@ -580,6 +643,11 @@ class DataBase {
 		if ( is_array( $where ) && ! empty( $where ) ) {
 			$where_parts = [];
 			foreach ( $where as $condition => $values ) {
+				$condition = self::sanitize_where_condition( $condition );
+				if ( false === $condition ) {
+					return array();
+				}
+
 				$where_parts[] = '(' . $condition . ')';
 				if ( is_array( $values ) ) {
 					$prepare_values = array_merge( $prepare_values, $values );
@@ -594,21 +662,21 @@ class DataBase {
 
 		// GROUP BY support
 		if ( $group_by ) {
-			if ( is_array( $group_by ) ) {
-				$group_by = implode( ', ', array_map( 'esc_sql', $group_by ) );
-			} else {
-				$group_by = esc_sql( $group_by );
+			$group_by = self::sanitize_order_group_clause( $group_by );
+			if ( empty( $group_by ) ) {
+				return array();
 			}
+
 			$sql .= " GROUP BY $group_by";
 		}
 
 		// ORDER BY (sanitized)
 		if ( $order_by ) {
-			if ( is_array( $order_by ) ) {
-				$order_by = implode( ', ', array_map( 'esc_sql', $order_by ) );
-			} else {
-				$order_by = esc_sql( $order_by );
+			$order_by = self::sanitize_order_group_clause( $order_by, true );
+			if ( empty( $order_by ) ) {
+				return array();
 			}
+
 			$sql .= " ORDER BY $order_by";
 		}
 
@@ -639,7 +707,11 @@ class DataBase {
 	public static function updateDB( $table, $data, $where ) {
 		global $wpdb;
 
-		$table_name = $wpdb->prefix . $table;
+		$table_name = self::get_table_name( $table );
+		if ( false === $table_name ) {
+			return false;
+		}
+
 		return $wpdb->update( $table_name, $data, $where );
 	}
 
@@ -660,11 +732,19 @@ class DataBase {
 			return false;
 		}
 
+		if ( ! preg_match( '/^[A-Za-z0-9_]+$/', (string) $field ) ) {
+			return false;
+		}
+
 		// If id is array then delete multiple rows and if id is integer then delete single row
-		$table_name = $wpdb->prefix . $table;
+		$table_name = self::get_table_name( $table );
+		if ( false === $table_name ) {
+			return false;
+		}
+
 		if ( is_array( $id ) ) {
 			$placeholders = implode( ',', array_fill( 0, count( $id ), '%d' ) );
-			 $sql = $wpdb->prepare(
+			$sql = $wpdb->prepare(
 				"DELETE FROM %i WHERE $field IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
 				array_merge( array( $table_name ), $id ) 
 			);

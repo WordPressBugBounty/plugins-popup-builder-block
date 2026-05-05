@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PopupKit 2.2.6\n"
+"Project-Id-Version: PopupKit 2.2.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/popup-builder-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-27T10:11:05+00:00\n"
+"POT-Creation-Date: 2026-05-05T07:35:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: popup-builder-block\n"
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Show update & fix related important messages, essential tutorials and promotional images of PopupKit on WP Dashboard"
 msgstr ""
 
-#: includes/Helpers/DataBase.php:526
+#: includes/Helpers/DataBase.php:587
 msgid "Invalid email address"
 msgstr ""
 
@@ -283,35 +283,53 @@ msgid "Onboard data saved successfully."
 msgstr ""
 
 #. translators: %s: Field name
-#: includes/Routes/Popup.php:49
-#: includes/Routes/Popup.php:63
-#: includes/Routes/Popup.php:100
-#: includes/Routes/Popup.php:114
-#: includes/Routes/Subscribers.php:33
-#: includes/Routes/Subscribers.php:47
+#: includes/Routes/Popup.php:55
+#: includes/Routes/Popup.php:69
+#: includes/Routes/Popup.php:109
+#: includes/Routes/Popup.php:123
+#: includes/Routes/Subscribers.php:36
+#: includes/Routes/Subscribers.php:50
 #, php-format
 msgid "Invalid %s format. Expected YYYY-MM-DD."
 msgstr ""
 
+#: includes/Routes/Popup.php:331
+#: includes/Routes/Popup.php:382
+msgid "Too many analytics requests. Please retry shortly."
+msgstr ""
+
+#: includes/Routes/Popup.php:341
+#: includes/Routes/Subscribers.php:129
+msgid "Invalid campaign."
+msgstr ""
+
 #. translators: %s: Field name
-#: includes/Routes/Subscribers.php:63
+#: includes/Routes/Subscribers.php:66
 #, php-format
 msgid "Invalid %s value. Allowed values are: %s."
 msgstr ""
 
-#: includes/Routes/Subscribers.php:118
+#: includes/Routes/Subscribers.php:104
+msgid "Too many form submissions. Please try again in a few minutes."
+msgstr ""
+
+#: includes/Routes/Subscribers.php:117
+msgid "Invalid payload."
+msgstr ""
+
+#: includes/Routes/Subscribers.php:152
 msgid "You have already submitted this form"
 msgstr ""
 
-#: includes/Routes/Subscribers.php:170
+#: includes/Routes/Subscribers.php:204
 msgid "Form data submitted successfully"
 msgstr ""
 
-#: includes/Routes/Subscribers.php:211
+#: includes/Routes/Subscribers.php:268
 msgid "Form data fetched successfully"
 msgstr ""
 
-#: includes/Routes/Subscribers.php:232
+#: includes/Routes/Subscribers.php:289
 msgid "Form data deleted successfully"
 msgstr ""
 
@@ -5710,6 +5728,11 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/popup-builder/settings.js:3232
 msgid "Horizontal Position"
+msgstr ""
+
+#: build/blocks/popup-builder/index.js:1
+#: src/blocks/popup-builder/editor-popup-builder.js:61
+msgid "Back to WordPress"
 msgstr ""
 
 #: src/admin/templates/components/popups/DialogSteps.js:30
