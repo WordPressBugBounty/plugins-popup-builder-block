@@ -199,6 +199,7 @@ class Popup extends Api {
 				'date'   => $post->post_date,
 				'status' => $post->post_status,
 				'guid'   => $post->guid,
+				'link'   => get_permalink( $post ),
 			);
 
 			if ( !$is_subscribers ) {

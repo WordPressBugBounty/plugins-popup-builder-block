@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.2.7
+Stable tag: 2.2.8
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,15 +16,15 @@ Powerful Popup Builder Block for Gutenberg block editor.
 
 **[PopupKit - Popup builder plugin](https://wpmet.com/plugin/popupkit/?utm_source=org&utm_medium=readme)** by Wpmet can confidently build exceptional popups that boost conversions, make sales, generate leads, display offers, deliver target messages, show videos, capture attention, create surveys, collect feedback, grow social followers, and many more.
 
-And, you can set up all these popup campaigns without annoying your visitors. This dedicated popup plugin is a powerful solution to craft personalized messages with real-time segmentation. It lets you precisely control **who sees the popup, where it appears, and when it’s triggered**. For an interactive experience, you can choose the revealing effects of popups from the list of versatile animations.
+And, you can set up all these popup campaigns without annoying visitors. This dedicated popup plugin is a powerful solution to craft personalized messages with real-time segmentation. It lets you precisely control **who sees the popup, where it appears, and when it’s triggered**. You can choose the revealing effects of popups from the list of versatile animations.
 
 https://www.youtube.com/watch?v=mLuCeN8DGSY
 
 | [PopupKit Home Page](https://wpmet.com/plugin/popupkit/?utm_source=org&utm_medium=readme) | [PopupKit Campaign Templates](https://wpmet.com/plugin/popupkit/templates/?utm_source=org&utm_medium=readme) | [Blog](https://wpmet.com/blog/?utm_source=org&utm_medium=readme) | [Documentation](https://wpmet.com/doc/popupkit/?utm_source=org&utm_medium=readme) | [Need Support?](https://wpmet.com/support-ticket-form/?utm_source=org&utm_medium=readme) | [How to get started with PopupKit Pro](https://wpmet.com/doc/popupkit-pro-license-activation/?utm_source=org&utm_medium=readme) |
 
-PopupKit - a popup builder plugin that does not limit you to blending your popup design with the brand's theme. Rather, it’s a perfect block for sparking **urgency** and **FOMO** among the audience. It enables you to easily **craft popups with impactful calls to action** and targeted content to generate leads and sales.
+PopupKit - a popup builder plugin that does not limit you to blending your popup design with the brand's theme. Rather, it’s a perfect block for sparking **urgency** and **FOMO** among the audience. It enables you to easily **craft popups with impactful calls to action** & targeted content to generate leads and sales.
 
-Do all this from a blank canvas. Within PopupKit's canvas, you can use any Gutenberg blocks, such as a countdown timer block, dual button block, video block, etc. You can even proceed with no design hassles! **Just select a premade layout and insert it**, then make some simple changes like text and color. That’s it! Your **professionally designed popup campaign** is ready to go live.
+Do all this from a blank canvas. Within PopupKit's canvas, you can use any Gutenberg blocks, such as a countdown timer block, dual button block, video block, etc. You can even proceed with no design hassles! **Just select a premade layout and insert it**, then make simple changes like text and color. Your **professionally designed popup campaign** is ready to go live.
 
 ## Ultimate Design Freedom and + Smart Targeting & Display Conditions
 
@@ -40,7 +40,7 @@ Beyond classic popups, PopupKit offers [ready-made recipes](https://wpmet.com/pl
 
 **🔸 [Exit Intent Popup](https://wpmet.com/doc/popupkit-exit-intent-popup/?utm_source=org&utm_medium=readme):** Show the popup just before your visitors try to exit to display offers at the right moment.
 
-**🔸 Lead Generation Popup:** Collect emails and leads with opt-in popups in a single click.
+**🔸 Lead Generation Popup:** Collect emails & leads with opt-in popups in a single click.
 
 **🔸 [Lightbox Popups](https://wpmet.com/plugin/popupkit/lightbox-popup/?utm_source=org&utm_medium=readme):** Show lightbox popup to the users that look natural and doesn't interrupt the user experience. 
 
@@ -54,7 +54,7 @@ Beyond classic popups, PopupKit offers [ready-made recipes](https://wpmet.com/pl
 
 **🔸 [Full-screen Popups](https://wpmet.com/plugin/popupkit/full-screen-popup/?utm_source=org&utm_medium=readme):** Deliver bold and big announcements that visitors must see.
 
-**🔸 In-line Popups:** Embed high-converting CTAs inside blog posts, product pages, or any content area.
+**🔸 In-line Popups (https://wpmet.com/plugin/popupkit/full-screen-popup/?utm_source=org&utm_medium=readme):** Embed high-converting CTAs inside blog posts, product pages, or any content area.
 
 **🔸 [WooCommerce Popups](https://wpmet.com/plugin/popupkit/woocommerce-popup/?utm_source=org&utm_medium=readme):** Reduce cart abandonment with exit-intent popups triggered when users try to leave.
 
@@ -62,7 +62,7 @@ Beyond classic popups, PopupKit offers [ready-made recipes](https://wpmet.com/pl
 
 ### ⏰ Dynamic Mechanism for Strategic Triggers
 
-Time segmentation is key to the success of your popup campaign. If you’re concerned about your customer behavior and browsing patterns, the PopupKit, popup builder block plugin will help you show popups at the right time to make them more relevant to visitors. It supports dynamic settings for smart triggers.
+Time segmentation is key to the success of your popup campaign. If you’re concerned about your customer behavior and browsing patterns, the PopupKit, popup builder block plugin helps to show popups at the right time to make them more relevant to visitors. It supports dynamic settings for smart triggers.
 
 Here are [popup trigger options](https://wpmet.com/plugin/popupkit/smart-triggers-popup/?utm_source=org&utm_medium=readme) available with the PopupKit plugin:  
 
@@ -76,15 +76,15 @@ Here are [popup trigger options](https://wpmet.com/plugin/popupkit/smart-trigger
 
 **🔸 Custom Selector Click Popup:** Popup appears when visitors click on a specific element.
 
-**🔸 In-line Popup:** Want to eliminate friction entirely? Embed your campaign as an in-line popup so it feels like a native part of your website's content.
+**🔸 In-line Popup:** Want to eliminate friction entirely? Embed your campaign as an inline popup so it feels like a native part of your website's content.
 
 ### 🎨 Bring Personalization with Display Conditions
-Segmenting popups for different audience groups enhance the personalization of your popups, making them more relevant and engaging. And, one crucial way of doing this is by controlling the popup’s appearance based on the website’s regions. For this purpose, the Kit provides **flexible options to set up display conditions.**
+Segmenting popups for different audience groups enhance the personalization of your popups, making them more relevant and engaging. And, one crucial way of doing this is by controlling the popup’s appearance based on the website’s regions. For this purpose, PopupKit provides **flexible options to set up display conditions.**
 
 You can apply multiple include and exclude conditions for a popup on your entire website, specifically based on page, posts, archives, etc.
 
 ### ⚒️ Leverage the Power of PopupKit Blocks
-The effectiveness of a popup relies not only on timing and placement. The right engagement of the popup relies on the coherence and accuracy of your design. PopupKit becomes the right popup builder tool by providing dedicated elements like **Container, Form, Countdown Timer, Heading, Advanced Paragraph, Advanced Image, Icon, Button**, etc.
+The effectiveness of a popup relies not only on timing and placement. Right engagement of the popup relies on the coherence & accuracy of your design. PopupKit becomes the right popup builder tool by providing dedicated elements like **Container, Form, Countdown Timer, Heading, Advanced Paragraph, Advanced Image, Icon, Button**, etc.
 
 ### 🎨 Showcase Visually Stunning Popups
 Whether you choose to create your popup from scratch or use a pre-made template, you’ll end up designing stunning popups for your website. To craft an ideal popup experience, the PopupKit allows you to **customize the overlay’s appearance** along with styling the container and close button to perfection.
@@ -94,9 +94,9 @@ Since we don't want to impose an interruption with a popup, then it needs to be 
 
 ### 🎮 Gamification Popup
 
-Turn user engagement into conversions with [interactive gamified popups](https://wpmet.com/plugin/popupkit/gamification-popup/?utm_source=org&utm_medium=readme). PopupKit includes built-in gamification blocks like **Spin-to-Win, Try Your Luck**, and more. These popups not only grab attention but also encourage users to participate and win discounts or gifts. You can customize the prizes, winning chances, and design with mouse clicks and all without any coding. Perfect for growing your email list and sales in a fun, rewarding way.
+Turn user engagement into conversions with [interactive gamified popups](https://wpmet.com/plugin/popupkit/gamification-popup/?utm_source=org&utm_medium=readme). PopupKit includes built-in gamification blocks like **Spin-to-Win, Try Your Luck**, etc. These popups not only grab attention but also encourage users to participate and win discounts or gifts. You can customize the prizes, winning chances, and design with mouse clicks and all without any coding. Perfect for growing your email list and sales in a fun, rewarding way.
 
-Such animated revealing and closing effects encourage visitors to Interact with the popup even more.
+Such animated revealing & closing effects encourage visitors to Interact with the popup.
 
 ### 🔄 MultiStep Popups
 With [PopupKit multi-step popup](https://wpmet.com/plugin/popupkit/multistep-popup/?utm_source=org&utm_medium=readme) feature, you can break down campaign engagement into sequential, bite-sized steps. For example, the first step could ask a simple question like "Yes, I want to learn more," followed by an email request, and then a final offer or coupon. Unlike traditional popups with long forms, this approach guides users smoothly, reducing friction and making it easier for them to complete the process. The result? More conversions and less intimidation.
@@ -107,10 +107,10 @@ Recover lost sales before they happen. PopupKit’s WooCommerce Exit Intent Popu
 
 
 ### 🛠️ [Easy Drag-and-drop Editor Popup Builder](https://wpmet.com/plugin/popupkit/drag-and-drop-popup/?utm_source=org&utm_medium=readme)
-Want to create a popup campaign from scratch? PopupKit welcomes you with a builder interface you are already familiar with. You can easily drag and drop an element into the editor area. And, all campaign settings like triggers, animations, display rules, frequency, and geolocation targeting are neatly placed in the right sidebar.
+Want to create a popup campaign from scratch? PopupKit welcomes you with a builder interface you are already familiar with. You can easily drag and drop an element into the editor area. All campaign settings like triggers, animations, display rules, frequency, and geolocation targeting are neatly placed in the right sidebar.
 
 ### ⏰Countdown Timer
-Get the easiest way to create FOMO among visitors while displaying popups. PopupKit has a countdown timer block to help you showcase limited-time discount popups. And, you can apply various countdown timer styles like **Circle, Box, Flip, Linear, Crest,** etc. Once the countdown reaches zero, display a custom expiry message to inform your visitors.
+Get the easiest way to create FOMO among visitors while displaying popups. PopupKit has a countdown timer block to help you showcase limited-time discount popups. Apply countdown timer styles like **Circle, Box, Flip, Linear, Crest,** etc. Once the countdown reaches zero, display a custom expiry message to inform your visitors.
 
 ### ⏩ Set Popup campaign Frequency
 
@@ -126,7 +126,7 @@ It also displays real‑time data to identify drop‑offs (users who saw but did
 ### 📑 Page Level Targeting for Popups
 PopupKit allows you to target which pages your popups are displayed on- individual page, posts, product pages, checkout and across the whole site. For that, you may use advanced filters (page slug, category, post type …) to make popups relevant regarding visitor intent and page context.
 
-This accuracy ensures that your visitors only see popups relevant to the page they’re already on, resulting in better engagement and fewer pointless interruptions and higher conversion rates.
+This accuracy ensures that your visitors only see popups relevant to their needs resulting in better engagement and fewer pointless interruptions and higher conversion rates.
 
 ### 🗺️Geolocation Targeting
 
@@ -138,7 +138,7 @@ Whether you choose to create your popup from scratch or use a pre-made template,
 
 ### ⏱️Simplify Campaign Management with Built-In Scheduling
 
-Take advantage of [PopupKit's built-in scheduling](https://wpmet.com/plugin/popupkit/popup-scheduling/?utm_source=org&utm_medium=readme) feature. Create multiple popup campaigns at once and set different launch times for each. Along with saving your time, you can also use an advanced scheduling system for better engagement.
+Take advantage of [PopupKit's scheduling](https://wpmet.com/plugin/popupkit/popup-scheduling/?utm_source=org&utm_medium=readme) feature. Create multiple popup campaigns at once and set different launch times for each. Along with saving your time, it also use an advanced scheduling system for better engagement.
 
 PopupKit allows you to schedule campaigns based on your website’s timezone or your visitors’ local time, all through an intuitive calendar-style interface.
 
@@ -151,7 +151,10 @@ PopupKit simplifies popoup display to the right audience even more by allowing y
 
 ### 🚫IP Blocking
 
-Another way to become regional-specific while displaying a popup is IP Blocking. You can enter specific IP Ranges and Specific IPs to avoid certain regions or users. In this way, your campaign becomes more relevant and prevents spam, bots, and unnecessary impressions to provide accurate conversion rates.
+Another way to become regional-specific while displaying a popup is IP Blocking. You can enter specific IP Ranges and Specific IPs to avoid certain regions or users. In this way, your campaign becomes more relevant and prevents spam, bots, & unnecessary impressions to provide accurate conversion rates.
+
+### AdBlock Detection
+Easily [detect active ad-blockers](https://wpmet.com/doc/adblock-detection/?utm_source=org&utm_medium=readme) & trigger polite whitelist requests to recover your invisible traffic. Protect lead-gen forms and ensure popup campaigns never go unseen. 
 
 ### 🌐 Display Popups Anywhere on the Website
 One of the best things about the PopupKit plugin is that you can add it anywhere on your website. So, you don’t need to configure additional settings conventionally. For instance, simply place the popup block in the header area to add a bar popup.
@@ -174,7 +177,22 @@ One of the best things about the PopupKit plugin is that you can add it anywhere
 
 **[Mailchimp Integration](https://wpmet.com/doc/popupkit-mailchimp-integration/?utm_source=org&utm_medium=readme):** Captured emails flow straight into Mailchimp lists so you can immediately start automated welcome emails or marketing campaigns.
 
-**[Slack Integration]:** Seamlessly connect PopupKit with Slack to instantly ping your team with real-time notifications the moment a visitor converts on your popup campaign.
+**[Slack Integration]:** Seamlessly connect PopupKit with Slack to instantly ping your team with real-time notifications the moment a visitor converts.
+
+**[Google Sheet Integration](https://wpmet.com/doc/popupkit-google-sheet-integration/?utm_source=org&utm_medium=readme):** Captured emails flow straight into Mailchimp lists so you can immediately start automated welcome emails.
+
+**[Moosend Integration](https://wpmet.com/doc/popupkit-moosend-integration/?utm_source=org&utm_medium=readme):** Instantly syncs new subscribers to Moosend to trigger powerful automated workflows.
+
+**[Drip Integration](https://wpmet.com/doc/popupkit-drip-integration/?utm_source=org&utm_medium=readme):** Seamlessly funnel leads into Drip using only your Access Token to instantly fire e-commerce automation sequences.
+
+**[Brevo Integration](https://wpmet.com/doc/popupkit-brevo-integration/?utm_source=org&utm_medium=readme):** Route captured emails straight to Brevo to kickstart your multi-channel marketing campaigns (Sendinblue).
+
+**[Omnisend Integration](https://wpmet.com/doc/popupkit-omnisend-integration/?utm_source=org&utm_medium=readme):** Send e-commerce leads straight to Omnisend to fuel your SMS and email marketing automation.
+
+**[Klaviyo Integration](https://wpmet.com/doc/popupkit-klaviyo-integration/?utm_source=org&utm_medium=readme):** Push vital subscriber data directly to Klaviyo to trigger hyper-personalized e-commerce flows.
+
+**[Zoho CRM Integration](https://wpmet.com/doc/popupkit-zoho-integration/?utm_source=org&utm_medium=readme):** Sync captured leads directly to your Zoho dashboard to streamline your sales pipeline.
+
 
 ## What Types of Popups Can You Create with PopupKit plugin?
 
@@ -299,6 +317,12 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.2.8 (2026-06-07) =
+* Added: Blur effect for popup background
+* Fixed: CSS filter not working when removing a value of the control
+* Fixed: Preview Link not working from campaign page
+* Improved: UI/UX of display conditions
 
 = PopupKit: 2.2.7 (2026-05-05) =
 * Fixed: Cookie is set before triggering the popup
