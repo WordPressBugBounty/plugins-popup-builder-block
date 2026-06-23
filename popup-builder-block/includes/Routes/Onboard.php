@@ -75,7 +75,7 @@ class Onboard extends Api {
 			$body = wp_remote_retrieve_body($response);
 			$response_data = json_decode($body, true);
 
-			update_option(Onboard::EMAIL, 'subscribed');
+			update_option(Onboard::EMAIL, $data['userMail']);
 			update_option(Onboard::EMAIL_ID, $response_data['response']['data']['id'] ?? '');
 
 			return [

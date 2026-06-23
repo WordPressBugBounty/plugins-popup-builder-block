@@ -26,7 +26,7 @@ class Admin {
 		$this->menu_link_part = admin_url( 'admin.php?page=popupkit' );
 
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ), 9 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 9 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_all_admin_scripts' ), 9 );
 	}
 
 	public function get_onboard_status() {
@@ -119,9 +119,23 @@ class Admin {
 	}
 
 	/**
-	 * Enqueue the admin scripts
+	 * Enqueue all admin-side scripts, delegating to the per-context methods.
 	 */
-	public function enqueue_admin_scripts( $hook ) {
+	public function enqueue_all_admin_scripts( $hook ) {
+		// Block editor localization — only on the popup CPT edit screens
+		$this->enqueue_block_editor_scripts( $hook );
+
+		// Dashboard / onboard scripts — only on the PopupKit admin page
+		$this->enqueue_admin_scripts( $hook );
+
+		// Deactivation feedback popup — only on plugins.php
+		$this->enqueue_deactivation_popup_scripts( $hook );
+	}
+
+	/**
+	 * Enqueue the block editor scripts
+	 */
+	public function enqueue_block_editor_scripts( $hook ) {
 		// Get the current screen
 		$screen = get_current_screen();
 
@@ -143,7 +157,12 @@ class Admin {
 				)
 			);
 		}
+	}
 
+	/**
+	 * Enqueue the dashboard / onboard admin scripts
+	 */
+	public function enqueue_admin_scripts( $hook ) {
 		if ( $hook === 'toplevel_page_popupkit' ) {
 			$data_admin = $this->get_onboard_status() ? 'dashboard' : 'onboard';
 
@@ -244,9 +263,44 @@ class Admin {
 				}
 			}
 		}
+	}
 
-		if ( strpos( $hook, 'popupkit' ) === false ) {
+	/**
+	 * Enqueue the deactivation feedback popup scripts (plugins.php only)
+	 */
+	public function enqueue_deactivation_popup_scripts( $hook ) {
+		if ( 'plugins.php' !== $hook ) {
 			return;
 		}
+
+		$asset_file = POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'build/admin/deactivation-popup/index.asset.php';
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$assets = include $asset_file;
+
+		wp_enqueue_script(
+			'popupkit-deactivation-popup',
+			POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/deactivation-popup/index.js',
+			$assets['dependencies'],
+			$assets['version'],
+			true
+		);
+
+		wp_localize_script(
+			'popupkit-deactivation-popup',
+			'popupkitDeactivation',
+			array(
+				'pluginUrl' => POPUP_BUILDER_BLOCK_PLUGIN_URL,
+			)
+		);
+
+		wp_enqueue_style(
+			'popupkit-deactivation-popup',
+			POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/deactivation-popup/style-index.css',
+			array(),
+			$assets['version']
+		);
 	}
 }

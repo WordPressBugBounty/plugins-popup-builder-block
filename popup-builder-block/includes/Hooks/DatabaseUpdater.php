@@ -15,6 +15,47 @@ class DatabaseUpdater {
      */
     public function __construct() {
         add_action( 'admin_init', array( $this, 'update_database' ) );
+        add_action( 'admin_init', array( $this, 'maybe_set_installed_time' ) );
+    }
+
+    /**
+     * Backfill the install timestamp for users who installed before it was tracked.
+     *
+     * The activation hook only fires on (re)activation, so existing installs would
+     * otherwise never get `popupkit_installed_time`. This runs once on admin_init
+     * and estimates the install date from the oldest popup campaign, falling back
+     * to the current time when no campaigns exist.
+     *
+     * @return void
+     */
+    public function maybe_set_installed_time() {
+        if ( get_option( 'popupkit_installed_time' ) ) {
+            return; // Already recorded (fresh install via activation hook, or previously backfilled).
+        }
+
+        $installed_time = time();
+
+        $oldest = get_posts(
+            array(
+                'post_type'      => 'popupkit-campaigns',
+                'post_status'    => 'any',
+                'posts_per_page' => 1,
+                'orderby'        => 'date',
+                'order'          => 'ASC',
+                'fields'         => 'ids',
+                'no_found_rows'  => true,
+            )
+        );
+
+        if ( ! empty( $oldest ) ) {
+            $post_time = get_post_time( 'U', true, $oldest[0] );
+
+            if ( $post_time ) {
+                $installed_time = (int) $post_time;
+            }
+        }
+
+        update_option( 'popupkit_installed_time', $installed_time );
     }
 
     /**

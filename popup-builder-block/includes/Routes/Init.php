@@ -26,5 +26,6 @@ class Init {
 		new Onboard();
 		new Templates();
 		new ABTest();
+		new DeactivationFeedback();
 	}
 }

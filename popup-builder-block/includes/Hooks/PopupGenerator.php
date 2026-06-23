@@ -63,8 +63,8 @@ class PopupGenerator {
 		foreach ( $blocks as $block ) {
 			$output .= render_block( $block );
 		}
-		
-		return $output;
+
+		return do_shortcode( $output );
 	}
 
 	/**
@@ -262,7 +262,7 @@ class PopupGenerator {
 			}
 
 			foreach ( $blocks as $block ) {
-				echo render_block( $block ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
+				echo do_shortcode( render_block( $block ) ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */
 			}
 		}
 	}
