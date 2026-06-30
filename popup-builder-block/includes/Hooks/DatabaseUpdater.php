@@ -14,8 +14,20 @@ class DatabaseUpdater {
      * @since 2.1.2
      */
     public function __construct() {
-        add_action( 'admin_init', array( $this, 'update_database' ) );
-        add_action( 'admin_init', array( $this, 'maybe_set_installed_time' ) );
+        add_action( 'admin_init', array( $this, 'on_admin_init' ) );
+    }
+
+    /**
+     * Single admin_init entry point.
+     *
+     * Both routines run once per request behind their own early-return guards,
+     * so they are dispatched from one hook to avoid registering multiple callbacks.
+     *
+     * @return void
+     */
+    public function on_admin_init() {
+        $this->update_database();
+        $this->maybe_set_installed_time();
     }
 
     /**
