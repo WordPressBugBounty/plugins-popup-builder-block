@@ -130,58 +130,65 @@ class UtilityPackages {
 				'gutenkit-blocks-addon/gutenkit-blocks-addon.php' => array(
 					'name' => esc_html__( 'GutenKit', 'popup-builder-block' ),
 					'url'  => 'https://wordpress.org/plugins/gutenkit-blocks-addon/',
-					'icon' => 'https://ps.w.org/gutenkit-blocks-addon/assets/icon-256x256.gif?rev=2518175',
-					'desc' => esc_html__( 'Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor.', 'popup-builder-block' ),
-					'docs' => 'https://wpmet.com/docs/elementskit/',
+					'icon' => 'https://ps.w.org/gutenkit-blocks-addon/assets/icon-256x256.gif',
+					'desc' => esc_html__( 'The most powerful Gutenberg blocks plugin to build stunning WordPress websites with full-site editing and advanced block controls.', 'popup-builder-block' ),
+					'docs' => 'https://wpmet.com/doc/gutenkit/',
 				),
-				'getgenie/getgenie.php'                 => array(
-					'name' => esc_html__( 'GetGenie AI', 'popup-builder-block' ),
-					'url'  => 'https://wordpress.org/plugins/getgenie/',
-					'icon' => 'https://ps.w.org/getgenie/assets/icon-256x256.gif?rev=2798355',
-					'desc' => esc_html__( 'Your personal AI assistant for content and SEO. Write content that ranks on Google with NLP keywords and SERP analysis data.', 'popup-builder-block' ),
-					'docs' => 'https://getgenie.ai/docs/',
+				'rox-dynamic-cpt-fields-engine/rox-dynamic-cpt-fields-engine.php' => array(
+					'name' => esc_html__( 'Rox Dynamic CPT Fields Engine', 'popup-builder-block' ),
+					'url'  => 'https://wordpress.org/plugins/rox-dynamic-cpt-fields-engine/',
+					'icon' => 'https://ps.w.org/rox-dynamic-cpt-fields-engine/assets/icon-256x256.gif',
+					'desc' => esc_html__( 'Build custom post types, fields, taxonomies, and dynamic frontend layouts for WordPress, with zero coding and full AI-generated schema.', 'popup-builder-block' ),
+					'docs' => 'https://wpmet.com/doc/rox-dynamic-cpt-fields-engine/',
 				),
-				'shopengine/shopengine.php'             => array(
+				'rox-appointment-booking/rox-appointment-booking.php' => array(
+					'name' => esc_html__( 'Rox Appointment Booking', 'popup-builder-block' ),
+					'url'  => 'https://wordpress.org/plugins/rox-appointment-booking/',
+					'icon' => 'https://ps.w.org/rox-appointment-booking/assets/icon-256x256.png',
+					'desc' => esc_html__( 'Manage bookings, agents, payments, and calendars from one dashboard! A complete appointment and scheduling solution for WordPress.', 'popup-builder-block' ),
+					'docs' => 'https://wpmet.com/doc/rox-appointment-booking/',
+				),
+				'metform/metform.php' => array(
+					'name' => esc_html__( 'MetForm', 'popup-builder-block' ),
+					'url'  => 'https://wordpress.org/plugins/metform/',
+					'icon' => 'https://ps.w.org/metform/assets/icon-256x256.png?rev=2544152',
+					'desc' => esc_html__( 'Drag & drop form builder for Elementor to create contact forms, multi-step forms, and more — smoother, faster, and better!', 'popup-builder-block' ),
+					'docs' => 'https://wpmet.com/doc/metform/',
+				),
+				'shopengine/shopengine.php' => array(
 					'name' => esc_html__( 'ShopEngine', 'popup-builder-block' ),
 					'url'  => 'https://wordpress.org/plugins/shopengine/',
 					'icon' => 'https://ps.w.org/shopengine/assets/icon-256x256.gif?rev=2505061',
 					'desc' => esc_html__( 'Complete WooCommerce solution for Elementor to fully customize any pages including cart, checkout, shop page, and so on.', 'popup-builder-block' ),
 					'docs' => 'https://wpmet.com/doc/shopengine/',
 				),
-				'metform/metform.php'                   => array(
-					'name' => esc_html__( 'MetForm', 'popup-builder-block' ),
-					'url'  => 'https://wordpress.org/plugins/genie-image-ai/',
-					'icon' => 'https://ps.w.org/metform/assets/icon-256x256.png?rev=2544152',
-					'desc' => esc_html__( 'Drag & drop form builder for Elementor to create contact forms, multi-step forms, and more — smoother, faster, and better!', 'popup-builder-block' ),
-					'docs' => 'https://wpmet.com/doc/metform/',
+				'table-builder-block/table-builder-block.php' => array(
+					'name' => esc_html__( 'TableKit', 'popup-builder-block' ),
+					'url'  => 'https://wordpress.org/plugins/table-builder-block/',
+					'icon' => 'https://ps.w.org/table-builder-block/assets/icon-256x256.png',
+					'desc' => esc_html__( 'Build beautiful, responsive tables for WordPress with sorting, filtering, and pagination — no coding needed.', 'popup-builder-block' ),
+					'docs' => 'https://wpmet.com/doc/tablekit/',
 				),
-				'emailkit/EmailKit.php'                 => array(
+				'getgenie/getgenie.php' => array(
+					'name' => esc_html__( 'GetGenie AI', 'popup-builder-block' ),
+					'url'  => 'https://wordpress.org/plugins/getgenie/',
+					'icon' => 'https://ps.w.org/getgenie/assets/icon-256x256.gif?rev=2798355',
+					'desc' => esc_html__( 'Your personal AI assistant for content and SEO. Write content that ranks on Google with NLP keywords and SERP analysis data.', 'popup-builder-block' ),
+					'docs' => 'https://getgenie.ai/docs/',
+				),
+				'emailkit/EmailKit.php' => array(
 					'name' => esc_html__( 'EmailKit', 'popup-builder-block' ),
-					'url'  => 'https://wordpress.org/plugins/genie-image-ai/',
+					'url'  => 'https://wordpress.org/plugins/emailkit/',
 					'icon' => 'https://ps.w.org/emailkit/assets/icon-256x256.png?rev=3003571',
 					'desc' => esc_html__( 'Advanced email customizer for WooCommerce and WordPress. Build, customize, and send emails from WordPress to boost your sales!', 'popup-builder-block' ),
 					'docs' => 'https://wpmet.com/doc/emailkit/',
 				),
-				'wp-social/wp-social.php'               => array(
+				'wp-social/wp-social.php' => array(
 					'name' => esc_html__( 'WP Social', 'popup-builder-block' ),
 					'url'  => 'https://wordpress.org/plugins/wp-social/',
 					'icon' => 'https://ps.w.org/wp-social/assets/icon-256x256.png?rev=2544214',
 					'desc' => esc_html__( 'Add social share, login, and engagement counter — unified solution for all social media with tons of different styles for your website.', 'popup-builder-block' ),
 					'docs' => 'https://wpmet.com/doc/wp-social/',
-				),
-				'wp-ultimate-review/wp-ultimate-review.php' => array(
-					'name' => esc_html__( 'WP Ultimate Review', 'popup-builder-block' ),
-					'url'  => 'https://wordpress.org/plugins/wp-ultimate-review/',
-					'icon' => 'https://ps.w.org/wp-ultimate-review/assets/icon-256x256.png?rev=2544187',
-					'desc' => esc_html__( 'Collect and showcase reviews on your website to build brand credibility and social proof with the easiest solution.', 'popup-builder-block' ),
-					'docs' => 'https://wpmet.com/doc/wp-ultimate-review/',
-				),
-				'wp-fundraising-donation/wp-fundraising.php' => array(
-					'name' => esc_html__( 'FundEngine', 'popup-builder-block' ),
-					'url'  => 'https://wordpress.org/plugins/wp-fundraising-donation/',
-					'icon' => 'https://ps.w.org/wp-fundraising-donation/assets/icon-256x256.png?rev=2544150',
-					'desc' => esc_html__( 'Create fundraising, crowdfunding, and donation websites with PayPal and Stripe payment gateway integration.', 'popup-builder-block' ),
-					'docs' => 'https://wpmet.com/doc/fundengine/',
 				),
 				'blocks-for-shopengine/shopengine-gutenberg-addon.php' => array(
 					'name' => esc_html__( 'Blocks for ShopEngine', 'popup-builder-block' ),
@@ -190,15 +197,9 @@ class UtilityPackages {
 					'desc' => esc_html__( 'All in one WooCommerce solution for Gutenberg! Build your WooCommerce pages in a block editor with full customization.', 'popup-builder-block' ),
 					'docs' => 'https://wpmet.com/doc/shopengine/shopengine-gutenberg/',
 				),
-				'genie-image-ai/genie-image-ai.php'     => array(
-					'name' => esc_html__( 'Genie Image', 'popup-builder-block' ),
-					'url'  => 'https://wordpress.org/plugins/genie-image-ai/',
-					'icon' => 'https://ps.w.org/genie-image-ai/assets/icon-256x256.png?rev=2977297',
-					'desc' => esc_html__( 'AI-powered text-to-image generator for WordPress with OpenAI’s DALL-E 2 technology to generate high-quality images in one click.', 'popup-builder-block' ),
-					'docs' => 'https://getgenie.ai/docs/',
-				),
 			)
 		) // @plugins
+
 		->call();
 	}
 }

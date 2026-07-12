@@ -4,11 +4,11 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 2.3.1
+Stable tag: 2.3.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Powerful Popup Builder Block for Gutenberg block editor.
+High-converting popup campaigns with PopupKit – advanced triggers, A/B testing, spin-to-win, multistep popups & 270+ popup templates for WordPress
 
 == Description ==
 
@@ -324,6 +324,10 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.3.2 (2026-07-09) =
+* Improved: Updated the our plugins list in the dashboard
+* Improved: Updated the website powerUp list in the onboarding flow
 
 = PopupKit: 2.3.1 (2026-06-30) =
 * Added: Privacy notice field in form block

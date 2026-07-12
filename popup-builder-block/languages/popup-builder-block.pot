@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PopupKit 2.3.1\n"
+"Project-Id-Version: PopupKit 2.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/popup-builder-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-30T10:06:05+00:00\n"
+"POT-Creation-Date: 2026-07-09T12:09:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: popup-builder-block\n"
@@ -198,23 +198,23 @@ msgid "GutenKit"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:134
-msgid "Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor."
+msgid "The most powerful Gutenberg blocks plugin to build stunning WordPress websites with full-site editing and advanced block controls."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:138
-msgid "GetGenie AI"
+msgid "Rox Dynamic CPT Fields Engine"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:141
-msgid "Your personal AI assistant for content and SEO. Write content that ranks on Google with NLP keywords and SERP analysis data."
+msgid "Build custom post types, fields, taxonomies, and dynamic frontend layouts for WordPress, with zero coding and full AI-generated schema."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:145
-msgid "ShopEngine"
+msgid "Rox Appointment Booking"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:148
-msgid "Complete WooCommerce solution for Elementor to fully customize any pages including cart, checkout, shop page, and so on."
+msgid "Manage bookings, agents, payments, and calendars from one dashboard! A complete appointment and scheduling solution for WordPress."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:152
@@ -226,51 +226,51 @@ msgid "Drag & drop form builder for Elementor to create contact forms, multi-ste
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:159
-msgid "EmailKit"
+msgid "ShopEngine"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:162
-msgid "Advanced email customizer for WooCommerce and WordPress. Build, customize, and send emails from WordPress to boost your sales!"
+msgid "Complete WooCommerce solution for Elementor to fully customize any pages including cart, checkout, shop page, and so on."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:166
-msgid "WP Social"
+msgid "TableKit"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:169
-msgid "Add social share, login, and engagement counter — unified solution for all social media with tons of different styles for your website."
+msgid "Build beautiful, responsive tables for WordPress with sorting, filtering, and pagination — no coding needed."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:173
-msgid "WP Ultimate Review"
+msgid "GetGenie AI"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:176
-msgid "Collect and showcase reviews on your website to build brand credibility and social proof with the easiest solution."
+msgid "Your personal AI assistant for content and SEO. Write content that ranks on Google with NLP keywords and SERP analysis data."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:180
-msgid "FundEngine"
+msgid "EmailKit"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:183
-msgid "Create fundraising, crowdfunding, and donation websites with PayPal and Stripe payment gateway integration."
+msgid "Advanced email customizer for WooCommerce and WordPress. Build, customize, and send emails from WordPress to boost your sales!"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:187
-msgid "Blocks for ShopEngine"
+msgid "WP Social"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:190
-msgid "All in one WooCommerce solution for Gutenberg! Build your WooCommerce pages in a block editor with full customization."
+msgid "Add social share, login, and engagement counter — unified solution for all social media with tons of different styles for your website."
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:194
-msgid "Genie Image"
+msgid "Blocks for ShopEngine"
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:197
-msgid "AI-powered text-to-image generator for WordPress with OpenAI’s DALL-E 2 technology to generate high-quality images in one click."
+msgid "All in one WooCommerce solution for Gutenberg! Build your WooCommerce pages in a block editor with full customization."
 msgstr ""
 
 #: includes/Routes/Onboard.php:72
@@ -3069,42 +3069,22 @@ msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:6
-msgid "AI Content & SEO Tool"
-msgstr ""
-
-#: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:7
-msgid "Find top keywords, create winning content & track SEO results with AI."
-msgstr ""
-
-#: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:11
-msgid "Page Builder Blocks"
-msgstr ""
-
-#: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:12
-msgid "Complete site-building features & templates for Gutenberg Blocks."
-msgstr ""
-
-#: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:16
-msgid "WooCommerce Builder"
-msgstr ""
-
-#: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:17
-msgid "The ultimate solution to build a complete WooCommerce site in Gutenberg."
-msgstr ""
-
-#: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:21
 msgid "Page Builder Elements"
 msgstr ""
 
 #: build/admin/onboard/index.js:1
-#: src/onboard/assets/js/pluginList.js:22
+#: src/onboard/assets/js/pluginList.js:7
 msgid "Best companion for Elementor with top widgets and templates."
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:22
+msgid "WooCommerce Builder"
+msgstr ""
+
+#: build/admin/onboard/index.js:1
+#: src/onboard/assets/js/pluginList.js:23
+msgid "The ultimate solution to build a complete WooCommerce site in Gutenberg."
 msgstr ""
 
 #: build/admin/onboard/index.js:1
@@ -3119,32 +3099,32 @@ msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:33
-msgid "Table Builder"
+msgid "Page Builder Blocks"
 msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:34
-msgid "Create responsive tables with advanced data in Gutenberg blocks."
+msgid "Complete site-building features & templates for Gutenberg Blocks."
 msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:38
-msgid "Review Management"
+msgid "Email Customizer"
 msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:39
-msgid "Build credibility for your business with the all-in-one review plugin."
+msgid "Drag-and-Drop Email Builder for WooCommerce & WordPress."
 msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:43
-msgid "Social Integration"
+msgid "AI Content & SEO Tool"
 msgstr ""
 
 #: build/admin/onboard/index.js:1
 #: src/onboard/assets/js/pluginList.js:44
-msgid "WordPress integration with popular social platforms to show social proof."
+msgid "Find top keywords, create winning content & track SEO results with AI."
 msgstr ""
 
 #: build/admin/onboard/index.js:1
