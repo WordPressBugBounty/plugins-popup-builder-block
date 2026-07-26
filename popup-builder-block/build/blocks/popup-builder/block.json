@@ -89,6 +89,10 @@
       "type": "array",
       "default": []
     },
+    "sessionTargets": {
+      "type": "array",
+      "default": []
+    },
     "htmlElementTargets": {
       "type": "array",
       "default": []

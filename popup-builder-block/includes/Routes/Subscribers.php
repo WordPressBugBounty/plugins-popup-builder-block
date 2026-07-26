@@ -132,6 +132,24 @@ class Subscribers extends Api {
 			);
 		}
 
+		/**
+		 * Spam gate. Runs before anything is stored or forwarded to an integration.
+		 *
+		 * PopupKit Pro hooks this to inspect the payload. Returning an array short
+		 * circuits the submission and sends that array back as the response; the
+		 * free plugin has no checks of its own, so the default null lets everything
+		 * through.
+		 *
+		 * @param array|null $response    Response to send instead of processing, or null to continue.
+		 * @param array      $data        Decoded submission payload.
+		 * @param int        $campaign_id Popup campaign post ID.
+		 */
+		$spam_response = apply_filters( 'popup_builder_block/form/spam_check', null, $data, $campaign_id );
+
+		if ( is_array( $spam_response ) ) {
+			return rest_ensure_response( $spam_response );
+		}
+
 		$campaign_title = get_the_title($campaign_id);
 		$email       = sanitize_email($data['email'] ?? '');
 		$name        = sanitize_text_field($data['name'] ?? '');
@@ -186,6 +204,7 @@ class Subscribers extends Api {
 			'slack',
 			'googleSheet',
 			'moosend',
+			'sendfox',
 		];
 
 		// Loop through integrations and add to subscriber data if present

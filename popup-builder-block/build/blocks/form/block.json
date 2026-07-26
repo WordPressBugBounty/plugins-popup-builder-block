@@ -240,6 +240,9 @@
     "klaviyoAccount": {
       "type": "object"
     },
+    "sendfoxAccount": {
+      "type": "object"
+    },
     "dripAccount": {
       "type": "object"
     },
@@ -253,6 +256,9 @@
       "type": "object"
     },
     "klaviyoList": {
+      "type": "object"
+    },
+    "sendfoxList": {
       "type": "object"
     },
     "googleSheetList": {
@@ -932,6 +938,53 @@
       "default": "{current_user_name}"
     },
     "enableAutoResponder": {
+      "type": "boolean",
+      "default": false
+    },
+    "enableSpamProtection": {
+      "type": "boolean",
+      "default": false
+    },
+    "spamHoneypot": {
+      "type": "boolean",
+      "default": true
+    },
+    "spamHoneypotName": {
+      "type": "string",
+      "default": "pbb_hp"
+    },
+    "spamHoneypotLabel": {
+      "type": "string",
+      "default": "Leave this field empty"
+    },
+    "spamTimeTrap": {
+      "type": "boolean",
+      "default": true
+    },
+    "spamMinTime": {
+      "type": "number",
+      "default": 3
+    },
+    "spamAction": {
+      "type": "string",
+      "default": "success"
+    },
+    "spamErrorMessage": {
+      "type": "string",
+      "default": "Your submission looks like spam and was not sent."
+    },
+    "spamRedirectUrl": {
+      "type": "object"
+    },
+    "spamMaxLinks": {
+      "type": "number",
+      "default": 0
+    },
+    "spamKeywords": {
+      "type": "string",
+      "default": ""
+    },
+    "spamUseDisallowedList": {
       "type": "boolean",
       "default": false
     }
