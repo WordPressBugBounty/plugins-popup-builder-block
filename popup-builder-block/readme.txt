@@ -2,9 +2,9 @@
 Contributors: Roxnor, Ataurr
 Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -324,6 +324,14 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.3.4 (2026-08-19) =
+* Fixed: JS translations loading path
+* Fixed: Wrapped untranslated strings in admin dashboard, onboarding, deactivation modal and block editor
+* Fixed: Wrong text domains and replaced with popup-builder-block
+* Improved: Ordered placeholders + translators comments for sprintf strings
+* Improved: Sanitized input handling and output escaping for banner, notice and stories
+* Improved: Regenerated popup-builder-block.pot (+273 strings)
 
 = PopupKit: 2.3.3 (2026-07-26) =
 * Improved: Form block settings

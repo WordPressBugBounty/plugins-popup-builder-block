@@ -181,7 +181,7 @@ class Admin {
 					wp_set_script_translations(
 						'popupkit-onboard',
 						'popup-builder-block',
-						plugin_dir_path( POPUP_BUILDER_BLOCK_PLUGIN_DIR ) . 'languages'
+						POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'languages'
 					);
 
 
@@ -236,7 +236,7 @@ class Admin {
 					wp_set_script_translations(
 						'popup-builder-block-dashboard',
 						'popup-builder-block',
-						plugin_dir_path( POPUP_BUILDER_BLOCK_PLUGIN_DIR ) . 'languages'
+						POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'languages'
 					);
 
 					wp_localize_script(
@@ -286,6 +286,13 @@ class Admin {
 			$assets['dependencies'],
 			$assets['version'],
 			true
+		);
+
+		// ✅ Add translation support for JS strings in Deactivation Popup scripts
+		wp_set_script_translations(
+			'popupkit-deactivation-popup',
+			'popup-builder-block',
+			POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'languages'
 		);
 
 		wp_localize_script(

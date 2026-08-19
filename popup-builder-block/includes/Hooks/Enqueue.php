@@ -164,6 +164,13 @@ class Enqueue {
 					$asset['version'],
 					array( 'in_footer' => false )
 				);
+
+				// Add translation support for all block editor scripts
+				wp_set_script_translations(
+					"{$file['key']}",
+					'popup-builder-block',
+					POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'languages'
+				);
 			}
 		}
 	}

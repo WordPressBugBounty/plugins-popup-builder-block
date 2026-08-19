@@ -7,7 +7,7 @@
  * Requires PHP: 7.4
  * Plugin URI: https://wpmet.com/plugin/popupkit
  * Author: Wpmet
- * Version: 2.3.3
+ * Version: 2.3.4
  * Author URI: https://wpmet.com/
  * License: GPL-3.0-or-later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -33,7 +33,7 @@ final class PopupBuilderBlock {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.3.3';
+	const VERSION = '2.3.4';
 
 	/**
 	 * \PopupKit class constructor.
@@ -58,9 +58,9 @@ final class PopupBuilderBlock {
 		// Hook into the plugin_row_meta filter
 		add_filter( 'plugin_row_meta', [ $this, 'plugin_row_meta' ], 10, 2 );
 
-		// Load the scoped vendor autoload file
-		if ( file_exists( POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/vendor/scoper-autoload.php' ) ) {
-			require_once POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/vendor/scoper-autoload.php';
+		// Load the scoped packages autoload file
+		if ( file_exists( POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/packages/scoper-autoload.php' ) ) {
+			require_once POPUP_BUILDER_BLOCK_PLUGIN_DIR . 'scoped/packages/scoper-autoload.php';
 		}
 
 		// Plugin actions

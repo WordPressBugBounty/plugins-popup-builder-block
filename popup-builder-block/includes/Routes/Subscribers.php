@@ -63,7 +63,7 @@ class Subscribers extends Api {
 							return new \WP_Error(
 								'rest_invalid_param',
 								/* translators: %s: Field name */
-								sprintf(__('Invalid %s value. Allowed values are: %s.', 'popup-builder-block'), $key, implode(', ', $allowed_orders)),
+								sprintf(__('Invalid %1$s value. Allowed values are: %2$s.', 'popup-builder-block'), $key, implode(', ', $allowed_orders)),
 								['status' => 400]
 							);
 						},
