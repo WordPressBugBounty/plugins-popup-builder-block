@@ -78,8 +78,8 @@ class PopupGenerator {
 			return;
 		}
 
-		// Don't show popups in Elementor editor, customizer, or on classic editor posts
-		if ( is_admin() && ( $this->is_elementor_editor() || $this->is_classic_editor_post() ) ) {
+		// Don't show popups in the admin, the Elementor editor, or the customizer preview.
+		if ( is_admin() || $this->is_elementor_editor() ) {
 			return;
 		}
 
@@ -228,19 +228,6 @@ class PopupGenerator {
 			}
 		}
 
-		return false;
-	}
-
-	/**
-	 * Check if current post uses classic editor (no blocks)
-	 *
-	 * @return bool
-	 */
-	private function is_classic_editor_post() {
-		global $post;
-		if ( $post && ! has_blocks( $post ) ) {
-			return true;
-		}
 		return false;
 	}
 

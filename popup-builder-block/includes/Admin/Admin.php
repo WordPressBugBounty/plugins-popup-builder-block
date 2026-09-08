@@ -34,6 +34,19 @@ class Admin {
 	}
 
 	/**
+	 * Whether the onboarding notice should be rendered on the dashboard.
+	 *
+	 * The notice asks for the email that onboarding did not collect, so it is
+	 * shown only while no onboarding email was submitted and the
+	 * `popupkit_onboard_notice` option is missing or false.
+	 *
+	 * @return bool True when the notice should be shown.
+	 */
+	public function get_onboard_notice_status() {
+		return empty( get_option( 'popupkit_onboard_email' ) ) && empty( get_option( 'popupkit_onboard_notice' ) );
+	}
+
+	/**
 	 * Add the admin menu
 	 */
 	public function add_admin_menu() {
@@ -250,6 +263,7 @@ class Admin {
 							'pro_version' => defined('POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION') ? POPUP_BUILDER_BLOCK_PRO_PLUGIN_VERSION : '1.0.0',
 							'nonce'      => wp_create_nonce('popupkit_nonce'),
 							'hasMailPoet' => class_exists('MailPoet\API\API') ? true : false,
+							'showOnboardNotice' => $this->get_onboard_notice_status(),
 						)
 					);
 

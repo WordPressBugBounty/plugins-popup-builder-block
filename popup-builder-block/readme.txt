@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.4
+Stable tag: 2.3.5
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,7 +48,7 @@ Beyond classic popups, PopupKit offers [ready-made recipes](https://wpmet.com/pl
 
 **🔸 Countdown timer:** Add urgency to your offers with a ticking clock that drives faster decisions.
 
-**🔸 [Floating Bars](https://wpmet.com/plugin/popupkit/floating-bar/?utm_source=org&utm_medium=readme):** Highly visible offers at the top or bottom of your site.
+**🔸 [Floating Bars](https://wpmet.com/plugin/popupkit/floating-bar/?utm_source=org&utm_medium=readme):** Sticky offers shown at the top or bottom of your site.
 
 **🔸 [Slide-ins Popups](https://wpmet.com/plugin/popupkit/slide-in-popup/):** Reveal popup messages from screen corners without interrupting visitors.
 
@@ -73,6 +73,8 @@ Here are [popup trigger options](https://wpmet.com/plugin/popupkit/smart-trigger
 
 **🔸 Page Scrolled Popup:** Trigger the popup after visitors scroll a certain percentage down the page.
 
+https://youtu.be/ZvVcFQXAXw8?si=NmO-rnJlJIQMSd3W
+
 **🔸 On Page Exit Intent Popup:** Show popups with different content before visitors leave.
 
 **🔸 Custom Selector Click Popup:** Popup appears when visitors click on a specific element.
@@ -95,11 +97,16 @@ Since we don't want to impose an interruption with a popup, then it needs to be 
 
 ### 🎮 Gamification Popup
 
+https://youtu.be/ji8gE8-gezw?si=7y1JCM_LtkxqgWf8
+
 Turn user engagement into conversions with [interactive gamified popups](https://wpmet.com/plugin/popupkit/gamification-popup/?utm_source=org&utm_medium=readme). PopupKit includes built-in gamification blocks like **Spin-to-Win, Try Your Luck**, etc. These popups not only grab attention but also encourage users to participate and win discounts or gifts. You can customize the prizes, winning chances, and design with mouse clicks and all without any coding. Perfect for growing your email list and sales in a fun, rewarding way.
 
 Such animated revealing & closing effects encourage visitors to Interact with the popup.
 
 ### 🔄 MultiStep Popups
+
+https://youtu.be/Q_005WlMC3Q?si=OAttPu_dy6iEnC-k
+
 With [PopupKit multi-step popup](https://wpmet.com/plugin/popupkit/multistep-popup/?utm_source=org&utm_medium=readme) feature, you can break down campaign engagement into sequential, bite-sized steps. For example, the first step could ask a simple question like "Yes, I want to learn more," followed by an email request, and then a final offer or coupon. Unlike traditional popups with long forms, this approach guides users smoothly, reducing friction and making it easier for them to complete the process. The result? More conversions and less intimidation.
 
 ### 🛒 WooCommerce & Easy Digital Downloads (EDD) Popups
@@ -146,6 +153,9 @@ Whether you choose to create your popup from scratch or use a pre-made template,
 Use PopupKit's intuitive calendar interface to [schedule multiple campaigns](https://wpmet.com/plugin/popupkit/popup-scheduling/?utm_source=org&utm_medium=readme) simultaneously, saving time while boosting engagement. The advanced scheduling system lets you launch popups based on either your website's server timezone or your visitors' exact local time.
 
 ### ⚖️ Popup A/B Testing
+
+https://youtu.be/mctw35P0r6M?si=Q5gor-CHF0KcH6MZ
+
 PopupKit supports an [A/B testing feature](https://wpmet.com/doc/popupkit-ab-testing/?utm_source=org&utm_medium=readme) to make data-driven decisions that optimize conversion rates and user experience. You can easily compare multiple popup designs to automatically determine the highest-converting variant. With real-time performance tracking, it ensures you’re always using the most effective design to engage visitors and drive results.
 
 ### 📵 Control Popup Visibility by Device
@@ -164,8 +174,7 @@ Another way to become regional-specific while displaying a popup is IP Blocking.
 Easily [detect active ad-blockers](https://wpmet.com/doc/adblock-detection/?utm_source=org&utm_medium=readme) & trigger polite whitelist requests to recover your invisible traffic. Protect lead-gen forms and ensure popup campaigns never go unseen. 
 
 ### 🌐 Display Popups Anywhere on the Website
-One of the best things about the PopupKit plugin is that you can add it anywhere on your website. So, you don’t need to configure additional settings conventionally. For instance, simply place the popup block in the header area to add a bar popup.
-
+One of the best things about the PopupKit plugin for popups is that you can add it anywhere on your website. No need to configure additional settings. For instance, place the popup block in the header area to launch a Floating Bar popup.
 
 
 ### 🔗 PopupKit API Integrations
@@ -213,7 +222,7 @@ Let’s explore the types of popup campaigns you can create with one of the best
 🔸 Run surveys & gather feedback.
 🔸 Show cookie consent.
 🔸 Promote Free Trials or Demos.
-🔸 Lower Bounce rates.
+🔸 Reduce bounce with a Floating Bar.
 🔸 Prevent eCommerce cart abandonment.
 🔸 Run lead generation effectively.
 🔸 Encourage account signups.
@@ -324,6 +333,12 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.3.5 (2026-09-08) =
+* Added: Skeleton loading state for settings page
+* Fixed: Popup is rendering in elementor editor
+* Improved: Onboarding styles and contents
+* Removed: Back to wordpress button from editor
 
 = PopupKit: 2.3.4 (2026-08-19) =
 * Fixed: JS translations loading path

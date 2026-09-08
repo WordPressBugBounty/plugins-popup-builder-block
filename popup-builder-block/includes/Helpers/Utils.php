@@ -336,14 +336,11 @@ class Utils {
 	public static function onboard_plugins() {
 		return array(
 			'gutenkit-blocks-addon' => self::check_plugin_status( 'gutenkit-blocks-addon/gutenkit-blocks-addon.php' ),
+			'emailkit'              => self::check_plugin_status( 'emailkit/EmailKit.php' ),
 			'elementskit-lite'      => self::check_plugin_status( 'elementskit-lite/elementskit-lite.php' ),
 			'metform'               => self::check_plugin_status( 'metform/metform.php' ),
 			'getgenie'              => self::check_plugin_status( 'getgenie/getgenie.php' ),
 			'blocks-for-shopengine' => self::check_plugin_status( 'blocks-for-shopengine/shopengine-gutenberg-addon.php' ),
-			'table-builder-block'   => self::check_plugin_status( 'table-builder-block/table-builder-block.php' ),
-			'wp-ultimate-review'    => self::check_plugin_status( 'wp-ultimate-review/wp-ultimate-review.php' ),
-			'wp-social'             => self::check_plugin_status( 'wp-social/wp-social.php' ),
-			'elementor'             => self::check_plugin_status( 'elementor/elementor.php' ),
 		);
 	}
 
