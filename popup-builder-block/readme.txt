@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.5
+Stable tag: 2.3.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -333,6 +333,10 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.3.6 (2026-09-13) =
+* Added: Translation support for previously untranslated stories strings
+* Improved: Mobile responsiveness of the dashboard
 
 = PopupKit: 2.3.5 (2026-09-08) =
 * Added: Skeleton loading state for settings page

@@ -167,6 +167,9 @@ class Admin {
 					'hasMailPoet' => class_exists('MailPoet\API\API') ? true : false,
 					'hasWoocommerce' => class_exists( 'WooCommerce' ) ? true : false,
 					'hasEasyDigitalDownloads' => class_exists( 'Easy_Digital_Downloads' ) ? true : false,
+					'hasEmailKit'  => class_exists( 'EmailKit\Admin\Emails\EmailLists' ) ? true : false,
+					'emailkitRestUrl'   => esc_url( rest_url( 'emailkit/v1/' ) ),
+					'emailkitRestNonce' => wp_create_nonce( 'wp_rest' ),
 				)
 			);
 		}

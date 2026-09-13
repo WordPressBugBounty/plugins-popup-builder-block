@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PopupKit 2.3.5\n"
+"Project-Id-Version: PopupKit 2.3.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/popup-builder-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-08T08:24:12+00:00\n"
+"POT-Creation-Date: 2026-09-13T09:48:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: popup-builder-block\n"
@@ -50,7 +50,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:1
 #: build/admin/dashboard/index.js:11
 #: src/admin/campaign/index.js:625
-#: src/admin/dashboard/components/Header.js:98
+#: src/admin/dashboard/components/Header.js:122
 msgid "Campaigns"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 #: includes/Admin/Admin.php:74
 #: build/admin/dashboard/index.js:1
 #: build/admin/dashboard/index.js:4
-#: src/admin/dashboard/components/Header.js:99
+#: src/admin/dashboard/components/Header.js:123
 #: src/admin/subscribers/index.js:285
 msgid "Subscribers"
 msgstr ""
@@ -70,7 +70,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:11
 #: src/admin/analytics/components/Header.js:95
 #: src/admin/campaign/index.js:842
-#: src/admin/dashboard/components/Header.js:100
+#: src/admin/dashboard/components/Header.js:124
 msgid "Analytics"
 msgstr ""
 
@@ -78,15 +78,15 @@ msgstr ""
 #: includes/Admin/Admin.php:90
 #: build/admin/dashboard/index.js:1
 #: build/blocks/form/index.js:1
-#: src/admin/dashboard/components/Header.js:101
-#: src/blocks/form/settings.js:900
+#: src/admin/dashboard/components/Header.js:125
+#: src/blocks/form/settings.js:921
 msgid "Integrations"
 msgstr ""
 
 #: includes/Admin/Admin.php:97
 #: includes/Admin/Admin.php:98
 #: build/admin/dashboard/index.js:1
-#: src/admin/dashboard/components/Header.js:102
+#: src/admin/dashboard/components/Header.js:126
 msgid "Templates"
 msgstr ""
 
@@ -95,14 +95,14 @@ msgstr ""
 #: build/admin/dashboard/index.js:1
 #: build/admin/dashboard/index.js:11
 #: src/admin/ab-testing/index.js:86
-#: src/admin/dashboard/components/Header.js:103
+#: src/admin/dashboard/components/Header.js:127
 msgid "A/B Testing"
 msgstr ""
 
 #: includes/Admin/Admin.php:113
 #: includes/Admin/Admin.php:114
 #: build/admin/dashboard/index.js:1
-#: src/admin/dashboard/components/Header.js:104
+#: src/admin/dashboard/components/Header.js:128
 msgid "Settings"
 msgstr ""
 
@@ -267,6 +267,8 @@ msgid "Your personal AI assistant for content and SEO. Write content that ranks 
 msgstr ""
 
 #: includes/Libs/UtilityPackages.php:180
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:735
 msgid "EmailKit"
 msgstr ""
 
@@ -409,6 +411,14 @@ msgstr ""
 msgid "Read Docs"
 msgstr ""
 
+#: scoped/packages/wpmet/utility-package/src/Stories/Stories.php:200
+msgid "Stories"
+msgstr ""
+
+#: scoped/packages/wpmet/utility-package/src/Stories/Stories.php:201
+msgid "Wpmet Stories"
+msgstr ""
+
 #: scoped/packages/wpmet/utility-package/src/Stories/Stories.php:233
 #: src/admin/templates/components/popups/DialogSteps.js:30
 msgid "Need Help?"
@@ -433,7 +443,7 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:43
 #: src/blocks/button/settings.js:101
 #: src/blocks/button/settings.js:113
-#: src/blocks/form/settings.js:327
+#: src/blocks/form/settings.js:329
 #: src/blocks/heading/settings.js:48
 #: src/blocks/heading/settings.js:213
 #: src/blocks/icon/settings.js:41
@@ -453,7 +463,7 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:47
 #: src/blocks/button/settings.js:105
 #: src/blocks/container/settings.js:42
-#: src/blocks/form/settings.js:331
+#: src/blocks/form/settings.js:333
 #: src/blocks/heading/settings.js:52
 #: src/blocks/icon/settings.js:45
 #: src/blocks/popup-builder/settings.js:204
@@ -465,8 +475,8 @@ msgstr ""
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/button/settings.js:217
-#: src/blocks/form/settings.js:625
-#: src/blocks/form/settings.js:1314
+#: src/blocks/form/settings.js:627
+#: src/blocks/form/settings.js:1335
 #: src/blocks/icon/settings.js:55
 #: src/blocks/icon/settings.js:57
 #: src/blocks/icon/settings.js:101
@@ -489,7 +499,7 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:877
 #: src/blocks/advanced-paragraph/settings.js:100
 #: src/blocks/button/settings.js:247
-#: src/blocks/form/settings.js:1353
+#: src/blocks/form/settings.js:1374
 #: src/blocks/heading/settings.js:286
 #: src/blocks/icon/settings.js:74
 msgid "Alignment"
@@ -506,8 +516,8 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:883
 #: src/blocks/advanced-paragraph/settings.js:102
 #: src/blocks/button/settings.js:249
-#: src/blocks/form/settings.js:635
-#: src/blocks/form/settings.js:1372
+#: src/blocks/form/settings.js:637
+#: src/blocks/form/settings.js:1393
 #: src/blocks/heading/settings.js:102
 #: src/blocks/heading/settings.js:288
 #: src/blocks/icon/settings.js:76
@@ -530,7 +540,7 @@ msgstr ""
 #: src/blocks/button/settings.js:250
 #: src/blocks/container/settings.js:261
 #: src/blocks/container/settings.js:319
-#: src/blocks/form/settings.js:1373
+#: src/blocks/form/settings.js:1394
 #: src/blocks/heading/settings.js:289
 #: src/blocks/icon/settings.js:77
 #: src/blocks/popup-builder/settings.js:1874
@@ -551,8 +561,8 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:893
 #: src/blocks/advanced-paragraph/settings.js:104
 #: src/blocks/button/settings.js:251
-#: src/blocks/form/settings.js:640
-#: src/blocks/form/settings.js:1374
+#: src/blocks/form/settings.js:642
+#: src/blocks/form/settings.js:1395
 #: src/blocks/heading/settings.js:103
 #: src/blocks/heading/settings.js:290
 #: src/blocks/icon/settings.js:78
@@ -564,7 +574,7 @@ msgstr ""
 #: build/200.js:1
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/form/settings.js:1323
+#: src/blocks/form/settings.js:1344
 #: src/blocks/icon/settings.js:104
 #: src/blocks/popup-builder/settings.js:2410
 msgid "Size"
@@ -592,8 +602,8 @@ msgstr ""
 #: src/blocks/container/settings.js:531
 #: src/blocks/container/settings.js:589
 #: src/blocks/container/settings.js:644
-#: src/blocks/form/settings.js:1164
-#: src/blocks/form/settings.js:1504
+#: src/blocks/form/settings.js:1185
+#: src/blocks/form/settings.js:1525
 #: src/blocks/icon/settings.js:150
 #: src/blocks/popup-builder/settings.js:2236
 #: src/blocks/popup-builder/settings.js:2487
@@ -617,8 +627,8 @@ msgstr ""
 #: src/blocks/container/settings.js:535
 #: src/blocks/container/settings.js:593
 #: src/blocks/container/settings.js:648
-#: src/blocks/form/settings.js:1168
-#: src/blocks/form/settings.js:1508
+#: src/blocks/form/settings.js:1189
+#: src/blocks/form/settings.js:1529
 #: src/blocks/icon/settings.js:154
 #: src/blocks/popup-builder/settings.js:2240
 #: src/blocks/popup-builder/settings.js:2494
@@ -641,7 +651,7 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:428
 #: src/blocks/button/settings.js:393
 #: src/blocks/button/settings.js:417
-#: src/blocks/form/settings.js:1317
+#: src/blocks/form/settings.js:1338
 #: src/blocks/heading/settings.js:344
 #: src/blocks/heading/settings.js:458
 #: src/blocks/heading/settings.js:593
@@ -655,13 +665,13 @@ msgstr ""
 
 #: build/200.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1040
-#: src/blocks/form/settings.js:1194
-#: src/blocks/form/settings.js:1232
-#: src/blocks/form/settings.js:1270
-#: src/blocks/form/settings.js:1523
-#: src/blocks/form/settings.js:1554
-#: src/blocks/form/settings.js:1628
+#: src/blocks/form/settings.js:1061
+#: src/blocks/form/settings.js:1215
+#: src/blocks/form/settings.js:1253
+#: src/blocks/form/settings.js:1291
+#: src/blocks/form/settings.js:1544
+#: src/blocks/form/settings.js:1575
+#: src/blocks/form/settings.js:1649
 #: src/blocks/icon/settings.js:170
 #: src/blocks/icon/settings.js:220
 msgid "Background Color"
@@ -684,11 +694,11 @@ msgstr ""
 #: src/blocks/button/settings.js:552
 #: src/blocks/container/settings.js:677
 #: src/blocks/container/settings.js:722
-#: src/blocks/form/settings.js:1210
-#: src/blocks/form/settings.js:1248
-#: src/blocks/form/settings.js:1286
-#: src/blocks/form/settings.js:1583
-#: src/blocks/form/settings.js:1645
+#: src/blocks/form/settings.js:1231
+#: src/blocks/form/settings.js:1269
+#: src/blocks/form/settings.js:1307
+#: src/blocks/form/settings.js:1604
+#: src/blocks/form/settings.js:1666
 #: src/blocks/heading/settings.js:535
 #: src/blocks/icon/settings.js:184
 #: src/blocks/icon/settings.js:238
@@ -703,12 +713,12 @@ msgstr ""
 #: build/blocks/popup-builder/index.js:1
 #: src/blocks/advanced-image/settings.js:689
 #: src/blocks/advanced-image/settings.js:845
-#: src/blocks/form/settings.js:1216
-#: src/blocks/form/settings.js:1254
-#: src/blocks/form/settings.js:1292
-#: src/blocks/form/settings.js:1538
-#: src/blocks/form/settings.js:1569
-#: src/blocks/form/settings.js:1638
+#: src/blocks/form/settings.js:1237
+#: src/blocks/form/settings.js:1275
+#: src/blocks/form/settings.js:1313
+#: src/blocks/form/settings.js:1559
+#: src/blocks/form/settings.js:1590
+#: src/blocks/form/settings.js:1659
 #: src/blocks/icon/settings.js:202
 #: src/blocks/icon/settings.js:256
 #: src/blocks/popup-builder/settings.js:2205
@@ -731,11 +741,11 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:482
 #: src/blocks/button/settings.js:311
 #: src/blocks/container/settings.js:491
-#: src/blocks/form/settings.js:1047
-#: src/blocks/form/settings.js:1306
-#: src/blocks/form/settings.js:1335
-#: src/blocks/form/settings.js:1597
-#: src/blocks/form/settings.js:1659
+#: src/blocks/form/settings.js:1068
+#: src/blocks/form/settings.js:1327
+#: src/blocks/form/settings.js:1356
+#: src/blocks/form/settings.js:1618
+#: src/blocks/form/settings.js:1680
 #: src/blocks/heading/settings.js:310
 #: src/blocks/heading/settings.js:500
 #: src/blocks/heading/settings.js:628
@@ -758,9 +768,9 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:498
 #: src/blocks/button/settings.js:330
 #: src/blocks/container/settings.js:509
-#: src/blocks/form/settings.js:1064
-#: src/blocks/form/settings.js:1590
-#: src/blocks/form/settings.js:1652
+#: src/blocks/form/settings.js:1085
+#: src/blocks/form/settings.js:1611
+#: src/blocks/form/settings.js:1673
 #: src/blocks/heading/settings.js:327
 #: src/blocks/heading/settings.js:364
 #: src/blocks/heading/settings.js:608
@@ -1036,7 +1046,7 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:354
 #: src/blocks/advanced-paragraph/settings.js:433
 #: src/blocks/button/settings.js:354
-#: src/blocks/form/settings.js:1492
+#: src/blocks/form/settings.js:1513
 #: src/blocks/heading/settings.js:354
 #: src/blocks/heading/settings.js:489
 msgid "Text Shadow"
@@ -1053,10 +1063,10 @@ msgstr ""
 #: src/blocks/advanced-paragraph/settings.js:337
 #: src/blocks/advanced-paragraph/settings.js:423
 #: src/blocks/button/settings.js:348
-#: src/blocks/form/settings.js:1109
-#: src/blocks/form/settings.js:1140
-#: src/blocks/form/settings.js:1486
-#: src/blocks/form/settings.js:1618
+#: src/blocks/form/settings.js:1130
+#: src/blocks/form/settings.js:1161
+#: src/blocks/form/settings.js:1507
+#: src/blocks/form/settings.js:1639
 #: src/blocks/heading/settings.js:374
 #: src/blocks/heading/settings.js:472
 #: src/blocks/heading/settings.js:600
@@ -1218,7 +1228,7 @@ msgstr ""
 #: build/311.js:1
 #: build/blocks/form/index.js:1
 #: build/blocks/popup-builder/index.js:1
-#: src/blocks/form/settings.js:1381
+#: src/blocks/form/settings.js:1402
 #: src/blocks/heading/settings.js:965
 #: src/blocks/popup-builder/settings.js:1902
 msgid "Position"
@@ -1226,12 +1236,12 @@ msgstr ""
 
 #: build/311.js:1
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1182
-#: src/blocks/form/settings.js:1227
-#: src/blocks/form/settings.js:1265
-#: src/blocks/form/settings.js:1518
-#: src/blocks/form/settings.js:1549
-#: src/blocks/form/settings.js:1623
+#: src/blocks/form/settings.js:1203
+#: src/blocks/form/settings.js:1248
+#: src/blocks/form/settings.js:1286
+#: src/blocks/form/settings.js:1539
+#: src/blocks/form/settings.js:1570
+#: src/blocks/form/settings.js:1644
 #: src/blocks/heading/settings.js:993
 msgid "Text Color"
 msgstr ""
@@ -1252,12 +1262,12 @@ msgstr ""
 #: src/blocks/container/settings.js:639
 #: src/blocks/container/settings.js:659
 #: src/blocks/container/settings.js:704
-#: src/blocks/form/settings.js:1204
-#: src/blocks/form/settings.js:1242
-#: src/blocks/form/settings.js:1280
-#: src/blocks/form/settings.js:1533
-#: src/blocks/form/settings.js:1564
-#: src/blocks/form/settings.js:1633
+#: src/blocks/form/settings.js:1225
+#: src/blocks/form/settings.js:1263
+#: src/blocks/form/settings.js:1301
+#: src/blocks/form/settings.js:1554
+#: src/blocks/form/settings.js:1585
+#: src/blocks/form/settings.js:1654
 #: src/blocks/heading/settings.js:997
 #: src/blocks/popup-builder/settings.js:2148
 #: src/blocks/popup-builder/settings.js:2547
@@ -1365,7 +1375,7 @@ msgstr ""
 #: build/701.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/container/settings.js:271
-#: src/blocks/form/settings.js:649
+#: src/blocks/form/settings.js:651
 msgid "Space Between"
 msgstr ""
 
@@ -1465,7 +1475,8 @@ msgstr ""
 #: src/blocks/advanced-image/settings.js:129
 #: src/blocks/advanced-image/settings.js:187
 #: src/blocks/button/settings.js:47
-#: src/blocks/form/settings.js:285
+#: src/blocks/form/settings.js:286
+#: src/blocks/form/settings.js:731
 #: src/blocks/popup-builder/settings.js:1418
 #: src/blocks/popup-builder/settings.js:1520
 msgid "None"
@@ -1499,7 +1510,7 @@ msgstr ""
 #: build/789.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/button/settings.js:84
-#: src/blocks/form/settings.js:309
+#: src/blocks/form/settings.js:310
 msgid "Go to a Step"
 msgstr ""
 
@@ -1516,7 +1527,7 @@ msgstr ""
 #: build/789.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/button/settings.js:146
-#: src/blocks/form/settings.js:533
+#: src/blocks/form/settings.js:535
 msgid "Select Step"
 msgstr ""
 
@@ -1609,15 +1620,15 @@ msgstr ""
 #: build/789.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/button/settings.js:276
-#: src/blocks/form/settings.js:517
-#: src/blocks/form/settings.js:1342
+#: src/blocks/form/settings.js:519
+#: src/blocks/form/settings.js:1363
 msgid "Button"
 msgstr ""
 
 #: build/789.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/button/settings.js:363
-#: src/blocks/form/settings.js:1604
+#: src/blocks/form/settings.js:1625
 msgid "Icon Size"
 msgstr ""
 
@@ -1625,8 +1636,8 @@ msgstr ""
 #: build/blocks/form/index.js:1
 #: src/blocks/button/settings.js:406
 #: src/blocks/button/settings.js:429
-#: src/blocks/form/settings.js:1528
-#: src/blocks/form/settings.js:1559
+#: src/blocks/form/settings.js:1549
+#: src/blocks/form/settings.js:1580
 msgid "Icon Color"
 msgstr ""
 
@@ -1700,7 +1711,7 @@ msgstr ""
 #: build/891.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/advanced-image/settings.js:405
-#: src/blocks/form/settings.js:1384
+#: src/blocks/form/settings.js:1405
 msgid "Default"
 msgstr ""
 
@@ -1794,31 +1805,28 @@ msgstr ""
 #: build/891.js:1
 #: build/blocks/form/index.js:1
 #: src/blocks/advanced-image/settings.js:978
-#: src/blocks/form/settings.js:1125
+#: src/blocks/form/settings.js:1146
 msgid "Spacing"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/dashboard/components/Header.js:177
-msgid "Pro Version:"
-msgstr ""
-
-#: build/admin/dashboard/index.js:1
-#: src/admin/dashboard/components/Header.js:177
-msgid "Free Version:"
+#: src/admin/dashboard/components/Header.js:140
+msgid "Toggle Menu"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
 #: build/admin/dashboard/index.js:7
 #: build/admin/dashboard/index.js:11
 #: src/admin/ab-testing/components/Test.js:208
-#: src/admin/dashboard/components/Header.js:180
+#: src/admin/dashboard/components/Header.js:164
+#: src/admin/dashboard/components/Header.js:224
 #: src/admin/integration/components/ProModalNotice.js:17
 msgid "Upgrade to Pro"
 msgstr ""
 
 #: build/admin/dashboard/index.js:1
-#: src/admin/dashboard/components/Header.js:188
+#: src/admin/dashboard/components/Header.js:168
+#: src/admin/dashboard/components/Header.js:232
 msgid "Help Center"
 msgstr ""
 
@@ -1902,16 +1910,16 @@ msgstr ""
 #: build/blocks/form/index.js:1
 #: src/admin/campaign/index.js:47
 #: src/admin/subscribers/index.js:237
-#: src/blocks/form/settings.js:353
-#: src/blocks/form/settings.js:370
+#: src/blocks/form/settings.js:355
+#: src/blocks/form/settings.js:372
 msgid "Name"
 msgstr ""
 
 #: build/admin/dashboard/index.js:4
 #: build/blocks/form/index.js:1
 #: src/admin/subscribers/index.js:238
-#: src/blocks/form/settings.js:354
-#: src/blocks/form/settings.js:371
+#: src/blocks/form/settings.js:356
+#: src/blocks/form/settings.js:373
 msgid "Email"
 msgstr ""
 
@@ -1982,7 +1990,7 @@ msgstr ""
 
 #: build/admin/dashboard/index.js:4
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:129
+#: src/admin/ab-testing/components/Details.js:130
 #: src/admin/ab-testing/components/Repeater.js:55
 #: src/admin/ab-testing/components/TableList.js:107
 #: src/admin/campaign/index.js:51
@@ -2083,7 +2091,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:4
 #: build/blocks/form/index.js:1
 #: src/admin/subscribers/index.js:535
-#: src/blocks/form/settings.js:355
+#: src/blocks/form/settings.js:357
 msgid "Phone"
 msgstr ""
 
@@ -2153,7 +2161,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:4
 #: build/admin/dashboard/index.js:7
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:126
+#: src/admin/ab-testing/components/Details.js:127
 #: src/admin/analytics/components/Browser.js:20
 #: src/admin/analytics/components/Conversion.js:76
 #: src/admin/analytics/components/Device.js:18
@@ -2163,7 +2171,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:4
 #: build/admin/dashboard/index.js:7
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:127
+#: src/admin/ab-testing/components/Details.js:128
 #: src/admin/analytics/components/Campaign.js:76
 #: src/admin/analytics/components/Conversion.js:88
 #: src/admin/analytics/components/Referrer.js:69
@@ -2345,7 +2353,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:43
-#: src/blocks/form/settings.js:919
+#: src/blocks/form/settings.js:940
 msgid "Zapier"
 msgstr ""
 
@@ -2367,7 +2375,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:67
-#: src/blocks/form/settings.js:927
+#: src/blocks/form/settings.js:948
 msgid "Pabbly"
 msgstr ""
 
@@ -2379,7 +2387,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:79
-#: src/blocks/form/settings.js:931
+#: src/blocks/form/settings.js:952
 msgid "AWeber"
 msgstr ""
 
@@ -2411,7 +2419,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:117
-#: src/blocks/form/settings.js:943
+#: src/blocks/form/settings.js:964
 msgid "ConvertKit"
 msgstr ""
 
@@ -2423,7 +2431,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:130
-#: src/blocks/form/settings.js:947
+#: src/blocks/form/settings.js:968
 msgid "Webhook"
 msgstr ""
 
@@ -2445,7 +2453,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:154
-#: src/blocks/form/settings.js:955
+#: src/blocks/form/settings.js:976
 msgid "GetResponse"
 msgstr ""
 
@@ -2457,7 +2465,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:166
-#: src/blocks/form/settings.js:959
+#: src/blocks/form/settings.js:980
 msgid "MailPoet"
 msgstr ""
 
@@ -2469,7 +2477,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:177
-#: src/blocks/form/settings.js:963
+#: src/blocks/form/settings.js:984
 msgid "Brevo"
 msgstr ""
 
@@ -2481,7 +2489,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:189
-#: src/blocks/form/settings.js:967
+#: src/blocks/form/settings.js:988
 msgid "Omnisend"
 msgstr ""
 
@@ -2493,7 +2501,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:201
-#: src/blocks/form/settings.js:971
+#: src/blocks/form/settings.js:992
 msgid "Drip"
 msgstr ""
 
@@ -2505,7 +2513,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:213
-#: src/blocks/form/settings.js:975
+#: src/blocks/form/settings.js:996
 msgid "Slack"
 msgstr ""
 
@@ -2517,7 +2525,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:225
-#: src/blocks/form/settings.js:979
+#: src/blocks/form/settings.js:1000
 msgid "Google Sheet"
 msgstr ""
 
@@ -2529,7 +2537,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:242
-#: src/blocks/form/settings.js:983
+#: src/blocks/form/settings.js:1004
 msgid "Moosend"
 msgstr ""
 
@@ -2541,7 +2549,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:7
 #: build/blocks/form/index.js:1
 #: src/admin/integration/components/Lists.js:254
-#: src/blocks/form/settings.js:987
+#: src/blocks/form/settings.js:1008
 msgid "SendFox"
 msgstr ""
 
@@ -2722,7 +2730,7 @@ msgstr ""
 
 #: build/admin/dashboard/index.js:10
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:171
+#: src/admin/ab-testing/components/Details.js:173
 #: src/admin/campaign/index.js:822
 #: src/admin/integration/index.js:766
 msgid "Edit"
@@ -2772,8 +2780,8 @@ msgstr ""
 #: build/admin/dashboard/index.js:11
 #: build/blocks/form/index.js:1
 #: src/admin/templates/components/filter/FilterType.js:67
-#: src/blocks/form/settings.js:350
-#: src/blocks/form/settings.js:367
+#: src/blocks/form/settings.js:352
+#: src/blocks/form/settings.js:369
 msgid "Type"
 msgstr ""
 
@@ -3256,7 +3264,7 @@ msgid "Total Conversions"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:128
+#: src/admin/ab-testing/components/Details.js:129
 #: src/admin/ab-testing/helpers/SelectOptions.js:10
 msgid "Conversion Rate"
 msgstr ""
@@ -3413,17 +3421,17 @@ msgid "No A/B tests found."
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:125
+#: src/admin/ab-testing/components/Details.js:126
 msgid "Variant"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:146
+#: src/admin/ab-testing/components/Details.js:147
 msgid "Winner"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/ab-testing/components/Details.js:159
+#: src/admin/ab-testing/components/Details.js:161
 msgid "Select Winner"
 msgstr ""
 
@@ -3888,7 +3896,7 @@ msgstr ""
 #: build/blocks/form/index.js:1
 #: src/blocks/advanced-paragraph/settings.js:57
 #: src/blocks/advanced-paragraph/settings.js:94
-#: src/blocks/form/settings.js:356
+#: src/blocks/form/settings.js:358
 msgid "Text"
 msgstr ""
 
@@ -4012,573 +4020,623 @@ msgid "Select which sheet/tab within the spreadsheet to use."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:286
-msgid "Redirect to Url"
+#: src/blocks/form/settings.js:1718
+msgid "PopupKit Campaign"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1729
+msgid "Note: Please ensure that the EmailKit plugin is"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1731
+msgid "Install & Activated"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1733
+msgid "on your WordPress site for a successful sending emails."
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1772
+msgid "Could not create EmailKit template. Please try again."
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1775
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1791
+msgid "Opening…"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1792
+msgid "Edit with EmailKit"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:1797
+msgid "Save this popup first to design its email template."
 msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:287
-msgid "Open Email Client"
+msgid "Redirect to Url"
 msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:288
-msgid "Click to Call"
+msgid "Open Email Client"
 msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:289
-msgid "Copy Text"
+msgid "Click to Call"
 msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:290
-msgid "Close Campaign"
+msgid "Copy Text"
 msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:291
-msgid "Reload The Page"
+msgid "Close Campaign"
 msgstr ""
 
 #: build/blocks/form/index.js:1
 #: src/blocks/form/settings.js:292
+msgid "Reload The Page"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:293
 msgid "Open in a New Window"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:341
+#: src/blocks/form/settings.js:343
 msgid "Form Fields"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:357
+#: src/blocks/form/settings.js:359
 msgid "Text Area"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:358
+#: src/blocks/form/settings.js:360
 msgid "Number"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:359
+#: src/blocks/form/settings.js:361
 msgid "Checkbox"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:360
+#: src/blocks/form/settings.js:362
 msgid "Radio"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:361
+#: src/blocks/form/settings.js:363
 msgid "Privacy Notice"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:372
+#: src/blocks/form/settings.js:374
 msgid "Phone (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:373
+#: src/blocks/form/settings.js:375
 msgid "Text (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:374
+#: src/blocks/form/settings.js:376
 msgid "Text Area (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:375
+#: src/blocks/form/settings.js:377
 msgid "Number (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:376
+#: src/blocks/form/settings.js:378
 msgid "Checkbox (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:377
+#: src/blocks/form/settings.js:379
 msgid "Radio (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:378
+#: src/blocks/form/settings.js:380
 msgid "Privacy Notice (Pro)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:385
+#: src/blocks/form/settings.js:387
 msgid "Show Privacy Notice Checkbox?"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:387
+#: src/blocks/form/settings.js:389
 msgid "Enable to show the privacy notice checkbox on the frontend form."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:396
-#: src/blocks/form/settings.js:406
+#: src/blocks/form/settings.js:398
+#: src/blocks/form/settings.js:408
 msgid "Required?"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:398
+#: src/blocks/form/settings.js:400
 msgid "For Privacy Notice: turn on \"Show Privacy Notice Checkbox\" first to enable this option."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:416
+#: src/blocks/form/settings.js:418
 msgid "Placeholder"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:423
+#: src/blocks/form/settings.js:425
 msgid "Field Label"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:430
+#: src/blocks/form/settings.js:432
 msgid "Rows"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:441
+#: src/blocks/form/settings.js:443
 msgid "Field Width"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:454
+#: src/blocks/form/settings.js:456
 msgid "Field ID"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:460
+#: src/blocks/form/settings.js:462
 msgid "Default value"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:472
+#: src/blocks/form/settings.js:474
 msgid "Add Option"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:476
+#: src/blocks/form/settings.js:478
 msgid "First choice"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:477
+#: src/blocks/form/settings.js:479
 msgid "Second choice"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:478
+#: src/blocks/form/settings.js:480
 msgid "Third choice"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:498
+#: src/blocks/form/settings.js:500
 msgid "Enter Choice Option"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:504
+#: src/blocks/form/settings.js:506
 msgid "Show Label"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:510
+#: src/blocks/form/settings.js:512
 msgid "Required Mark"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:519
+#: src/blocks/form/settings.js:521
 msgid "After Submit Action"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:542
+#: src/blocks/form/settings.js:544
 msgid "Redirect URL"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:551
+#: src/blocks/form/settings.js:553
 msgid "Email Address"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:561
+#: src/blocks/form/settings.js:563
 msgid "Phone Number"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:571
+#: src/blocks/form/settings.js:573
 msgid "Text to Copy"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:580
+#: src/blocks/form/settings.js:582
 msgid "New Window URL"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:589
+#: src/blocks/form/settings.js:591
 msgid "Close Campaign?"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:595
+#: src/blocks/form/settings.js:597
 msgid "Delay time (s) to close campaign"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:602
+#: src/blocks/form/settings.js:604
 msgid "Conversion tracking?"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:609
+#: src/blocks/form/settings.js:611
 msgid "Button Width"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:619
+#: src/blocks/form/settings.js:621
 msgid "Use Icon"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:631
+#: src/blocks/form/settings.js:633
 msgid "Icon Position"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:662
+#: src/blocks/form/settings.js:664
 msgid "After Submission Message"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:670
+#: src/blocks/form/settings.js:672
 msgid "Autoresponder"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:674
-#: src/blocks/form/settings.js:741
+#: src/blocks/form/settings.js:676
+#: src/blocks/form/settings.js:762
 msgid "Enable Autoresponder"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:689
+#: src/blocks/form/settings.js:691
 msgid "Sender Name"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:692
+#: src/blocks/form/settings.js:694
 msgid "Enter email From Name"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:701
+#: src/blocks/form/settings.js:703
 msgid "Sender Email"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:703
+#: src/blocks/form/settings.js:705
 msgid "Enter email From"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:713
+#: src/blocks/form/settings.js:715
 msgid "Subject"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:716
+#: src/blocks/form/settings.js:718
 msgid "Enter email subject"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:725
+#: src/blocks/form/settings.js:727
+msgid "Email Integration"
+msgstr ""
+
+#: build/blocks/form/index.js:1
+#: src/blocks/form/settings.js:744
 msgid "Message"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:727
+#: src/blocks/form/settings.js:746
 msgid "Enter email message"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:742
+#: src/blocks/form/settings.js:763
 msgid "Engage your audience instantly by automatically sending personalized emails with PopupKit Pro"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:752
+#: src/blocks/form/settings.js:773
 msgid "Spam Protection"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:756
-#: src/blocks/form/settings.js:889
+#: src/blocks/form/settings.js:777
+#: src/blocks/form/settings.js:910
 msgid "Enable Spam Protection"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:762
+#: src/blocks/form/settings.js:783
 msgid "Blocks automated submissions before they are stored or sent to any integration. Every check also runs on the server, so bots that post directly to the API are stopped too."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:769
+#: src/blocks/form/settings.js:790
 msgid "Honeypot Field"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:774
+#: src/blocks/form/settings.js:795
 msgid "Adds a hidden field that real visitors never see. If it comes back filled in, the submission is treated as spam."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:779
+#: src/blocks/form/settings.js:800
 msgid "Honeypot Field Name"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:787
+#: src/blocks/form/settings.js:808
 msgid "Change this to something unique for your site so bots cannot learn one name and skip it. Avoid names browsers autofill, such as \"url\" or \"website\"."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:791
+#: src/blocks/form/settings.js:812
 msgid "Honeypot Label"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:802
+#: src/blocks/form/settings.js:823
 msgid "Minimum Submission Time"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:809
+#: src/blocks/form/settings.js:830
 msgid "Minimum time before submit (seconds)"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:820
+#: src/blocks/form/settings.js:841
 msgid "If Spam Is Detected"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:824
+#: src/blocks/form/settings.js:845
 msgid "Discard silently"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:825
+#: src/blocks/form/settings.js:846
 msgid "Discard & show an error"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:826
+#: src/blocks/form/settings.js:847
 msgid "Discard & redirect"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:830
+#: src/blocks/form/settings.js:851
 msgid "The submission is always discarded. \"Discard silently\" shows the normal success message so bots get no feedback to tune against."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:835
+#: src/blocks/form/settings.js:856
 msgid "Spam Error Message"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:845
+#: src/blocks/form/settings.js:866
 msgid "Spam Redirect URL"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:856
+#: src/blocks/form/settings.js:877
 msgid "Maximum Links Allowed"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:863
+#: src/blocks/form/settings.js:884
 msgid "Blocks submissions containing more than this many URLs. Set to 0 to allow any number."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:867
+#: src/blocks/form/settings.js:888
 msgid "Blocked Keywords"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:870
+#: src/blocks/form/settings.js:891
 msgid "One keyword per line, or comma separated"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:877
+#: src/blocks/form/settings.js:898
 msgid "Also Use WordPress Disallowed Keys"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:882
+#: src/blocks/form/settings.js:903
 msgid "Reuses the list from Settings → Discussion → Disallowed Comment Keys."
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:890
+#: src/blocks/form/settings.js:911
 msgid "Stop bot submissions with a honeypot field, a minimum submission time, link limits and keyword blocking with PopupKit Pro"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:903
+#: src/blocks/form/settings.js:924
 msgid "Select Integrations"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:907
+#: src/blocks/form/settings.js:928
 msgid "Mailchimp"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:911
+#: src/blocks/form/settings.js:932
 msgid "Fluent CRM"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:915
+#: src/blocks/form/settings.js:936
 msgid "Active Campaign"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:923
+#: src/blocks/form/settings.js:944
 msgid "Hubspot"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:935
+#: src/blocks/form/settings.js:956
 msgid "Zoho"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:939
+#: src/blocks/form/settings.js:960
 msgid "Mailerlite"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:951
+#: src/blocks/form/settings.js:972
 msgid "klaviyo"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:997
+#: src/blocks/form/settings.js:1018
 msgid "Add Integrations"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1001
+#: src/blocks/form/settings.js:1022
 msgid "Add and Unlock more integrations with PopupKit Pro"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1038
+#: src/blocks/form/settings.js:1059
 msgid "Form"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1082
+#: src/blocks/form/settings.js:1103
 msgid "Columns Gap"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1094
+#: src/blocks/form/settings.js:1115
 msgid "Rows Gap"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1107
+#: src/blocks/form/settings.js:1128
 msgid "Label"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1114
+#: src/blocks/form/settings.js:1135
 msgid "label Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1119
+#: src/blocks/form/settings.js:1140
 msgid "Mark Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1138
+#: src/blocks/form/settings.js:1159
 msgid "Field"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1147
+#: src/blocks/form/settings.js:1168
 msgid "Spacing Between Lists"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1172
+#: src/blocks/form/settings.js:1193
 msgid "Focus"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1188
+#: src/blocks/form/settings.js:1209
 msgid "Checkbox / Radio Text Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1199
-#: src/blocks/form/settings.js:1237
-#: src/blocks/form/settings.js:1275
+#: src/blocks/form/settings.js:1220
+#: src/blocks/form/settings.js:1258
+#: src/blocks/form/settings.js:1296
 msgid "Placeholder Color"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1345
+#: src/blocks/form/settings.js:1366
 msgid "Use Position"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1385
+#: src/blocks/form/settings.js:1406
 msgid "Absolute"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1386
+#: src/blocks/form/settings.js:1407
 msgid "Fixed"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1395
+#: src/blocks/form/settings.js:1416
 msgid "Horizontal Orientation"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1415
-#: src/blocks/form/settings.js:1459
+#: src/blocks/form/settings.js:1436
+#: src/blocks/form/settings.js:1480
 msgid "Offset"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1439
+#: src/blocks/form/settings.js:1460
 msgid "Vertical Orientation"
 msgstr ""
 
 #: build/blocks/form/index.js:1
-#: src/blocks/form/settings.js:1616
+#: src/blocks/form/settings.js:1637
 msgid "Submission Message"
 msgstr ""
 
