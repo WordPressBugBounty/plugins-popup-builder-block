@@ -247,6 +247,9 @@
     "sendfoxAccount": {
       "type": "object"
     },
+    "emailoctopusAccount": {
+      "type": "object"
+    },
     "dripAccount": {
       "type": "object"
     },
@@ -264,6 +267,13 @@
     },
     "sendfoxList": {
       "type": "object"
+    },
+    "emailoctopusList": {
+      "type": "object"
+    },
+    "emailoctopusDoubleOptin": {
+      "type": "boolean",
+      "default": false
     },
     "googleSheetList": {
       "type": "object"

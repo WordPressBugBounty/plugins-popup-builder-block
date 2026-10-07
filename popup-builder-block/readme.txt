@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.6
+Stable tag: 2.3.7
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -333,6 +333,13 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 
 
 == Changelog ==
+
+= PopupKit: 2.3.7 (2026-10-07) =
+* Fixed: SendFox integration documentation URL is not redirecting to the correct documentation page
+* Fixed: Analytics counted campaign previews when the preview URL had no preview=true parameter
+* Fixed: Double Opt-in toggle never rendered for integrations that enable it
+* Tweaked: Integration lists no longer refetch on every block setting change
+* Improved: Hard-coded UI strings are now translatable across components
 
 = PopupKit: 2.3.6 (2026-09-13) =
 * Added: Translation support for previously untranslated stories strings

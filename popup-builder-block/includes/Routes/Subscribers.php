@@ -205,6 +205,7 @@ class Subscribers extends Api {
 			'googleSheet',
 			'moosend',
 			'sendfox',
+			'emailoctopus',
 		];
 
 		// Loop through integrations and add to subscriber data if present

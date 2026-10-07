@@ -335,7 +335,12 @@ class Popup extends Api {
 			);
 		}
 
-		if ( ! $campaign_id ) {
+		// Only published campaigns collect analytics; previews of drafts and template demos don't count.
+		if (
+			! $campaign_id
+			|| 'popupkit-campaigns' !== get_post_type( $campaign_id )
+			|| 'publish' !== get_post_status( $campaign_id )
+		) {
 			return new \WP_REST_Response(
 				[
 					'status'  => 'error',

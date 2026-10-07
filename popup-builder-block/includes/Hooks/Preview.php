@@ -16,26 +16,6 @@ class Preview {
 	public function __construct() {
 		add_filter( 'template_include', array( $this, 'pbb_preview_campaign' ) );
 		add_filter( 'template_redirect', array( $this, 'redirect_to_popup_template' ) );
-		add_filter( 'preview_post_link', array( $this, 'add_preview_query_arg' ), 10, 2 );
-	}
-
-	/**
-	 * Adds preview=true to preview links for supported popup post types.
-	 *
-	 * @param string  $preview_link Preview URL.
-	 * @param \WP_Post $post         Current post object.
-	 * @return string
-	 */
-	public function add_preview_query_arg( $preview_link, $post ) {
-		if ( ! ( $post instanceof \WP_Post ) ) {
-			return $preview_link;
-		}
-
-		if ( ! in_array( $post->post_type, ['popupkit-campaigns'], true ) ) {
-			return $preview_link;
-		}
-
-		return add_query_arg( 'preview', 'true', $preview_link );
 	}
 
 	/**
@@ -64,6 +44,9 @@ class Preview {
 		// Remove actions that are not needed for the preview
 		$this->remove_actions();
 
+		// Mark the page as a preview so the frontend opens the popup directly and skips analytics
+		add_filter( 'body_class', array( $this, 'add_preview_body_class' ) );
+
 		// Specify the path to the custom template file in your plugin
 		$custom_template = apply_filters(
 			'popup_builder_block/template_path',
@@ -72,6 +55,20 @@ class Preview {
 
 		// Check if the custom template file exists and return it
 		return file_exists( $custom_template ) ? $custom_template : $template;
+	}
+
+	/**
+	 * Adds the preview marker read by the frontend `isTemplatePreview()` check.
+	 *
+	 * Campaign previews and template demos (fetched into an iframe srcdoc) all render
+	 * through this template, so the marker doesn't depend on any URL parameter.
+	 *
+	 * @param string[] $classes Body classes.
+	 * @return string[]
+	 */
+	public function add_preview_body_class( $classes ) {
+		$classes[] = 'pbb-preview';
+		return $classes;
 	}
 
 	/**
