@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.7
+Stable tag: 2.3.8
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -332,7 +332,23 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 19. Integration with 20+ popular tools & softwares.
 
 
+== External services ==
+
+PopupKit integrates with the following 3rd party services. Please review each service's terms before use:
+
+* Google Fonts – used to load the fonts chosen in typography settings. [Terms of Service](https://developers.google.com/terms) | [Privacy Policy](https://policies.google.com/privacy)
+* PopupKit (by Wpmet) – used for the template library, newsletter subscription, deactivation feedback, Google Fonts list, and dashboard stories and notices. [Privacy Policy](https://wpmet.com/privacy-policy/)
+
+
 == Changelog ==
+
+= PopupKit: 2.3.8 (2026-10-25) =
+* Fixed: Settings switches could jump back to their previous state when clicked right after opening a tab
+* Fixed: Strings from shared components used different text domain and could not be translated with PopupKit
+* Improved: "Built with PopupKit" badge is now off by default, and everyone can turn it on from Display Options
+* Improved: Template preview background image now loads from the plugin instead of external link
+* Improved: Integration sign-in URLs (AWeber, Zoho, Google Sheets) and the Geolocation Targeting address lookup moved to PopupKit Pro
+* Improved: Reduced the dashboard script by about 1.2 MB by moving the world map data to PopupKit Pro
 
 = PopupKit: 2.3.7 (2026-10-07) =
 * Fixed: SendFox integration documentation URL is not redirecting to the correct documentation page

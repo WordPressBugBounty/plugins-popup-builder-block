@@ -129,7 +129,7 @@
       "type": "boolean",
       "default": false
     },
-    "popupkitBadge": {
+    "showPopupkitBadge": {
       "type": "boolean",
       "default": false
     },
@@ -144,6 +144,9 @@
     "userInactivityTime": {
       "type": "number",
       "default": 3
+    },
+    "exitIntentDelay": {
+      "type": "number"
     },
     "clickCount": {
       "type": "number",

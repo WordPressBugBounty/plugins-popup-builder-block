@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || exit;
 
 use PopupBuilderBlock\Helpers\DataBase;
 use PopupBuilderBlock\Helpers\UserAgent;
-use PopupBuilderBlock\Helpers\GeoLocation;
 use PopupBuilderBlock\Helpers\IPBlocking;
 
 class Popup extends Api {
@@ -74,8 +73,9 @@ class Popup extends Api {
 					'type' => array(
 						'required' => true,
 						'sanitize_callback' => 'sanitize_text_field',
+						// A report slug; get_logs() checks it is a registered report.
 						'validate_callback' => function( $param ) {
-							return in_array( $param, [ 'devices', 'countries', 'browsers', 'referrers', 'campaigns', 'convertion' ], true );
+							return is_string( $param ) && (bool) preg_match( '/^[a-z_-]+$/', $param );
 						}
 					),
 				),
@@ -282,32 +282,37 @@ class Popup extends Api {
 		$campaign_id = $request['campaignId'] ?? '';
 		$start_date  = $request['startDate'] ?? '';
 		$end_date    = $request['endDate'] ?? '';
-		$method_map = [
-			'devices'    => 'get_devices',
-			'countries'  => 'get_countries',
-			'browsers'   => 'get_browsers',
-			'referrers'  => 'get_referrers',
-			'campaigns'  => 'get_campaigns',
-			'convertion' => 'get_convertion',
-		];
-		$method = isset( $request['type'] ) ? ( $method_map[ $request['type'] ] ?? '' ) : '';
+		/**
+		 * Analytics reports by type, each a callable taking the campaign ID and
+		 * the date range. PopupKit Pro adds countries, browsers, referrers and
+		 * campaigns (the Top Countries, Browsers, Referrers and Campaigns reports).
+		 *
+		 * @param callable[] $reports Report type => callable.
+		 */
+		$reports = apply_filters(
+			'popup_builder_block/analytics/reports',
+			array(
+				'devices'    => array( DataBase::class, 'get_devices' ),
+				'convertion' => array( DataBase::class, 'get_convertion' ),
+			)
+		);
+		$report = isset( $request['type'] ) ? ( $reports[ $request['type'] ] ?? null ) : null;
 
-		if ( empty( $start_date ) || empty( $end_date ) || empty( $method ) ) {
+		if ( empty( $start_date ) || empty( $end_date ) || empty( $report ) ) {
 			return array(
 				'status'  => 'error',
 				'message' => 'Invalid parameters',
 			);
 		}
 
-		if ( empty( $method ) || ! method_exists( DataBase::class, $method ) ) {
+		if ( ! is_callable( $report ) ) {
 			return array(
 				'status'  => 'error',
 				'message' => 'Invalid type provided',
 			);
 		}
 
-		// Call the appropriate method dynamically
-		$data = DataBase::$method( $campaign_id, $start_date, $end_date );
+		$data = call_user_func( $report, $campaign_id, $start_date, $end_date );
 
 		if ( empty( $data ) ) {
 			return array(
@@ -350,30 +355,39 @@ class Popup extends Api {
 			);
 		}
 
-		$location = GeoLocation::get_location();
-		$country = $location->country ?? '';
-		$browser = UserAgent::get_browser() ?? '';
 		$device = UserAgent::get_device();
-
-		$user_details = array(
-			'browser' => $browser,
-			'device'  => $device,
-			'country' => $country,
-		);
-
 
 		$current_date = gmdate( 'Y-m-d' );
 		$log_id = DataBase::insertOrUpdateLog($campaign_id, $current_date, $device);
 
-		if(!empty($browser)) DataBase::insertOrUpdateBrowser($log_id, $browser);
-		if(!empty($country)) DataBase::insertOrUpdateCountry($log_id, $country);
+		/**
+		 * Visitor details of a logged popup view, sent back to the browser.
+		 *
+		 * The free plugin logs the view and the device. The Top Browsers and Top
+		 * Countries reports are PopupKit Pro features: Pro detects and stores the
+		 * browser and country here and adds them, with the visitor's location for
+		 * Geolocation Targeting.
+		 *
+		 * @param array $details     `userDetails` (cookie for lead details) and `location`.
+		 * @param int   $log_id      Row in `pbb_logs`.
+		 * @param int   $campaign_id Popup campaign post ID.
+		 */
+		$details = apply_filters(
+			'popup_builder_block/analytics/view_logged',
+			array(
+				'userDetails' => array( 'device' => $device ),
+				'location'    => new \stdClass(),
+			),
+			$log_id,
+			$campaign_id
+		);
 
 		return array(
 			'status'  => 'success',
 			'data'    => array(
-				'logId' => $log_id,
-				'userDetails'	=> $user_details,
-				'location' => $location
+				'logId'       => $log_id,
+				'userDetails' => $details['userDetails'] ?? array( 'device' => $device ),
+				'location'    => $details['location'] ?? new \stdClass(),
 			),
 			'message' => 'Logs inserted successfully',
 		);
@@ -409,7 +423,15 @@ class Popup extends Api {
 		);
 
 		$updated = DataBase::updateDB( 'pbb_logs', $data, array( 'id' => $id ) );
-		if(!empty($refferer)) DataBase::insertOrUpdateReferrer($id, $refferer);
+
+		/**
+		 * A conversion was counted for a logged popup view. The Top Referrers
+		 * report is a PopupKit Pro feature: Pro stores the referrer here.
+		 *
+		 * @param int    $id       Row in `pbb_logs`.
+		 * @param string $referrer Referrer URL sent by the browser, may be empty.
+		 */
+		do_action( 'popup_builder_block/analytics/log_updated', $id, $refferer );
 
 		if ( ! $updated ) {
 			return array(

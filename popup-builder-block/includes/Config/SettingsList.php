@@ -35,6 +35,15 @@ class SettingsList {
 				'status'      => 'inactive',
 				'category'    => 'data',
 			),
+			'visitor_geolocation' => array(
+				'_id'         => uniqid(),
+				'slug'        => 'visitor_geolocation',
+				'title'       => esc_html__('Visitor Geolocation', 'popup-builder-block'),
+				'description' => esc_html__('See where your visitors come from in the Country analytics report and target popups by location with Geolocation Targeting.', 'popup-builder-block'),
+				'package'     => 'pro',
+				'status'      => 'inactive',
+				'category'    => 'data',
+			),
 			'analytics'         => array(
 				'_id'         => uniqid(),
 				'slug'        => 'analytics',

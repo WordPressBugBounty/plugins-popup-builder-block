@@ -87,8 +87,22 @@ class SettingsData extends Api {
 		$req_data = $request->get_json_params();
 		// Process the request data to extract only _id, slug, and status
 		$processed_data = array();
+		$static_settings = SettingsList::pbb_settings_list();
+		$saved_settings  = get_option( 'pbb-settings-tabs' );
+		$saved_settings  = is_array( $saved_settings ) ? $saved_settings : array();
+
 		if ( isset( $req_data['settings'] ) && is_array( $req_data['settings'] ) ) {
 			foreach ( $req_data['settings'] as $key => $setting ) {
+				// Pro settings are saved only while Pro is active. Otherwise saving any other
+				// setting would store a Pro option the free user never chose, and that saved
+				// value would override Pro's default after an upgrade.
+				if ( 'pro' === ( $static_settings[ $key ]['package'] ?? '' ) && ! class_exists( 'PopupBuilderBlockPro' ) ) {
+					if ( isset( $saved_settings[ $key ] ) ) {
+						$processed_data[ $key ] = $saved_settings[ $key ];
+					}
+					continue;
+				}
+
 				if ( isset( $setting['_id'], $setting['slug'], $setting['status'] ) ) {
 					$processed_data[ $key ] = array(
 						'_id'    => $setting['_id'],

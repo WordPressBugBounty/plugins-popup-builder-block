@@ -4,6 +4,7 @@ namespace PopupBuilderBlock\Routes;
 
 defined('ABSPATH') || exit;
 
+use PopupBuilderBlock\Config\SettingsList;
 use PopupBuilderBlock\Helpers\InstallTracker;
 
 class Onboard extends Api {
@@ -14,6 +15,7 @@ class Onboard extends Api {
 	private const SLUG = 'popup-builder-block';
 	private const CRM_SLUG = 'popupkit';
 	private const NOTICE = 'popupkit_onboard_notice';
+	private const SETTINGS = 'pbb-settings-tabs';
 
 	protected function get_routes(): array {
 		return [
@@ -57,6 +59,8 @@ class Onboard extends Api {
 	{
 		$data    = $request->get_params();
 		update_option(Onboard::STATUS, 'onboarded');
+
+		$this->save_user_consent(!empty($data['dataSharePermission']) && rest_sanitize_boolean($data['dataSharePermission']));
 
 		$email = !empty($data['userMail']) && is_email($data['userMail'])
 			? sanitize_email($data['userMail'])
@@ -145,6 +149,36 @@ class Onboard extends Api {
 			'email'   => $email,
 			'message' => __('Onboard data saved successfully.', 'popup-builder-block')
 		];
+	}
+
+	/**
+	 * Saves the User Consent setting chosen on the onboarding Tutorial step.
+	 *
+	 * Continue grants it and Skip declines it; the Settings page reads the same
+	 * `user_consent` entry. Only that entry is written, so the other settings
+	 * keep falling back to their defaults in SettingsList.
+	 *
+	 * @param bool $granted Whether the user clicked Continue.
+	 * @return void
+	 */
+	private function save_user_consent(bool $granted): void
+	{
+		$defaults = SettingsList::pbb_settings_list();
+
+		if (!isset($defaults['user_consent'])) {
+			return;
+		}
+
+		$settings = get_option(Onboard::SETTINGS);
+		$settings = is_array($settings) ? $settings : [];
+
+		$settings['user_consent'] = [
+			'_id'    => $settings['user_consent']['_id'] ?? $defaults['user_consent']['_id'],
+			'slug'   => 'user_consent',
+			'status' => $granted ? 'active' : 'inactive',
+		];
+
+		update_option(Onboard::SETTINGS, $settings);
 	}
 
 	/**

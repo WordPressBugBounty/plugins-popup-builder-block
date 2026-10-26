@@ -34,16 +34,16 @@ class InstallTracker {
 	 * @var array<string, array{option: string, value: mixed}>
 	 */
 	const ONBOARD_STATUS_MAP = array(
-		'popup-builder-block/popup-builder-block.php'          => array( 'option' => 'popupkit_onboard_status', 'value' => 'onboarded' ),
-		'gutenkit-blocks-addon/gutenkit-blocks-addon.php'      => array( 'option' => 'gutenkit_onboard_status', 'value' => 'onboarded' ),
-		'elementskit-lite/elementskit-lite.php'                => array( 'option' => 'elements_kit_onboard_status', 'value' => 'onboarded' ),
-		'metform/metform.php'                                  => array( 'option' => 'met_form_onboard_status', 'value' => 'onboarded' ),
-		'emailkit/EmailKit.php'                                => array( 'option' => 'emailkit_onboard_status', 'value' => 'onboarded' ),
-		'getgenie/getgenie.php'                                => array( 'option' => 'getgenie_onboard_status', 'value' => 'onboarded' ),
-		'shopengine/shopengine.php'                            => array( 'option' => 'shopengine_onboard_status', 'value' => 'onboarded' ),
-		'blocks-for-shopengine/shopengine-gutenberg-addon.php' => array( 'option' => '', 'value' => '' ),
-		'rox-appointment-booking/rox-appointment-booking.php'  => array( 'option' => '', 'value' => '' ),
-		'dynamic-cpt-fields-engine/rox-dynamic-cpt-fields-engine.php'    => array( 'option' => '', 'value' => '' ),
+		'popup-builder-block/popup-builder-block.php'                     => array( 'option' => 'popupkit_onboard_status', 'value' => 'onboarded' ),
+		'gutenkit-blocks-addon/gutenkit-blocks-addon.php'                 => array( 'option' => 'gutenkit_onboard_status', 'value' => 'onboarded' ),
+		'elementskit-lite/elementskit-lite.php'                           => array( 'option' => 'elements_kit_onboard_status', 'value' => 'onboarded' ),
+		'metform/metform.php'                                             => array( 'option' => 'met_form_onboard_status', 'value' => 'onboarded' ),
+		'emailkit/EmailKit.php'                                           => array( 'option' => 'emailkit_onboard_status', 'value' => 'onboarded' ),
+		'getgenie/getgenie.php'                                           => array( 'option' => 'getgenie_onboard_status', 'value' => 'onboarded' ),
+		'shopengine/shopengine.php'                                       => array( 'option' => 'shopengine_onboard_status', 'value' => 'onboarded' ),
+		'blocks-for-shopengine/shopengine-gutenberg-addon.php'            => array( 'option' => '', 'value' => '' ),
+		'rox-appointment-booking/rox-appointment-booking.php'             => array( 'option' => '', 'value' => '' ),
+		'rox-dynamic-cpt-fields-engine/rox-dynamic-cpt-fields-engine.php' => array( 'option' => '', 'value' => '' ),
 	);
 
 	/**

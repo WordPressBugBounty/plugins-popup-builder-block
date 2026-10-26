@@ -323,7 +323,7 @@ class Admin {
 		wp_enqueue_style(
 			'popupkit-deactivation-popup',
 			POPUP_BUILDER_BLOCK_PLUGIN_URL . 'build/admin/deactivation-popup/style-index.css',
-			array(),
+			array( 'wp-components' ),
 			$assets['version']
 		);
 	}

@@ -57,21 +57,20 @@ class FrequencySettings {
 			return false;
 		}
 
-		switch ( $displayVisitor ) {
-			case 'new':
-				if ( $this->getCookie( 'pbb_new_visitor' ) !== 'true' && $this->getCookie( 'pbb_old_visitor' ) !== 'true' ) {
-					return true;
-				}
-				return false;
-
-			case 'return':
-				if ( $this->getCookie( 'pbb_old_visitor' ) !== 'true' ) {
-					return false;
-				}
-				return $this->checkFrequency( $displayFrequency, $popup_id );
-
-			default:
-				return $this->checkFrequency( $displayFrequency, $popup_id );
+		/**
+		 * Whether the visitor type lets this popup show.
+		 *
+		 * New and Returning visitor targeting is a PopupKit Pro feature: Pro checks
+		 * the visitor cookies here. Without it every visitor matches ("Everyone").
+		 *
+		 * @param bool   $matched        Whether the visitor matches.
+		 * @param string $displayVisitor 'everyone', 'new' or 'return'.
+		 * @param int    $popup_id       Popup campaign post ID.
+		 */
+		if ( ! apply_filters( 'popup_builder_block/frequency/visitor_type', true, $displayVisitor, $popup_id ) ) {
+			return false;
 		}
+
+		return $this->checkFrequency( $displayFrequency, $popup_id );
 	}
 }

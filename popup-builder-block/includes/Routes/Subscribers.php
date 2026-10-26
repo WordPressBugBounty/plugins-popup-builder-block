@@ -153,12 +153,30 @@ class Subscribers extends Api {
 		$campaign_title = get_the_title($campaign_id);
 		$email       = sanitize_email($data['email'] ?? '');
 		$name        = sanitize_text_field($data['name'] ?? '');
-		$form_data   = wp_json_encode( $data['form_data'] ?? [] );
-		$user_data   = $data['user_data'] ?? [];
 
-		// Prepare data for database insertion
-		$emailData        = wp_json_encode($data['emailData'] ?? []);
-		$subscriber_data = compact('campaign_id', 'campaign_title', 'email', 'name', 'form_data', 'user_data');
+		/**
+		 * The record stored for a submission.
+		 *
+		 * The free plugin stores the email and name only. Lead details (the other
+		 * form fields and the visitor's browser and device) are a PopupKit Pro
+		 * feature: Pro fills `form_data` and `user_data` here. Both columns are
+		 * NOT NULL, so they start empty.
+		 *
+		 * @param array $subscriber_data Columns to insert into `pbb_subscribers`.
+		 * @param array $data            Decoded submission payload.
+		 */
+		$subscriber_data = apply_filters(
+			'popup_builder_block/subscriber/data',
+			array(
+				'campaign_id'    => $campaign_id,
+				'campaign_title' => $campaign_title,
+				'email'          => $email,
+				'name'           => $name,
+				'form_data'      => '',
+				'user_data'      => '',
+			),
+			$data
+		);
 
 		// Insert subscriber data
 		$is_inserted = DataBase::insert_subscriber($subscriber_data);
@@ -272,7 +290,19 @@ class Subscribers extends Api {
 			$order_by = $param['order_by'] . ' DESC';
 		}
 
-		$data = DataBase::getDB( "*", 'pbb_subscribers', $where, $limit, false, $order_by );
+		/**
+		 * Columns sent to the Subscribers page. Without PopupKit Pro that is the
+		 * email, name, campaign and date; Pro adds `form_data` and `user_data` for
+		 * its Details view and export.
+		 *
+		 * @param string[] $columns Columns of `pbb_subscribers`.
+		 */
+		$columns = apply_filters(
+			'popup_builder_block/subscribers/columns',
+			array( 'id', 'campaign_id', 'campaign_title', 'email', 'name', 'date' )
+		);
+
+		$data = DataBase::getDB( $columns, 'pbb_subscribers', $where, $limit, false, $order_by );
 
 		if ( ! $data ) {
 			return array(

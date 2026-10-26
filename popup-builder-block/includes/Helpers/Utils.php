@@ -335,12 +335,14 @@ class Utils {
 
 	public static function onboard_plugins() {
 		return array(
-			'gutenkit-blocks-addon' => self::check_plugin_status( 'gutenkit-blocks-addon/gutenkit-blocks-addon.php' ),
-			'emailkit'              => self::check_plugin_status( 'emailkit/EmailKit.php' ),
-			'elementskit-lite'      => self::check_plugin_status( 'elementskit-lite/elementskit-lite.php' ),
-			'metform'               => self::check_plugin_status( 'metform/metform.php' ),
-			'getgenie'              => self::check_plugin_status( 'getgenie/getgenie.php' ),
-			'blocks-for-shopengine' => self::check_plugin_status( 'blocks-for-shopengine/shopengine-gutenberg-addon.php' ),
+			'rox-dynamic-cpt-fields-engine' => self::check_plugin_status( 'rox-dynamic-cpt-fields-engine/rox-dynamic-cpt-fields-engine.php' ),
+			'rox-appointment-booking'       => self::check_plugin_status( 'rox-appointment-booking/rox-appointment-booking.php' ),
+			'gutenkit-blocks-addon'         => self::check_plugin_status( 'gutenkit-blocks-addon/gutenkit-blocks-addon.php' ),
+			'emailkit'                      => self::check_plugin_status( 'emailkit/EmailKit.php' ),
+			'elementskit-lite'              => self::check_plugin_status( 'elementskit-lite/elementskit-lite.php' ),
+			'metform'                       => self::check_plugin_status( 'metform/metform.php' ),
+			'getgenie'                      => self::check_plugin_status( 'getgenie/getgenie.php' ),
+			'blocks-for-shopengine'         => self::check_plugin_status( 'blocks-for-shopengine/shopengine-gutenberg-addon.php' ),
 		);
 	}
 
