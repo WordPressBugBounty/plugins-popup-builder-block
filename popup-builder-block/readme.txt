@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.8
+Stable tag: 2.3.9
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -341,6 +341,14 @@ PopupKit integrates with the following 3rd party services. Please review each se
 
 
 == Changelog ==
+
+= PopupKit: 2.3.9 (2026-11-02) =
+* Fixed: Template preview no longer loads third party script, which could fire the window load event twice
+* Improved: Our Plugins page and the rating notice now use plugin logos bundled with PopupKit instead of loading them from WordPress.org
+* Improved: Bundled Composer autoloader files are protected against direct access and no longer print unescaped output
+* Improved: Blocks registration process
+* Improved: Frontend block scripts loading process
+* Removed: Unused emoji DNS prefetch filter from the popup preview
 
 = PopupKit: 2.3.8 (2026-10-25) =
 * Fixed: Settings switches could jump back to their previous state when clicked right after opening a tab

@@ -66,6 +66,6 @@ class BlockList {
 			),
 		);
 
-		return apply_filters('popup_builder_block/blocks_list', $list );
+		return $list;
 	}
 }

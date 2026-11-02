@@ -32,6 +32,8 @@ class FetchDemo extends Api {
 		// Return the fetched content
 		$body = wp_remote_retrieve_body( $response );
 		$body = preg_replace( '/type="[^"]+-text\/javascript"/', 'type="text/javascript"', $body );
+		// Rocket Loader has no scripts left to defer, and would only fire a second window load event in the preview.
+		$body = preg_replace( '/<script\b[^>]*rocket-loader[^>]*><\/script>/i', '', $body );
 		return new \WP_REST_Response( array( 'content' => $body ), 200 );
 	}
 }

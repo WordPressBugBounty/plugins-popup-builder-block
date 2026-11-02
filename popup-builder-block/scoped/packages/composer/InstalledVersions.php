@@ -144,7 +144,7 @@ class InstalledVersions
             }
             return implode(' || ', $ranges);
         }
-        throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+        throw new \OutOfBoundsException('Package "' . esc_html($packageName) . '" is not installed');
     }
     /**
      * @param  string      $packageName
@@ -161,7 +161,7 @@ class InstalledVersions
             }
             return $installed['versions'][$packageName]['version'];
         }
-        throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+        throw new \OutOfBoundsException('Package "' . esc_html($packageName) . '" is not installed');
     }
     /**
      * @param  string      $packageName
@@ -178,7 +178,7 @@ class InstalledVersions
             }
             return $installed['versions'][$packageName]['pretty_version'];
         }
-        throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+        throw new \OutOfBoundsException('Package "' . esc_html($packageName) . '" is not installed');
     }
     /**
      * @param  string      $packageName
@@ -195,7 +195,7 @@ class InstalledVersions
             }
             return $installed['versions'][$packageName]['reference'];
         }
-        throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+        throw new \OutOfBoundsException('Package "' . esc_html($packageName) . '" is not installed');
     }
     /**
      * @param  string      $packageName
@@ -209,7 +209,7 @@ class InstalledVersions
             }
             return isset($installed['versions'][$packageName]['install_path']) ? $installed['versions'][$packageName]['install_path'] : null;
         }
-        throw new \OutOfBoundsException('Package "' . $packageName . '" is not installed');
+        throw new \OutOfBoundsException('Package "' . esc_html($packageName) . '" is not installed');
     }
     /**
      * @return array

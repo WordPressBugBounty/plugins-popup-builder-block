@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-3.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: PopupKit 2.3.8\n"
+"Project-Id-Version: PopupKit 2.3.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/popup-builder-block\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-26T04:14:11+00:00\n"
+"POT-Creation-Date: 2026-11-01T12:07:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: popup-builder-block\n"
@@ -18,7 +18,7 @@ msgstr ""
 #: popup-builder-block.php
 #: includes/Admin/Admin.php:54
 #: includes/Admin/Admin.php:55
-#: includes/Config/Blocks.php:93
+#: includes/Config/Blocks.php:90
 msgid "PopupKit"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgid "Generally, PoupKit stores campaign data into the database. You can set a 
 msgstr ""
 
 #: includes/Config/SettingsList.php:60
-msgid "User Consent"
+msgid "Plugin Tips & Announcements"
 msgstr ""
 
 #: includes/Config/SettingsList.php:61
@@ -300,20 +300,20 @@ msgstr ""
 
 #: includes/Routes/Onboard.php:79
 #: includes/Routes/Onboard.php:100
-#: includes/Routes/Onboard.php:150
+#: includes/Routes/Onboard.php:152
 msgid "Onboard data saved successfully."
 msgstr ""
 
 #: includes/Routes/Onboard.php:89
-#: includes/Routes/Onboard.php:139
+#: includes/Routes/Onboard.php:140
 msgid "Failed to send onboard data."
 msgstr ""
 
-#: includes/Routes/Onboard.php:120
+#: includes/Routes/Onboard.php:121
 msgid "Onboard notice dismissed."
 msgstr ""
 
-#: includes/Routes/Onboard.php:130
+#: includes/Routes/Onboard.php:131
 msgid "No email address available to subscribe."
 msgstr ""
 
@@ -2088,7 +2088,7 @@ msgstr ""
 #: build/admin/dashboard/index.js:11
 #: src/admin/ab-testing/index.js:133
 #: src/admin/campaign/index.js:885
-#: src/admin/integration/index.js:723
+#: src/admin/integration/index.js:724
 #: src/admin/settings/components/tabs/advanced/index.js:136
 #: src/admin/subscribers/index.js:521
 msgid "Yes, I'm Sure"
@@ -2102,11 +2102,11 @@ msgstr ""
 #: src/admin/ab-testing/components/Test.js:196
 #: src/admin/ab-testing/index.js:137
 #: src/admin/campaign/index.js:889
-#: src/admin/integration/index.js:691
-#: src/admin/integration/index.js:726
-#: src/admin/integration/index.js:825
-#: src/admin/integration/index.js:1037
-#: src/admin/integration/index.js:1068
+#: src/admin/integration/index.js:692
+#: src/admin/integration/index.js:727
+#: src/admin/integration/index.js:826
+#: src/admin/integration/index.js:1039
+#: src/admin/integration/index.js:1070
 #: src/admin/settings/components/tabs/advanced/index.js:140
 #: src/admin/subscribers/index.js:525
 msgid "Cancel"
@@ -2593,117 +2593,117 @@ msgstr ""
 #: build/admin/dashboard/index.js:11
 #: src/admin/integration/index.js:530
 #: src/admin/integration/index.js:541
-#: src/admin/integration/index.js:682
-#: src/admin/integration/index.js:878
-#: src/admin/integration/index.js:888
-#: src/admin/integration/index.js:1028
+#: src/admin/integration/index.js:683
+#: src/admin/integration/index.js:879
+#: src/admin/integration/index.js:889
+#: src/admin/integration/index.js:1030
 msgid "Note:"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
 #: src/admin/integration/index.js:530
-#: src/admin/integration/index.js:878
+#: src/admin/integration/index.js:879
 msgid "You can get the authorize code by clicking the \"Get Authorize Code\" button."
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
 #: src/admin/integration/index.js:544
-#: src/admin/integration/index.js:891
+#: src/admin/integration/index.js:892
 msgid "Please ensure that the MailPoet plugin is <link>installed and activated</link> on your WordPress site for a successful integration."
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
 #: src/admin/integration/index.js:555
-#: src/admin/integration/index.js:902
+#: src/admin/integration/index.js:903
 msgid "installed and activated"
 msgstr ""
 
 #. translators: %s is the name of the integration, e.g., Mailchimp
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:573
-#: src/admin/integration/index.js:919
+#: src/admin/integration/index.js:574
+#: src/admin/integration/index.js:921
 #, js-format
 msgid "Connecting %s..."
 msgstr ""
 
 #. translators: %s is the name of the integration, e.g., Mailchimp
 #: build/admin/dashboard/index.js:9
-#: src/admin/integration/index.js:577
+#: src/admin/integration/index.js:578
 #, js-format
 msgid "Connect %s Integration"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
-#: src/admin/integration/index.js:596
+#: src/admin/integration/index.js:597
 msgid "Get Authorize Code"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:605
-#: src/admin/integration/index.js:952
+#: src/admin/integration/index.js:606
+#: src/admin/integration/index.js:954
 msgid "Get Credentials"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:620
-#: src/admin/integration/index.js:966
+#: src/admin/integration/index.js:621
+#: src/admin/integration/index.js:968
 msgid "Please enter Client ID first before authorizing."
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:626
-#: src/admin/integration/index.js:972
+#: src/admin/integration/index.js:627
+#: src/admin/integration/index.js:974
 msgid "Please enter Client Secret first before authorizing."
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:665
-#: src/admin/integration/index.js:1011
+#: src/admin/integration/index.js:666
+#: src/admin/integration/index.js:1013
 msgid "Authorization successful! Tokens have been filled automatically."
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:679
-#: src/admin/integration/index.js:1025
+#: src/admin/integration/index.js:680
+#: src/admin/integration/index.js:1027
 msgid "Authorize Google Sheets"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:682
-#: src/admin/integration/index.js:1028
+#: src/admin/integration/index.js:683
+#: src/admin/integration/index.js:1030
 msgid "Save your Client ID and Client Secret first, then click \"Authorize Google Sheets\" to connect. After authorization, the tokens will be automatically filled."
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:685
-#: src/admin/integration/index.js:1031
+#: src/admin/integration/index.js:686
+#: src/admin/integration/index.js:1033
 msgid "Redirect URI:"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
-#: src/admin/integration/index.js:716
+#: src/admin/integration/index.js:717
 msgid "Are you sure you want to disconnect?"
 msgstr ""
 
 #: build/admin/dashboard/index.js:9
-#: src/admin/integration/index.js:717
+#: src/admin/integration/index.js:718
 msgid "This action will interrupt all the active campaigns relying on it."
 msgstr ""
 
 #. translators: %s is the integration name, e.g., Mailchimp
 #: build/admin/dashboard/index.js:10
-#: src/admin/integration/index.js:736
+#: src/admin/integration/index.js:737
 #, js-format
 msgid "Existing %s Integration"
 msgstr ""
@@ -2712,48 +2712,48 @@ msgstr ""
 #: build/admin/dashboard/index.js:11
 #: src/admin/ab-testing/components/Details.js:173
 #: src/admin/campaign/index.js:733
-#: src/admin/integration/index.js:767
+#: src/admin/integration/index.js:768
 msgid "Edit"
 msgstr ""
 
 #: build/admin/dashboard/index.js:10
-#: src/admin/integration/index.js:784
+#: src/admin/integration/index.js:785
 msgid "Disconnect"
 msgstr ""
 
 #: build/admin/dashboard/index.js:10
-#: src/admin/integration/index.js:798
+#: src/admin/integration/index.js:799
 msgid "Changing this integration may impact connected campaigns. Please review and confirm settings after updating."
 msgstr ""
 
 #: build/admin/dashboard/index.js:10
-#: src/admin/integration/index.js:816
+#: src/admin/integration/index.js:817
 msgid "Updating..."
 msgstr ""
 
 #. translators: %s is the name of the integration, e.g., Mailchimp
 #: build/admin/dashboard/index.js:10
-#: src/admin/integration/index.js:819
+#: src/admin/integration/index.js:820
 #, js-format
 msgid "Update Integration To %s"
 msgstr ""
 
 #. translators: %s is the name of the integration, e.g., Mailchimp
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:854
+#: src/admin/integration/index.js:855
 #, js-format
 msgid "Add a New %s Integration"
 msgstr ""
 
 #. translators: %s is the name of the integration, e.g., Mailchimp
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:923
+#: src/admin/integration/index.js:925
 #, js-format
 msgid "Connect To %s"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/integration/index.js:1064
+#: src/admin/integration/index.js:1066
 msgid "Add New Connection"
 msgstr ""
 
@@ -3453,37 +3453,37 @@ msgstr ""
 
 #: build/admin/dashboard/index.js:11
 #: src/admin/dashboard/components/NoticeOnboard.js:32
-#: src/admin/dashboard/components/NoticeOnboard.js:48
+#: src/admin/dashboard/components/NoticeOnboard.js:52
 msgid "Something went wrong. Please try again."
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/dashboard/components/NoticeOnboard.js:42
+#: src/admin/dashboard/components/NoticeOnboard.js:46
 msgid "Thanks! Your setup is complete."
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/dashboard/components/NoticeOnboard.js:81
+#: src/admin/dashboard/components/NoticeOnboard.js:85
 msgid "Get more from your new plugins"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/dashboard/components/NoticeOnboard.js:84
+#: src/admin/dashboard/components/NoticeOnboard.js:88
 msgid "Allow us to use non-sensitive data from your site to improve our products and get personalized performance tips."
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/dashboard/components/NoticeOnboard.js:90
+#: src/admin/dashboard/components/NoticeOnboard.js:94
 msgid "No, Thanks"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/dashboard/components/NoticeOnboard.js:93
+#: src/admin/dashboard/components/NoticeOnboard.js:97
 msgid "Please wait…"
 msgstr ""
 
 #: build/admin/dashboard/index.js:11
-#: src/admin/dashboard/components/NoticeOnboard.js:93
+#: src/admin/dashboard/components/NoticeOnboard.js:97
 msgid "Yes, Complete Setup"
 msgstr ""
 

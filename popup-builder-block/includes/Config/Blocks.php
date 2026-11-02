@@ -60,22 +60,19 @@ class Blocks {
 			}
 		}
 
-		$is_register = Utils::is_local() ? Utils::is_local() : Utils::status() === 'valid';
-
-		foreach ( $this->blocks_list as $key => $block ) {
-			$package  = $block['package'] ?? 'free';
-			$base_dir = POPUP_BUILDER_BLOCK_DIR;
-
-			if ( 'pro' === $package && $is_register ) {
-				$base_dir = str_replace( 'popup-builder-block', 'popup-builder-block-pro', $base_dir );
-			}
-
-			$block_dir = $base_dir . $key;
+		foreach ( array_keys( $this->blocks_list ) as $key ) {
+			$block_dir = POPUP_BUILDER_BLOCK_DIR . $key;
 
 			if ( file_exists( $block_dir ) ) {
 				register_block_type( $block_dir, array() );
 			}
 		}
+
+		/**
+		 * Fires after the free blocks are registered, on the screens where PopupKit blocks load.
+		 * @since 2.1.0
+		 */
+		do_action( 'popup_builder_block/register_blocks' );
 	}
 
 	/**

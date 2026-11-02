@@ -57,7 +57,7 @@ class SettingsList {
 			'user_consent'      => array(
 				'_id'         => uniqid(),
 				'slug'        => 'user_consent',
-				'title'       => esc_html__('User Consent', 'popup-builder-block'),
+				'title'       => esc_html__('Plugin Tips & Announcements', 'popup-builder-block'),
 				'description' => esc_html__('Show update & fix related important messages, essential tutorials and promotional images of PopupKit on WP Dashboard', 'popup-builder-block'),
 				'package'     => 'free',
 				'status'      => 'active',

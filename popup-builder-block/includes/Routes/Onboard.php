@@ -105,7 +105,8 @@ class Onboard extends Api {
 	 * Handles the onboarding notice shown on the dashboard.
 	 *
 	 * Accepting subscribes the address collected by any Wpmet onboarding, or
-	 * the site admin address when none was collected. Dismissing only records
+	 * the site admin address when none was collected, and enables the User
+	 * Consent setting once the subscription succeeds. Dismissing only records
 	 * that the notice was answered so it stays hidden.
 	 */
 	public function post_onboard_notice($request)
@@ -141,6 +142,7 @@ class Onboard extends Api {
 		}
 
 		$this->store_subscription($email, $response_data);
+		$this->save_user_consent(true);
 		update_option(Onboard::NOTICE, 'accepted', false);
 
 		return [
@@ -152,13 +154,14 @@ class Onboard extends Api {
 	}
 
 	/**
-	 * Saves the User Consent setting chosen on the onboarding Tutorial step.
+	 * Saves the User Consent setting.
 	 *
-	 * Continue grants it and Skip declines it; the Settings page reads the same
-	 * `user_consent` entry. Only that entry is written, so the other settings
-	 * keep falling back to their defaults in SettingsList.
+	 * On the onboarding Tutorial step Continue grants it and Skip declines it;
+	 * accepting the dashboard notice also grants it. The Settings page reads the
+	 * same `user_consent` entry. Only that entry is written, so the other
+	 * settings keep falling back to their defaults in SettingsList.
 	 *
-	 * @param bool $granted Whether the user clicked Continue.
+	 * @param bool $granted Whether consent was given.
 	 * @return void
 	 */
 	private function save_user_consent(bool $granted): void
