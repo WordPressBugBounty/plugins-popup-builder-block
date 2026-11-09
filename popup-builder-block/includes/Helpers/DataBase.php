@@ -436,19 +436,30 @@ class DataBase {
 				'message' => esc_html__('Invalid email address', 'popup-builder-block')
 			]);
 		}
-		$where = array(
-			"email = %s" => esc_sql( $data['email'] ),
-			"campaign_id = %d" => esc_sql( $data['campaign_id'] ),
-		);
-
-		$is_old_data = DataBase::getDB( 'id', 'pbb_subscribers', $where, 1 );
 
 		// Insert into the database
-		if ( $is_old_data ) {
+		if ( self::is_subscribed( $data['email'], $data['campaign_id'] ) ) {
 			return false;
 		}
 
 		return DataBase::insertDB( 'pbb_subscribers', $data );
+	}
+
+	/**
+	 * Whether this email has already submitted this campaign's form.
+	 *
+	 * @param string $email
+	 * @param int    $campaign_id
+	 *
+	 * @return bool
+	 */
+	public static function is_subscribed( $email, $campaign_id ) {
+		$where = array(
+			"email = %s" => esc_sql( $email ),
+			"campaign_id = %d" => esc_sql( $campaign_id ),
+		);
+
+		return (bool) DataBase::getDB( 'id', 'pbb_subscribers', $where, 1 );
 	}
 
 	/**

@@ -107,8 +107,9 @@ class Subscribers extends Api {
 			);
 		}
 
-		// Decode request body
-		$data = json_decode($param->get_body(), true);
+		// Decode request body. A form with files posts multipart, with the JSON in `payload`.
+		$body = $param->get_file_params() ? ( $param->get_body_params()['payload'] ?? '' ) : $param->get_body();
+		$data = json_decode($body, true);
 
 		if ( ! is_array( $data ) ) {
 			return new \WP_REST_Response(
@@ -148,6 +149,23 @@ class Subscribers extends Api {
 
 		if ( is_array( $spam_response ) ) {
 			return rest_ensure_response( $spam_response );
+		}
+
+		/**
+		 * Last gate before the record is built. Returning an array rejects the
+		 * submission and sends that array back as the response.
+		 *
+		 * PopupKit Pro hooks this to check and store uploaded files, so a spam
+		 * submission never reaches the disk.
+		 *
+		 * @param array|null $response    Response to send instead of processing, or null to continue.
+		 * @param array      $data        Decoded submission payload.
+		 * @param int        $campaign_id Popup campaign post ID.
+		 */
+		$before_submit_response = apply_filters( 'popup_builder_block/form/before_submit', null, $data, $campaign_id );
+
+		if ( is_array( $before_submit_response ) ) {
+			return rest_ensure_response( $before_submit_response );
 		}
 
 		$campaign_title = get_the_title($campaign_id);

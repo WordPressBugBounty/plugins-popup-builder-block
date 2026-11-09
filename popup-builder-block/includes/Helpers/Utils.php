@@ -631,6 +631,29 @@ class Utils {
 		return $link_attributes;
 	}
 
+	// TODO: Remove this function after 2.3.12 or later version
+	public static function status() {
+
+		$cached = wp_cache_get( 'pbb__license_status' );
+
+		if ( false !== $cached ) {
+			return $cached;
+		}
+
+		$oppai  = get_option( '__pbb_oppai__', '' );
+		$key    = get_option( '__pbb_license_key__', '' );
+		$status = 'invalid';
+
+		if ( $oppai != '' && $key != '' ) {
+			$status = 'valid';
+		}
+
+		wp_cache_set( 'pbb__license_status', $status );
+
+		return $status;
+	}
+
+	// TODO: Remove this function after 2.3.12 or later version
 	public static function is_local() {
 		$valid_domains = array(
 			'.academy',

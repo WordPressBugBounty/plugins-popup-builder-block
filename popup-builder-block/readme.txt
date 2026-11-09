@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.9
+Stable tag: 2.3.10
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -341,6 +341,12 @@ PopupKit integrates with the following 3rd party services. Please review each se
 
 
 == Changelog ==
+
+= PopupKit: 2.3.10 (2026-11-09) =
+* Added: Filter that lets check a form submission before it is stored
+* Fixed: Banner is not showing on PopupKit dashboard
+* Fixed: Form button no longer keeps spinning when a submission fails; the error message is shown instead
+* Fixed: Zoho integration get credential button alignment
 
 = PopupKit: 2.3.9 (2026-11-02) =
 * Fixed: Template preview no longer loads third party script, which could fire the window load event twice
