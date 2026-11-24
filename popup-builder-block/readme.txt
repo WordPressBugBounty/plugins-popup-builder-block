@@ -4,7 +4,7 @@ Tags: popup, popup builder, popup maker, Popup builder Blocks, exit popup,
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.10
+Stable tag: 2.3.11
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -337,10 +337,17 @@ Yes, it is fully responsive for all devices and tested for cross-browser compati
 PopupKit integrates with the following 3rd party services. Please review each service's terms before use:
 
 * Google Fonts – used to load the fonts chosen in typography settings. [Terms of Service](https://developers.google.com/terms) | [Privacy Policy](https://policies.google.com/privacy)
-* PopupKit (by Wpmet) – used for the template library, newsletter subscription, deactivation feedback, Google Fonts list, and dashboard stories and notices. [Privacy Policy](https://wpmet.com/privacy-policy/)
+* PopupKit (by Wpmet) – used for the template library, newsletter subscription, deactivation feedback, Google Fonts list, and dashboard stories and notices. [Terms of Service](https://wpmet.com/terms-of-service) | [Privacy Policy](https://wpmet.com/privacy-policy)
 
 
 == Changelog ==
+
+= PopupKit: 2.3.11 (2026-11-24) =
+* Added: Filters that validate the Phone field and adjust the form data before it is sent
+* Fixed: An optional Phone field left empty no longer blocks the form with "Please enter a valid phone number"
+* Fixed: A failed popup view log request, such as a rate-limited one, no longer shows an uncaught error in the browser console
+* Fixed: On cached pages older than about a day, logged-out visitors got "Cookie check failed" when submitting a form, and popup views and conversions were not counted
+* Removed: Unused helper functions from the Utils class, reducing the plugin size by about 7 KB
 
 = PopupKit: 2.3.10 (2026-11-09) =
 * Added: Filter that lets check a form submission before it is stored

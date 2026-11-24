@@ -27,5 +27,9 @@ class Init {
 		new Templates();
 		new ABTest();
 		new DeactivationFeedback();
+
+		// Core only answers this for logged-in users, so apiFetch can't refresh the expired nonce of a
+		// cached page for guests, and front-end form submits and popup logs fail with 403.
+		add_action( 'wp_ajax_nopriv_rest-nonce', 'wp_ajax_rest_nonce' );
 	}
 }
